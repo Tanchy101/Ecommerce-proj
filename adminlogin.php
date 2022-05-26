@@ -1,15 +1,9 @@
 <?php
-// Database
-$host = "127.0.0.1";
-$dbusername = "root";
-$dbpassword = "";
-$databaseName = "admin";
-$port = 3306;
+include 'connect.php';
 
-$conn = new mysqli($host, $dbusername, $dbpassword, $databaseName, $port);
-
-$sql = "SELECT username, password FROM admin";
+$sql = "SELECT * FROM `adminlogin`";
 $result = $conn->query($sql);
+
 
 $name = $password = $adminName = $adminPass = "";
 $nameErr = $passwordErr = $loginErr = "";
