@@ -3,7 +3,7 @@
 $host = "127.0.0.1";
 $dbusername = "root";
 $dbpassword = "";
-$databaseName = "admin-login";
+$databaseName = "admin";
 $port = 3306;
 
 $conn = new mysqli($host, $dbusername, $dbpassword, $databaseName, $port);
