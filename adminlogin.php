@@ -8,7 +8,7 @@ $port = 3306;
 
 $conn = new mysqli($host, $dbusername, $dbpassword, $databaseName, $port);
 
-$sql = "SELECT username, password FROM admin-login";
+$sql = "SELECT username, password FROM admin";
 $result = $conn->query($sql);
 
 $name = $password = $adminName = $adminPass = "";
