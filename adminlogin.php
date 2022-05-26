@@ -1,14 +1,14 @@
 <?php
 // Database
-$servername = "localhost";
+$host = "127.0.0.1";
 $dbusername = "root";
 $dbpassword = "";
-$database = "admin";
+$databaseName = "admin-login";
 $port = 3306;
 
-$conn = new mysqli($servername, $dbusername, $dbpassword, $database, $port);
+$conn = new mysqli($host, $dbusername, $dbpassword, $databaseName, $port);
 
-$sql = "SELECT username, password FROM admin";
+$sql = "SELECT username, password FROM admin-login";
 $result = $conn->query($sql);
 
 $name = $password = $adminName = $adminPass = "";

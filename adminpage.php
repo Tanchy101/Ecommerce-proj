@@ -1,12 +1,12 @@
 <?php 
 //Database
-$servername = "localhost";
+$host = "127.0.0.1";
 $dbusername = "root";
 $dbpassword = "";
-$database = "admin";
+$databaseName = "admin-login";
 $port = 3306;
 
-$conn = new mysqli($servername, $dbusername, $dbpassword, $database, $port);
+$conn = new mysqli($host, $dbusername, $dbpassword, $databaseName, $port);
 
 // Change Password Form
 
@@ -42,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if ($emptyChecker == 3){
         if($changepass == $confirmpass){
             $notthesameErr = "";
-            $sqlname = "UPDATE admin SET username='$changename' WHERE id=1";
-            $sqlpass = "UPDATE admin SET password='$changepass' WHERE id=1";
+            $sqlname = "UPDATE admin-login SET username='$changename' WHERE id=1";
+            $sqlpass = "UPDATE admin-login SET password='$changepass' WHERE id=1";
             if (($conn->query($sqlname) === TRUE) && ($conn->query($sqlpass) === TRUE)) {
                 $changeAdminSuccess = "Name and Password changed succesfully";
               } else {
