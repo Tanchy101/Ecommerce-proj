@@ -1,19 +1,34 @@
 <?php
-include 'connect.php';
+ $host = "localhost";
+ $dbusername = "root";
+ $dbpassword = "";
+ $databaseName = "admin";
+ $port = 3306;
 
-$sql = "SELECT * FROM `adminlogin`";
-$result = $conn->query($sql);
+ // Create connection
+ $conn = new mysqli($host, $dbusername, $dbpassword, $databaseName, $port);
+
+ // Check connection
+ if ($conn->connect_error) {
+     die("Connection failed: " . $conn->connect_error);
+ } 
+ 
+ // echo "connected succesfully";
 
 
 $name = $password = $adminName = $adminPass = "";
 $nameErr = $passwordErr = $loginErr = "";
 
+// Selecting / Reading Queery
+$sql = "SELECT * FROM `adminlogin`";
+$result = $conn->query($sql);
+
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      $adminName = $row["username"];
-      $adminPass = $row["password"];
+      $adminName = $row["adminName"];
+      $adminPass = $row["adminPass"];
     }
   } else {
     echo "0 results";
@@ -45,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (!empty($_POST["name"]) && !empty($_POST["password"]))
     {
         if (($name == $adminName) && ($password == $adminPass)){
-            header("Location: adminpage.php");
+            header("Location: adminMainPage.php");
         }
         else{
             $loginErr = "Invalid Username or Password!";
@@ -68,10 +83,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     <body>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        Username: <input type="text" name="name" value="<?php echo $name ?>"> <span class="error"><?php echo $nameErr?> </span>
+        <label name = "name">Admin:</label> <input type="text" name="name" value="<?php echo $name ?>"> <span class="error"><?php echo $nameErr?> </span>
         <br>
-        Password: <input type="password" name="password" value="<?php echo $password ?>"> <span class="error"><?php echo $passwordErr?> </span>
+        <label name = "password">Password:</label> <input type="password" name="password" value="<?php echo $password ?>"> <span class="error"><?php echo $passwordErr?> </span>
         <br>
+        <a href = "adminChangePass.php">Forgot Password?</a>
         <p class="error"><?php echo $loginErr ?></p>
         <br>
         <input type="submit">
@@ -80,11 +96,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     </body>
 
 </html>
-
-<?php
-
-echo "<h2>Your Input:</h2>";
-echo $name;
-echo "<br>";
-echo $password;
-?>
