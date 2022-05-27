@@ -42,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if ($emptyChecker == 3){
         if($changepass == $confirmpass){
             $notthesameErr = "";
-            $sqlname = "UPDATE admin SET username='$changename' WHERE id=1";
-            $sqlpass = "UPDATE admin SET password='$changepass' WHERE id=1";
+            $sqlname = "UPDATE adminlogin SET adminName='$changename' WHERE id=1";
+            $sqlpass = "UPDATE adminlogin SET adminPass='$changepass' WHERE id=1";
             if (($conn->query($sqlname) === TRUE) && ($conn->query($sqlpass) === TRUE)) {
                 $changeAdminSuccess = "Name and Password changed succesfully";
               } else {
