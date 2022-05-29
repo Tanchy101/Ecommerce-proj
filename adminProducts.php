@@ -26,7 +26,7 @@ $port = 3306;
             <td> Papers </td>
             <td> Bond Paper </td>
             <td> Size </td>
-            <td> 00.00 </td>
+            <td> PHP 00.00 </td>
         </tr>
     </table>
 </body>
