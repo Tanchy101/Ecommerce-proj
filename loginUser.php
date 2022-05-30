@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         <h3>ECOMMERCE TITLE</h3>
 
         <div class="login">
-            <form method="post" action = "">
+            <form method="post" action = "UserHomePage.php">
                 <label for ="email">Email</label><br>
                 <input type="text" id="email" name="email" placeholder="Enter Email" value = "<?php echo $Useremail ?>">
                 <br>
