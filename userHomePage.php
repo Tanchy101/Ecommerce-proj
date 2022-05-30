@@ -1,22 +1,22 @@
 <?php
 
-    $host = "localhost";
-    $dbusername = "root";
-    $dbpassword = "";
-    $databaseName = "loginpage";
-    $port = 3306;
+//     $host = "localhost";
+//     $dbusername = "root";
+//     $dbpassword = "";
+//     $databaseName = "loginpage";
+//     $port = 3306;
 
-    // Create connection
-    $conn = new mysqli($host, $dbusername, $dbpassword, $databaseName, $port);
+//     // Create connection
+//     $conn = new mysqli($host, $dbusername, $dbpassword, $databaseName, $port);
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+//     // Check connection
+//     if ($conn->connect_error) {
+//         die("Connection failed: " . $conn->connect_error);
+//     }
 
-    // Selecting / Reading Queery
-$sql = "SELECT * FROM `login`";
-$result = $conn->query($sql);
+//     // Selecting / Reading Queery
+// $sql = "SELECT * FROM `login`";
+// $result = $conn->query($sql);
 
 
 ?>
@@ -39,23 +39,31 @@ $result = $conn->query($sql);
   padding: 10px 10px;
 }
 
-
+.category li {
+    float: left;
+    display: inline;
+    text-align: center;
+    padding: 14px 16px;
+    margin-left : 30px;
+    
+}
 </style>
 
 
     <body>
-        <?php if ($result->num_rows > 0) {
+        <?php //if ($result->num_rows > 0) {
             // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<h1>Welcome " . $row["email"] . "</h1>"; 
-            }
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
-        ?>
-         <a href="logout.php">Logout</a> 
-        <!-- pwede ka na mag lagay dito sa ilalim ng comment ko na to na mga need
+            // while($row = $result->fetch_assoc()) {
+            //     echo "<h1>Welcome " . $row["email"] . "</h1>"; 
+        //     }
+        // } else {
+        //     echo "0 results";
+        // }
+        // $conn->close();
+        // ?>
+          <a href="logout.php">Logout</a> 
+       
+          <!-- pwede ka na mag lagay dito sa ilalim ng comment ko na to na mga need
         na ilagay sa home page-->
 
 
@@ -75,6 +83,27 @@ $result = $conn->query($sql);
             </form>
   </div>
   </div>
+<br>
+<br>
+<br>
+<br>
+<!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
+AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
 
+  <div class="category">
+    <li><a href="#">Category 1</a></li>
+    <li><a href="#">Category 2</a></li>
+    <li><a href="#">Category 3</a></li>
+    <li><a href="#">Category 4</a></li>
+    <li><a href="#">Category 5</a></li>
+    <li><a href="#">Category 6</a></li>
+    <li><a href="#">Category 7</a></li>
+    <li><a href="#">Category 8</a></li>
+    <li><a href="#">Category 9</a></li>
+    <li><a href="#">Category 10</a></li>
+    <li><a href="#">Category 11</a></li>
+</div>
+
+  
     </body>
     </html>
