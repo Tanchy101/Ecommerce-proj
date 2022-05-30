@@ -57,7 +57,7 @@
             //     echo "<h1>Welcome " . $row["email"] . "</h1>"; 
         //     }
         // } else {
-        //     echo "0 results";
+        //     echo "<center><h1>You did not Enter Username or Password</h1></center>";
         // }
         // $conn->close();
         // ?>
