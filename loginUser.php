@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 <br>
                 <p class="error"><?php echo $loginErr ?></p>
                 <br>
-                <p>Don't have an account yet? <a href = "registration.html">Register Here</a></p>
+                <p>Don't have an account yet? <a href = "registration.php">Register Here</a></p>
                 <br>
                 <br>
                 <input type = "submit">
