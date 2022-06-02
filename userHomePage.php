@@ -139,7 +139,7 @@
         <!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
 AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <div class="category">
-        <li><a href="watercolorPaper.html">Papers</a></li>
+        <li><a href="Paper_subfolder/PaperCategoryPage.html">Papers</a></li>
         <li><a href="#">Category 2</a></li>
         <li><a href="#">Category 3</a></li>
         <li><a href="#">Category 4</a></li>
