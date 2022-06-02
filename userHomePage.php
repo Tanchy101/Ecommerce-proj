@@ -140,15 +140,15 @@
 AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <div class="category">
         <li><a href="Paper_subfolder/PaperCategoryPage.html">Papers</a></li>
-        <li><a href="#">Category 2</a></li>
-        <li><a href="#">Category 3</a></li>
-        <li><a href="#">Category 4</a></li>
-        <li><a href="#">Category 5</a></li>
-        <li><a href="#">Category 6</a></li>
-        <li><a href="#">Category 7</a></li>
-        <li><a href="#">Category 8</a></li>
-        <li><a href="#">Category 9</a></li>
-        <li><a href="#">Category 10</a></li>
+        <li><a href="#">Pencils</a></li>
+        <li><a href="#">Ballpens</a></li>
+        <li><a href="#">Markers</a></li>
+        <li><a href="#">Arts & Crafts</a></li>
+        <li><a href="#">Erasers</a></li>
+        <li><a href="#">Notebooks</a></li>
+        <li><a href="#">Journals</a></li>
+        <li><a href="#">Planners</a></li>
+        <li><a href="#">Office Supplies</a></li>
     </div>
     <br><br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
