@@ -23,6 +23,8 @@ include 'Config.php'
         <h2> Manage Products </h2>
         <a href = "adminProducts.php">See All Products </a>
         <br>
+        <a href = "adminCreateProducts.php">Insert a Product</a>
+        <br>
         <a href = "adminDeleteProducts.php">Delete Products </a>
     </body>
 </html>

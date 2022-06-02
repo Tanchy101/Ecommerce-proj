@@ -1,6 +1,31 @@
 <?php 
 
-include "connection.php";
+include "Config.php";
+
+if (isset($_POST["postCheck"])){
+
+
+    $deleteID = [];
+    if(isset($_POST["idDelete"])){
+    $deleteID = ($_POST["idDelete"]);
+    }
+
+    $idImplode = implode(",", $deleteID);
+
+    for ($idx = 0; $idx < count($deleteID); $idx++){
+
+        $sql = "DELETE FROM `adminstock` WHERE `id` IN ($idImplode)";
+
+        if ($conn->query($sql) == TRUE){
+
+        }
+        else{
+
+        }
+    }   
+}
+
+
 
 // READ PRODUCTS
 $sql = "SELECT * FROM `adminstock`";
@@ -29,31 +54,7 @@ $sql = "SELECT * FROM `adminstock`";
         echo "0 results";
     }
 
-    if (isset($_POST["postCheck"])){
-
-        $deleteID = [];
-        if(isset($_POST["ID"])){
-        $deleteID = ($_POST["ID"]);
-        }
-
-        $IDS = implode(",", $ID);
-
-        for ($idx = 0; $idx < count($ID); $idx++){
-
-            $sql = "DELETE FROM `students` WHERE `id` IN ($IDS) ";
-
-            if ($conn->query($sql) == TRUE){
-
-            }
-            else{
-
-            }
-        }   
-
-
-
-    }
-
+   
 
 ?>
 
@@ -65,15 +66,15 @@ $sql = "SELECT * FROM `adminstock`";
 </head>
 
 <body>
-<form>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 <?php
 for($idx = 0; $idx < count($id); $idx++){
-    echo "<input type='hidden' name='postCheck' value='1'>";
-    echo "<input type='checkbox' name='id[$idx]' value='$id[$idx]'>";
+    echo "<input type='checkbox' name='idDelete[$idx]' value='$id[$idx]'>";
     echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx];
     echo "<br>";
 }
 ?>
+<input type='hidden' name='postCheck' value='1'>
 <input type="submit" value="DELETE">
 </form>
 </body>
