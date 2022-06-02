@@ -162,6 +162,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 <img class = "featimg" src = "https://i.pinimg.com/564x/79/84/2e/79842e43a0850e77ba8a8a492b9a32a3.jpg">
             </a>
             <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+        </div>
         <!--2nd image -->
         <div class = "featured">
             <a target = "_blank" href = "#">
