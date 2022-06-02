@@ -36,6 +36,8 @@
         padding: 10px 10px;
         }
 
+      
+        
         .category li {
             float: left;
             display: inline;
@@ -119,9 +121,10 @@
         <!-- cart and profile under nito-->
         <div class="topnav">
             <h4>The Paper Bag</h4>
+            <a href="logout.php">Logout</a>
             <a class="active" href="#">Cart</a>
             <a href="#">Profile</a>
-            <a href="logout.php">Logout</a>
+           
                 <div class="search-container">
                     <form action="search.php ">
                         <input type="text" placeholder="Search " size="50" name="search">
