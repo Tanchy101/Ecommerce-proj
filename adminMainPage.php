@@ -5,20 +5,42 @@ include 'Config.php'
 <!DOCTYPE html>
 <html>
     <head>
+        <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+        <br>
+        <h1> Admin </h1>
+        <h2>Welcome to the admin main page!</h2>
+    </head>
         <style>
-            .error{
+            .error {
                 color:red;
             }
-            .success{
+            .success {
                 color:green;
             }
+            body {
+                font-family: monospace;
+            }
+            a:link {
+            color: #000000;
+            }
+            a:visited {
+            color: #d3a35d;
+            }
+            a:hover {
+            color: #ffb2a0;
+            }
+            a.active {
+            color: #ffcbb5;
+            }
+            body {
+            margin: 25px;
+            }
         </style>
-    </head>
 
-    <body>
-        <h1>Admin</h1>
+    <body style = "background-color: #ffedc0">
+   
         <a href = "adminChangePass.php">Change password</a>
-        <h3>Welcome to the admin main page!</h3>
+        
         <br>
         <h2> Manage Products </h2>
         <a href = "adminProducts.php">See All Products </a>
