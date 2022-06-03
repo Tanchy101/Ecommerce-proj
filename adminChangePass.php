@@ -1,12 +1,6 @@
 <?php 
-//Database
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$database = "admin";
-$port = 3306;
 
-$conn = new mysqli($servername, $dbusername, $dbpassword, $database, $port);
+include "Config.php";
 
 // Change Password Form
 
