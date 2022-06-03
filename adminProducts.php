@@ -38,6 +38,9 @@ $port = 3306;
         text-align: center;
         padding: 8px;
     }
+    body {
+    margin: 25px;
+    }
 </style>
 
 <body style = "background-color: #ffedc0">
