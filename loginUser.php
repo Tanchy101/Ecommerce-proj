@@ -108,13 +108,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         a.active {
             color: #ffcbb5;
             }    
-        
+        fieldset {
+            background-color: beige;
+            border-radius: 12px;
+            border-color: #d3a35d;
+            min-width: 200;
+            padding: 5px, 5px;
+            }
+        fieldset{
+            width: 40%;
+            min-width: 320px;
+            margin: auto;
+            }
+    }
     </style>
 
     <body style = "background-color: #ffedc0">
      
 
         <div class="login">
+            <fieldset>
             <form method="post" action = "UserHomePage.php">
                 <label for ="email"><h2> Email </h2> </label><br>
                 <input type="text" id="email" name="email" placeholder="Enter Email" value = "<?php echo $Useremail ?>">
@@ -135,6 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 <br><br>
                 <a href="AdminloginTo.php"><p>Login as Admin</p></a>
             </form>
+            </fieldset>
 
         </div>
         <br><br>
