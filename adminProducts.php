@@ -10,6 +10,9 @@ $port = 3306;
 <!DOCTYPE html>
 <html>
 <head>
+    <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+    <br>
+    <br>
     <h1> The Paper Bag. </h1>
     <h3> List of Products </h3>
 </head>
