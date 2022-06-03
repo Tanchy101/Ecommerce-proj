@@ -70,7 +70,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Ecommerce Title</title>
+           <center>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "400" height = "380" style = "float: right" >
+           <br>
+           </center>
     </head>
 
     <style>
@@ -83,20 +91,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         .error{
                 color:red;
             }
+        head, body {
+            font-family: monospace;
+            margin: 25px;
+        }
+        a:link {
+        color: #000000;
+            }
+        a:visited {
+            color: #ffb2a0;
+            }
+        a:hover {
+            color: #d3a35d; 
+            }
+        a.active {
+            color: #ffcbb5;
+            }    
         
     </style>
 
-    <body>
-        <h3>ECOMMERCE TITLE</h3>
+    <body style = "background-color: #ffedc0">
+     
 
         <div class="login">
             <form method="post" action = "UserHomePage.php">
-                <label for ="email">Email</label><br>
+                <label for ="email"><h2> Email </h2> </label><br>
                 <input type="text" id="email" name="email" placeholder="Enter Email" value = "<?php echo $Useremail ?>">
                 <br>
                 <span class="error"><?php echo $emailerror?> </span>
                 <br>
-                <label  for="password">Password</label><br>
+                <label  for="password"><h2> Password </h2></label><br>
                 <input type="password" name="password" id="password" placeholder="Enter Password" value = "<?php echo $Userpassword ?>"> 
                 <br>
                 <span class="error"><?php echo $passworderror?> </span>
