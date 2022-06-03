@@ -61,6 +61,7 @@ $sql = "SELECT * FROM `adminstock`";
 </head>
 
 <body>
+    <h4>ALL PRODUCTS</h4>
     <?php
         for($idx = 0; $idx < count($id); $idx++){
         echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx];
