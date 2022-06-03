@@ -43,7 +43,7 @@ $sql = "SELECT * FROM `adminstock`";
 <html>
     <head>
     </head>
-<body>
+    <body style = "background-color: #ffedc0">
     <h1>LIST OF PRODUCTS</h1>
     <?php
         for($idx = 0; $idx < count($id); $idx++){
