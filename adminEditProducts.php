@@ -42,8 +42,21 @@ $sql = "SELECT * FROM `adminstock`";
 <!DOCTYPE html>
 <html>
     <head>
+    <style>
+    head, body {
+        font-family: monospace;
+        margin: 25px;
+    }
+    </style>
+    <title> Welcome to Admin Main Page: Edit Products </title>
     </head>
     <body style = "background-color: #ffedc0">
+    <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+    <br>
+    <h1> Admin </h1>
+    <h2> Welcome to the Admin Page: Edit Products </h2>
+    <br>
+    <br>
     <h1>LIST OF PRODUCTS</h1>
     <?php
         for($idx = 0; $idx < count($id); $idx++){
