@@ -63,7 +63,7 @@ $sql = "SELECT * FROM `adminstock`";
     <br>
     <br>
     <h1> The Paper Bag. </h1>
-    <h3> Created Products </h3>
+    <h2> Welcome to the Admin Page: Create Products! </h2>
     <br>
 </head>
 
@@ -89,7 +89,7 @@ $sql = "SELECT * FROM `adminstock`";
             }
     }
 </style>
->>>>>>> Stashed changes
+
 <body style = "background-color: #ffedc0">
 
 <body>

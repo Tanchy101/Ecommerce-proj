@@ -47,6 +47,22 @@ $sql = "SELECT * FROM `adminstock`";
         font-family: monospace;
         margin: 25px;
     }
+    @media screen and (min-width:430px) 
+            {
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 5px, 5px;
+                 font-weight: bold;
+            }
+            fieldset{
+                width: 40%;
+                min-width: 320px;
+                margin: auto;
+            }
+    }
     </style>
     <title> Welcome to Admin Main Page: Edit Products </title>
     </head>
@@ -54,7 +70,7 @@ $sql = "SELECT * FROM `adminstock`";
     <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     <br>
     <h1> Admin </h1>
-    <h2> Welcome to the Admin Page: Edit Products </h2>
+    <h2> Welcome to the Admin Page: Edit Products! </h2>
     <br>
     <br>
     <h1>LIST OF PRODUCTS</h1>
@@ -66,6 +82,7 @@ $sql = "SELECT * FROM `adminstock`";
     ?>
     <br>
     <br>
+    <fieldset>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
         <label for = "products">Enter Product's ID</label>
         <input type="number" name="products" required>
@@ -80,7 +97,7 @@ $sql = "SELECT * FROM `adminstock`";
         <br>
         <br>
         <input type="submit" name= "update" value="UPDATE">
-
+    </fieldset>
     </form>
 </body>
 
