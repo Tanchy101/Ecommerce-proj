@@ -159,73 +159,73 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
         <!--1st image -->
         <div style = "margin-left: 30px;" class = "featured">
             <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://i.pinimg.com/564x/79/84/2e/79842e43a0850e77ba8a8a492b9a32a3.jpg">
+                <img class = "featimg" src = "https://cdn.shopify.com/s/files/1/0472/7118/2499/products/10057226.jpg?v=1632395566">
             </a>
-            <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+            <div class = "desc"><strong>Watercolor Paper</strong> <br>  Fabriano Watercolor Paper (Size: 9x12) </div>
         </div>
         <!--2nd image -->
         <div class = "featured">
             <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://i.pinimg.com/564x/33/f1/f3/33f1f3248267b29345134383a56000f8.jpg">
+                <img class = "featimg" src = "https://ph-test-11.slatic.net/p/b974b9e38d3da59335147b0c15e5ba4c.jpg">
             </a>
-            <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+            <div class = "desc"><strong>Faber Castell Pencil</strong> <br> Faber Castell Pencil No.2 (3 pcs)</div>
         </div>
         <!--3rd image -->
         <div class = "featured">
             <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://i.pinimg.com/564x/b5/a7/73/b5a7738245a23baaf0146a1a4f47889d.jpg">
+                <img class = "featimg" src = "https://i0.wp.com/ibitsphil.com/wp-content/uploads/2018/03/Panda-Ballpen.png?fit=450%2C334&ssl=1">
             </a>
-            <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+            <div class = "desc"><strong>Panda Ballpen</strong> <br> Panda Ballpen (Size: 0.3, 0.5, 0.7) </div>
         </div>
         <!--4th image -->        
         <div class = "featured">
             <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://i.pinimg.com/564x/1e/60/dd/1e60ddbe7d9b24ee314b5a3f9d13b77e.jpg">
+                <img class = "featimg" src = "https://smudgestationery.com/wp-content/uploads/2020/03/Highlighters-1_1024x1024.jpg">
             </a>
-            <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+            <div class = "desc"><strong>Highlight Markers</strong> <br> Highlighters (4 Colors: Pink, Blue, Yellow Green, Orange)</div>
         </div>
         <!--5th image -->       
         <div class = "featured">
             <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://i.pinimg.com/564x/22/b8/64/22b86414aada2d6baf2460e6b9123feb.jpg">
+                <img class = "featimg" src = "https://www.collinsdictionary.com/images/full/scissors_100136453.jpg?version=4.0.69">
             </a>
-            <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+            <div class = "desc"><strong>Scissors</strong> <br> High quality, stainless scissors </div>
         </div>
         
         <!--ito yung lower part ng featured part para di kayo maguluhan mwamwa <3 -->
         <div style = "margin-left: 30px;" class = "featured">
             <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://i.pinimg.com/564x/e7/be/ab/e7beab0c20a25d7adde57a31a3b5d114.jpg">
+                <img class = "featimg" src = "https://ph-test-11.slatic.net/p/7cec874ad42b94ae432ca0a8ec525729.jpg">
             </a>
-            <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+            <div class = "desc"><strong>Correction Tape</strong> <br> Re-Write correction tape (CT-02)</div>
         </div>
         <!-- 2nd image-->
         <div class = "featured">
             <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://i.pinimg.com/564x/d8/5a/c7/d85ac78599e4198804d344fae43b7bd9.jpg">
+                <img class = "featimg" src = "https://tse4.mm.bing.net/th?id=OIP.JgoU6wHKH_xFFWkKHM-n7AHaHa&pid=Api">
             </a>
-            <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+            <div class = "desc"><strong>Notebooks</strong> <br> Notebooks (Plain, Grid, Lined, Dotted) A6/A5/B6</div>
         </div>
         <!--3rd image-->
         <div class = "featured">
             <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://i.pinimg.com/564x/07/6d/77/076d775f925c5d9776d15b4896c76649.jpg">
+                <img class = "featimg" src = "https://cf.shopee.ph/file/d4b7608a2832e4d3603e939f484858c6">
             </a>
-            <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+            <div class = "desc"><strong>Hardbound Journals</strong> <br> Hardbound Lined Journal Notebook</div>
         </div>
         <!--4th image-->
         <div class = "featured">
             <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://i.pinimg.com/564x/b0/db/7c/b0db7caff956c56ea9db8e6eea658436.jpg">
+                <img class = "featimg" src = "https://crella.sfo2.cdn.digitaloceanspaces.com/wp-content/uploads/2020/04/28163916/daily.jpg">
             </a>
-            <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+            <div class = "desc"><strong>Planners</strong> <br> Daily planners</div>
         </div>
         <!--5th image -->
         <div class = "featured">
             <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://i.pinimg.com/564x/b2/02/d5/b202d52d002f584c26d2b02845360a2f.jpg">
+                <img class = "featimg" src = "https://media.accobrands.com/media/560-560/400328.jpg?width=680px&height=449px">
             </a>
-            <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+            <div class = "desc"><strong>Staplers</strong> <br>High quality Swingline staplers</div>
         </div>
 </body>
 </html>
