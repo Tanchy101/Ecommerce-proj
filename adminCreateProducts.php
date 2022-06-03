@@ -59,9 +59,37 @@ $sql = "SELECT * FROM `adminstock`";
 
 <head>
 <title> Admin Create Products </title>
+    <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+    <br>
+    <br>
+    <h1> The Paper Bag. </h1>
+    <h3> Created Products </h3>
+    <br>
 </head>
 
-
+<style>
+    head, body {
+        font-family: monospace;
+        margin: 25px;
+    }
+    @media screen and (min-width:430px) 
+            {
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 5px, 5px;
+                 font-weight: bold;
+            }
+            fieldset{
+                width: 40%;
+                min-width: 320px;
+                margin: auto;
+            }
+    }
+</style>
+>>>>>>> Stashed changes
 <body style = "background-color: #ffedc0">
 
 <body>
@@ -74,7 +102,9 @@ $sql = "SELECT * FROM `adminstock`";
         }
     ?>
 
-<h4>Insert a Product</h4>
+
+<fieldset>
+    <h2>Insert a Product</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <label for="categories">Category: </label>
     <select name="categories" required>
@@ -94,24 +124,31 @@ $sql = "SELECT * FROM `adminstock`";
         <option value="Bags">Bags</option>
     </select>
     <br>
+    <br>
     <label for="products">Product:</label>
     <input type="text" name="products" required>
+    <br>
     <br>
     <label for="variations">Variation:</label>
     <input type="text" name="variations" required>
     <br>
+    <br>
     <label for="price">Price:</label>
     <input type="number" name="price" required>
+    <br>
     <br>
     <label for="quantity">Quantity:</label>
     <input type="number" name="quantity" required>
     <br>
+    <br>
     <label for="description">Description:</label>
     <textarea name="description" rows="10" cols="30" required></textarea>
     <br>
+    <br>
     <input type='hidden' name='postCheck' value='1'>
-    <input type="submit" value="CREATE">
+    <center> <input type="submit" value="CREATE"> </center>
 </form>
+</fieldset>
 
 </body>
 
