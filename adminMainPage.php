@@ -8,7 +8,7 @@ include 'Config.php'
         <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
         <br>
         <h1> Admin </h1>
-        <h2>Welcome to the admin main page!</h2>
+        <h2>Welcome to the Admin Main Page!</h2>
     </head>
         <style>
             .error {
