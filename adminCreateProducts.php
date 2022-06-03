@@ -93,7 +93,7 @@ $sql = "SELECT * FROM `adminstock`";
 <body style = "background-color: #ffedc0">
 
 <body>
-    <h4>ALL PRODUCTS</h4>
+    <h1>ALL PRODUCTS</h1>
 
     <?php
         for($idx = 0; $idx < count($id); $idx++){

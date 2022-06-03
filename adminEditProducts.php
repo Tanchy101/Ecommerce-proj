@@ -84,6 +84,7 @@ $sql = "SELECT * FROM `adminstock`";
     <br>
     <fieldset>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+        <br>
         <label for = "products">Enter Product's ID</label>
         <input type="number" name="products" required>
         <br>
@@ -96,7 +97,7 @@ $sql = "SELECT * FROM `adminstock`";
         <input type="number" name="quantity"> 
         <br>
         <br>
-        <input type="submit" name= "update" value="UPDATE">
+        <center> <input type="submit" name= "update" value="UPDATE"> </center>
     </fieldset>
     </form>
 </body>

@@ -75,7 +75,7 @@ $sql = "SELECT * FROM `adminstock`";
 <h1> Admin </h1>
 <h2>Welcome to the Admin Page: Delete Products!</h2>
 <br>
-<h2>All Products</h2>
+<h1>All PRODUCTS</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <?php
         for($idx = 0; $idx < count($id); $idx++){
