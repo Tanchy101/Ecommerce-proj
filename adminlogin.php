@@ -61,24 +61,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <!DOCTYPE html>
 <html>
     <head>
+    <title> Admin Login </title>
+    <center>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "400" height = "380" style = "float: right" >
+           <br>
+        </center>
         <style>
             .error{
                 color:red;
             }
+            body {
+                font-family: monospace;
+                font-weight: bold;
+                margin: 25px;
+            } 
+            a:link {
+            color: #000000;
+            }
+            a:visited {
+            color: #d3a35d;
+            }
+            a:hover {
+            color: #ffb2a0;
+            }
+            a.active {
+            color: #ffcbb5;
+            }
+            @media screen and (min-width:430px) 
+            {
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 5px, 5px;
+            }
+            fieldset{
+                width: 40%;
+                min-width: 320px;
+                margin: auto;
+            }
+    }
+    
         </style>
     </head>
 
-    <body>
+    <body style = "background-color: #ffedc0">
+        <fieldset>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <label name = "name">Admin:</label> <input type="text" name="name" value="<?php echo $name ?>"> <span class="error"><?php echo $nameErr?> </span>
+        <label name = "name"><h3>Admin:</h3></label> <input type="text" name="name" value="<?php echo $name ?>"> <span class="error"><?php echo $nameErr?> </span>
         <br>
-        <label name = "password">Password:</label> <input type="password" name="password" value="<?php echo $password ?>"> <span class="error"><?php echo $passwordErr?> </span>
+        <br>
+        <label name = "password"><h3>Password:</h3></label> <input type="password" name="password" value="<?php echo $password ?>"> <span class="error"><?php echo $passwordErr?> </span>
+        <br>
         <br>
         <a href = "adminChangePass.php">Forgot Password?</a>
         <p class="error"><?php echo $loginErr ?></p>
         <br>
-        <input type="submit">
+            <center> <input type="submit"> </center>
         </form>
+        </fieldset>
         
     </body>
 

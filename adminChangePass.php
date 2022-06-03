@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <br>
         <p class="error"><?php echo $notthesameErr;?> </p> <span class="success"> <?php echo $changeAdminSuccess ?> </span>
         <br>
-        <input type = "submit">
+        <center> <input type = "submit"> </center>
         </form>
         </fiedset
 
