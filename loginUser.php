@@ -108,17 +108,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         a.active {
             color: #ffcbb5;
             }    
-        fieldset {
-            background-color: beige;
-            border-radius: 12px;
-            border-color: #d3a35d;
-            min-width: 200;
-            padding: 5px, 5px;
+            @media screen and (min-width:430px) 
+            {
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 5px, 5px;
             }
-        fieldset{
-            width: 40%;
-            min-width: 320px;
-            margin: auto;
+            fieldset{
+                width: 40%;
+                min-width: 320px;
+                margin: auto;
             }
     }
     </style>
