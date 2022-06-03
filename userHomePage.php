@@ -103,6 +103,18 @@
             font-family: monospace;
             margin: 25px;
         }
+        a:link {
+            color: #000000;
+            }
+        a:visited {
+            color: #d3a35d;
+            }
+        a:hover {
+            color: #ffb2a0;
+            }
+        a.active {
+            color: #ffcbb5;
+            }
     </style>
     <body style = "background-color: #ffedc0">
         <?php //if ($result->num_rows > 0) {

@@ -20,6 +20,7 @@ include 'Config.php'
             }
             body {
                 font-family: monospace;
+                margin: 25px;
             }
             a:link {
             color: #000000;
@@ -33,9 +34,7 @@ include 'Config.php'
             a.active {
             color: #ffcbb5;
             }
-            body {
-            margin: 25px;
-            }
+            
         </style>
 
     <body style = "background-color: #ffedc0">
