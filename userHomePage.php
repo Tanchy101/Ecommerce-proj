@@ -124,6 +124,7 @@
             <a href="logout.php">Logout</a>
             <a class="active" href="#">Cart</a>
             <a href="#">Profile</a>
+            <a href="userHomePage.php">Home</a>
            
                 <div class="search-container">
                     <form action="search.php ">
