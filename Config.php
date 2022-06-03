@@ -3,7 +3,7 @@
     $host = "localhost";
     $dbusername = "root";
     $dbpassword = "";
-    $databaseName = "admin";
+    $databaseName = "thepaperbag";
     $port = 3306;
 
     // Create connection

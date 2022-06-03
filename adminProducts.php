@@ -1,10 +1,5 @@
 <?php
-$host = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$databaseName = "admin";
-$port = 3306;
-
+include "Config.php";
 ?>
 
 <!DOCTYPE html>
