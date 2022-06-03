@@ -129,23 +129,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         <div class="login">
             <fieldset>
             <form method="post" action = "UserHomePage.php">
-                <label for ="email"><h2> Email </h2> </label><br>
+                <label for ="email"><h2> Email </h2> </label>
                 <input type="text" id="email" name="email" placeholder="Enter Email" value = "<?php echo $Useremail ?>">
-                <br>
                 <span class="error"><?php echo $emailerror?> </span>
-                <br>
-                <label  for="password"><h2> Password </h2></label><br>
+                <label  for="password"><h2> Password </h2></label>
                 <input type="password" name="password" id="password" placeholder="Enter Password" value = "<?php echo $Userpassword ?>"> 
-                <br>
                 <span class="error"><?php echo $passworderror?> </span>
-                <br>
                 <p class="error"><?php echo $loginErr ?></p>
-                <br>
                 <p>Don't have an account yet? <a href = "registration.php">Register Here</a></p>
-                <br>
-                <br>
                 <input type = "submit">
-                <br><br>
                 <a href="AdminloginTo.php"><p>Login as Admin</p></a>
             </form>
             </fieldset>
