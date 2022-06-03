@@ -10,6 +10,7 @@ $port = 3306;
 <!DOCTYPE html>
 <html>
 <head>
+    <title> Welcome to Admin Main Page: List of Products! </title>
     <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     <br>
     <br>

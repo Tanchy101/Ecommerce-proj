@@ -62,6 +62,7 @@ $sql = "SELECT * FROM `adminstock`";
 <!DOCTYPE html>
 <html>
 <head>
+        <title> Welcome to Admin Main Page: Delete Products! </title>
         <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
         <br>
         <h1> Admin </h1>

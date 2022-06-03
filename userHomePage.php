@@ -22,6 +22,7 @@
 <html>
     <head>
         <title>Welcome User</title>
+        <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style> 
@@ -98,8 +99,12 @@
         position: relative;
         padding-right: 5px; 
         }
+        body {
+            font-family: monospace;
+            margin: 25px;
+        }
     </style>
-    <body>
+    <body style = "background-color: #ffedc0">
         <?php //if ($result->num_rows > 0) {
              //output data of each row
 
@@ -120,7 +125,8 @@
 
         <!-- cart and profile under nito-->
         <div class="topnav">
-            <h4>The Paper Bag</h4>
+            <br>
+            <h2>The Paper Bag.</h2>
             <a href="logout.php">Logout</a>
             <a class="active" href="#">Cart</a>
             <a href="#">Profile</a>
