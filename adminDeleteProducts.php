@@ -47,11 +47,9 @@ $sql = "SELECT * FROM `adminstock`";
             $variations[$idx] = $row["variations"];
             $price[$idx] = $row["price"];
             $quantity[$idx] = $row["quantity"];
+            $description[$idx] = $row["description"];
             $idx++;
         }
-    }
-    else{
-        echo "0 results";
     }
 
    
@@ -62,32 +60,33 @@ $sql = "SELECT * FROM `adminstock`";
 <!DOCTYPE html>
 <html>
 <head>
-        <title> Welcome to Admin Main Page: Delete Products! </title>
-        <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
-        <br>
-        <h1> Admin </h1>
-        <h2>Welcome to the Admin Page: Delete Products!</h2>
-        <br>
-</head>
 <style>
     head, body {
         font-family: monospace;
         margin: 25px;
     }
 </style>
+        <title> Welcome to Admin Main Page: Delete Products! </title>
+</head>
 
 <body style = "background-color: #ffedc0">
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-<?php
-for($idx = 0; $idx < count($id); $idx++){
-    echo "<input type='checkbox' name='idDelete[$idx]' value='$id[$idx]'>";
-    echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx];
-    echo "<br>";
-}
-?>
-<input type='hidden' name='postCheck' value='1'>
-<input type="submit" value="DELETE">
-</form>
+<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+<br>
+<h1> Admin </h1>
+<h2>Welcome to the Admin Page: Delete Products!</h2>
+<br>
+<h2>All Products</h2>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        <?php
+        for($idx = 0; $idx < count($id); $idx++){
+            echo "<input type='checkbox' name='idDelete[$idx]' value='$id[$idx]'>";
+            echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx] . " " . $description[$idx];
+            echo "<br>";
+        }
+        ?>
+        <input type='hidden' name='postCheck' value='1'>
+        <input type="submit" value="DELETE">
+    </form>
 </body>
 
 

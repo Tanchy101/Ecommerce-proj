@@ -61,7 +61,12 @@ $sql = "SELECT * FROM `adminstock`";
 <title> Admin Create Products </title>
 </head>
 
+
 <body style = "background-color: #ffedc0">
+
+<body>
+    <h4>ALL PRODUCTS</h4>
+
     <?php
         for($idx = 0; $idx < count($id); $idx++){
         echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx];
