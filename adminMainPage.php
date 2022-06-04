@@ -34,6 +34,21 @@ include 'Config.php'
             a.active {
             color: #ffcbb5;
             }
+            @media screen and (min-width:430px) 
+            {
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 5px, 5px;
+            }
+            fieldset{
+                width: 8%;
+                min-width: 320px;
+                margin: auto;
+            }
+    }
             
         </style>
 
@@ -42,11 +57,15 @@ include 'Config.php'
         <a href = "adminChangePass.php">Change password</a>
         
         <br>
-        <h2> Manage Products </h2>
+        <center> <h2> Manage Products </h2> </center>
+        <fieldset>
+            <center>
         <a href = "adminProducts.php">See All Products </a>
         <br>
         <a href = "adminCreateProducts.php">Insert a Product</a>
         <br>
         <a href = "adminDeleteProducts.php">Delete Products </a>
+            </center>
+        </fieldset>
     </body>
 </html>
