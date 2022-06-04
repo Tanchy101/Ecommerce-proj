@@ -1,11 +1,17 @@
 <?php 
-        $conn = mysqli_connect("localhost", "root", "", "loginpage");
+        $conn = mysqli_connect("localhost", "root", "", "thepaperbag");
         
 
 
         $email = $password = $username = $passnomatch = ""; 
-        
+        $address = $lastname = $firstname = $contact = "";
         if(isset($_POST['submit'])){
+
+
+            $address = $_POST['address'];
+            $lastname = $_POST['lastname'];
+            $firstname = $_POST['firstname'];
+            $contact = $_POST['contactnum'];
 
             $username = $_POST['usname'];
             $password = $_POST['pass'];
@@ -13,13 +19,29 @@
             $errors = array();
          
 
-            $e = "SELECT email FROM login WHERE email = '$email'";
+            $e = "SELECT email FROM userlogin WHERE email = '$email'";
             $ee = mysqli_query($conn, $e);
 
-            $u = "SELECT username FROM login WHERE username = '$username'";
+            $u = "SELECT username FROM userlogin WHERE username = '$username'";
             $uu = mysqli_query($conn, $u);
 
+            if(empty($firstname)){
+                $errors['firstname'] = "First Name is empty !";
+            }
 
+            if(empty($lastname)){
+                $errors['lastname'] = "Last Name is empty !";
+            }
+
+            if(empty($address)){
+                $errors['address'] = "Address is empty !";
+            }
+
+            if(empty($contact)){
+                $errors['contactnum'] = "Contact Number is empty !";
+            }
+
+        
             if(empty($username)){
                 $errors['usernames'] = "Username is empty !";
             }else if(mysqli_num_rows($uu) > 0){
@@ -42,7 +64,7 @@
             }
             
             if(count($errors) == 0){
-                $sql = "INSERT INTO login(username, email, password) VALUES ('$username', '$email', '$password')";
+                $sql = "INSERT INTO userlogin (username, email, password, firstname, lastname, address, contact) VALUES ('$username', '$email', '$password', '$address', '$lastname', '$firstname', '$contact')";
                 $result = mysqli_query($conn, $sql);
 
                 if($result){
@@ -66,7 +88,7 @@
         <h3>Register here</h3>
 
         <div class = "register">
-            <form method = "post" action = "login.php">
+            <form method = "post" action = "">
                 <label for = "usemail" >Email</label> <br>
                 <input type = "text" name = "usemail" id = "usemail" placeholder = "Enter email">
                 <br>
@@ -76,6 +98,26 @@
                 <input type = "text" name = "usname" id  = "usname"  placeholder = "Enter username">  
                 <br>
                 <p class = "warning"> <?php if(isset($errors['usernames'])) echo $errors['usernames'];?></p>
+
+                <label for = "usname">First Name</label> <br>
+                <input type = "text" name = "firstname"   placeholder = "Enter First Name">  
+                <br>
+                <p class = "warning"> <?php if(isset($errors['firstname'])) echo $errors['firstname'];?></p>
+
+                <label for = "usname">Last Name</label> <br>
+                <input type = "text" name = "lastname"   placeholder = "Enter Last Name">  
+                <br>
+                <p class = "warning"> <?php if(isset($errors['lastname'])) echo $errors['lastname'];?></p>
+
+                <label for = "usname">Contact Number</label> <br>
+                <input type = "text" name = "contactnum"   placeholder = "e.g 09226818369">  
+                <br>
+                <p class = "warning"> <?php if(isset($errors['contactnum'])) echo $errors['contactnum'];?></p>
+
+                <label for = "usname">Address</label> <br>
+                <input type = "text" name = "address"   placeholder = "Enter Adress">  
+                <br>
+                <p class = "warning"> <?php if(isset($errors['address'])) echo $errors['address'];?></p>
 
                 <label for = "pass" >Password</label> <br>
                 <input type = "password" name = "pass" id  = "pass" placeholder = "Enter password">  
@@ -90,7 +132,7 @@
                 <button name = "submit">SUBMIT</button>
                 <br>
                 <br>
-                <p>Already have an account?<a href = "login.php">Log in here</a></p>
+                <p>Already have an account?<a href = "loginUser.php">Log in here</a></p>
 
             </form>
         </div>

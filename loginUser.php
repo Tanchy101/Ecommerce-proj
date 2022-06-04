@@ -2,7 +2,7 @@
  $host = "localhost";
  $dbusername = "root";
  $dbpassword = "";
- $databaseName = "loginpage";
+ $databaseName = "thepaperbag";
  $port = 3306;
 
  // Create connection
@@ -19,7 +19,7 @@ $Useremail = $Userpassword = $userName = $userPass = "";
 $emailerror = $passworderror = $loginErr = "";
 
 // Selecting / Reading Queery
-$sql = "SELECT * FROM `login`";
+$sql = "SELECT * FROM `userlogin`";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (!empty($_POST["email"]) && !empty($_POST["password"]))
     {
         if (($Useremail == $userEmail) && ($Userpassword == $userPass)){
-            header("Location: usermainpage.php");
+            header("Location: userHomePage.php");
         }
         else{
             $loginErr = "Invalid Username or Password!";
@@ -140,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 <p class="error"><?php echo $loginErr ?></p>
                 <p>Don't have an account yet? <a href = "registration.php">Register Here</a></p>
                 <input type = "submit">
-                <a href="AdminloginTo.php"><p>Login as Admin</p></a>
+                <a href="adminlogin.php"><p>Login as Admin</p></a>
             </form>
             </fieldset>
 
