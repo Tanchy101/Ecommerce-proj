@@ -74,15 +74,7 @@ $sql = "SELECT * FROM `adminstock`";
     <br>
     <br>
     <h1>LIST OF PRODUCTS</h1>
-    <?php
-        for($idx = 0; $idx < count($id); $idx++){
-        echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx];
-        echo "<br>";
-        }
-    ?>
-    <br>
-    <br>
-    <fieldset>
+    <fieldset style = "float:right">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
         <br>
         <label for = "products">Enter Product's ID</label>
@@ -98,8 +90,17 @@ $sql = "SELECT * FROM `adminstock`";
         <br>
         <br>
         <center> <input type="submit" name= "update" value="UPDATE"> </center>
-    </fieldset>
     </form>
+</fieldset>
+    <?php
+        for($idx = 0; $idx < count($id); $idx++){
+        echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx];
+        echo "<br>";
+        }
+    ?>
+    <br>
+    <br>
+  
 </body>
 
 </html>

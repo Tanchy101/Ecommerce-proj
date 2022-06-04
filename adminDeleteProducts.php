@@ -65,6 +65,22 @@ $sql = "SELECT * FROM `adminstock`";
         font-family: monospace;
         margin: 25px;
     }
+    @media screen and (min-width:430px) 
+            {
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 5px, 5px;
+                 font-weight: bold;
+            }
+            fieldset{
+                width: 40%;
+                min-width: 320px;
+                margin: auto;
+            }
+    }
 </style>
         <title> Welcome to Admin Main Page: Delete Products! </title>
 </head>
@@ -75,7 +91,8 @@ $sql = "SELECT * FROM `adminstock`";
 <h1> Admin </h1>
 <h2>Welcome to the Admin Page: Delete Products!</h2>
 <br>
-<h1>All PRODUCTS</h1>
+<center> <h1>All PRODUCTS</h1> </center>
+<fieldset>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <?php
         for($idx = 0; $idx < count($id); $idx++){
@@ -85,8 +102,10 @@ $sql = "SELECT * FROM `adminstock`";
         }
         ?>
         <input type='hidden' name='postCheck' value='1'>
-        <input type="submit" value="DELETE">
+        <br>
+        <center> <input type="submit" value="DELETE"> </center>
     </form>
+    </fieldset>
 </body>
 
 

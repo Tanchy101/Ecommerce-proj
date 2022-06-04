@@ -80,7 +80,6 @@ $sql = "SELECT * FROM `adminstock`";
                  border-color: #d3a35d;
                  min-width: 200;
                  padding: 5px, 5px;
-                 font-weight: bold;
             }
             fieldset{
                 width: 40%;
@@ -94,16 +93,7 @@ $sql = "SELECT * FROM `adminstock`";
 
 <body>
     <h1>ALL PRODUCTS</h1>
-
-    <?php
-        for($idx = 0; $idx < count($id); $idx++){
-        echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx];
-        echo "<br>";
-        }
-    ?>
-
-
-<fieldset>
+<fieldset style = "float:right">
     <h2>Insert a Product</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <label for="categories">Category: </label>
@@ -149,7 +139,13 @@ $sql = "SELECT * FROM `adminstock`";
     <center> <input type="submit" value="CREATE"> </center>
 </form>
 </fieldset>
-
+<br>
+    <?php
+        for($idx = 0; $idx < count($id); $idx++){
+        echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx];
+        echo "<br>";
+        }
+    ?>
 </body>
 
 </html>
