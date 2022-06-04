@@ -1,9 +1,6 @@
 <?php
   include "Config.php";
 
-
-
-
   $sql = "SELECT * FROM adminstock";
   $result = $conn->query($sql);
 
@@ -171,8 +168,8 @@
         <!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
 AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <div class="category">
-        <li><a href="Paper_subfolder/PaperCategoryPage.html">Papers</a></li>
-        <li><a href="Pencil_subfolder/PencilCategoryPage.html">Pencils</a></li>
+        <li><a href="Paper_subfolder/PaperCategoryPage.php">Papers</a></li>
+        <li><a href="Pencil_subfolder/PencilCategoryPage.php">Pencils</a></li>
         <li><a href="Ballpens_subfolder/BallpensCategoryPage.html">Ballpens</a></li>
         <li><a href="Markers_subfolder/MarkersCategoryPage.html">Markers</a></li>
         <li><a href="Arts&Crafts_subfolder/Arts&CraftsCategoryPage.html">Arts & Crafts</a></li>

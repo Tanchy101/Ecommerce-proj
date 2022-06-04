@@ -1,4 +1,44 @@
+<?php
 
+$host = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$databaseName = "thepaperbag";
+$port = 3306;
+
+// Create connection
+$conn = new mysqli($host, $dbusername, $dbpassword, $databaseName, $port);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM adminstock WHERE categories='Pencils'";
+$result = $conn->query($sql);
+
+$id = [];
+$categories = [];
+$products = [];
+$variants = [];
+$price = [];
+$quantity = [];
+
+$idx = 0;
+if($result->num_rows > 0){
+    while($row = $result->fetch_assoc()){
+        $id[$idx] = $row["id"];
+        $categories [$idx] = $row["categories"]; 
+        $products[$idx] = $row["products"];
+        $variations[$idx] = $row["variations"];
+        $price[$idx] = $row["price"];
+        $quantity[$idx] = $row["quantity"];
+        $description[$idx] = $row["description"];
+        $idx++;
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,6 +83,7 @@
         margin-top: 10px;
         margin-bottom: 10px;
         margin-right: 20px;
+        visibility: hidden;
         }
 
         div.feature:hover {
@@ -118,19 +159,27 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     </div>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
   <!--1st image -->
-  <div style = "margin-left: 30px;" class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/79/84/2e/79842e43a0850e77ba8a8a492b9a32a3.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
+    <div style = "margin-left: 30px; <?php if(isset($id[0])){echo "visibility: visible";} ?>" class = "featured">
+        <a target = "_blank" href = "#">
+            <img class = "featimg" src = "https://cdn.shopify.com/s/files/1/0472/7118/2499/products/10057226.jpg?v=1632395566">
+        </a>
+        <div class = "desc">
+            <?php
+        echo $categories[0] . " " . $products[0] . " " . $variations[0] . " " . $price[0] . " " . $quantity[0] . " " . $description[0];
+            ?>
+        </div>
+    </div>
 <!--2nd image -->
-<div class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/33/f1/f3/33f1f3248267b29345134383a56000f8.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
+    <div style = "margin-left: 30px; <?php if(isset($id[1])){echo "visibility: visible";} ?>" class = "featured">
+        <a target = "_blank" href = "#">
+            <img class = "featimg" src = "https://cdn.shopify.com/s/files/1/0472/7118/2499/products/10057226.jpg?v=1632395566">
+        </a>
+        <div class = "desc">
+            <?php
+        echo $categories[1] . " " . $products[1] . " " . $variations[1] . " " . $price[1] . " " . $quantity[1] . " " . $description[1];
+            ?>
+        </div>
+    </div>
 <!--3rd image -->
 <div class = "featured">
     <a target = "_blank" href = "#">
