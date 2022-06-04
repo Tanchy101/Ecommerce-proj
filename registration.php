@@ -1,4 +1,5 @@
 <?php 
+        session_start();
         $conn = mysqli_connect("localhost", "root", "", "thepaperbag");
         
 
@@ -18,6 +19,8 @@
             $email = $_POST['usemail'];
             $errors = array();
          
+            
+
 
             $e = "SELECT email FROM userlogin WHERE email = '$email'";
             $ee = mysqli_query($conn, $e);
@@ -64,13 +67,28 @@
             }
             
             if(count($errors) == 0){
-                $sql = "INSERT INTO userlogin (username, email, password, firstname, lastname, address, contact) VALUES ('$username', '$email', '$password', '$address', '$lastname', '$firstname', '$contact')";
+                // $contact = (int)$contact;
+                $sql = "INSERT INTO userlogin 
+                    (username, email, password, firstname, lastname, address, contact) 
+                    VALUES ('$username', '$email', '$password', '$firstname', '$lastname', '$address', '$contact')";
+                  
                 $result = mysqli_query($conn, $sql);
 
                 if($result){
+                    //basta kinukuha nya data galing database
+                    $select = mysqli_query($conn, "SELECT * FROM userlogin WHERE username = '$username' AND password = '$password'");
+                    $fetch = mysqli_num_rows($select);
+                    if($fetch > 0){
+                        $row = mysqli_fetch_assoc($select);
+                        $_SESSION['user_name'] = $row['username'];
+                        header("Location:loginUser.php");
+                    }
                     echo "<script>alert('Account Created!')</script>";
+                    header("Location:loginUser.php");
                 }
             }
+
+            
         }  
 ?>
 <!DOCTYPE html>
@@ -110,7 +128,7 @@
                 <p class = "warning"> <?php if(isset($errors['lastname'])) echo $errors['lastname'];?></p>
 
                 <label for = "usname">Contact Number</label> <br>
-                <input type = "text" name = "contactnum"   placeholder = "e.g 09226818369">  
+                <input type = "number" name = "contactnum"   placeholder = "e.g 09226818369">  
                 <br>
                 <p class = "warning"> <?php if(isset($errors['contactnum'])) echo $errors['contactnum'];?></p>
 
@@ -136,5 +154,6 @@
 
             </form>
         </div>
+        
     </body>
 </html>

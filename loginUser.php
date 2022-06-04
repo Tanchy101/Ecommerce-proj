@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
  $host = "localhost";
  $dbusername = "root";
  $dbpassword = "";
@@ -11,27 +14,27 @@
  // Check connection
  if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
- } 
- 
+ }  
+
 // echo "connected succesfully";
 
 $Useremail = $Userpassword = $userName = $userPass = "";
 $emailerror = $passworderror = $loginErr = "";
 
-// Selecting / Reading Queery
-$sql = "SELECT * FROM `userlogin`";
-$result = $conn->query($sql);
+// // Selecting / Reading Queery
+// $sql = "SELECT * FROM `userlogin`";
+// $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-      $userEmail = $row["email"];
-      $userPass = $row["password"];
-    }
-  } else {
-    echo "0 results";
-  }
-  $conn->close();
+// if ($result->num_rows > 0) {
+//     // output data of each row
+//     while($row = $result->fetch_assoc()) {
+//       $userEmail = $row["email"];
+//       $userPass = $row["password"];
+//     }
+//   } else {
+//     echo "0 results";
+//   }
+//   $conn->close();
 
   // Form Input Process
 
@@ -42,8 +45,8 @@ function test_input($data) {
     return $data;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    
     $Useremail = test_input($_POST["email"]);
     $Userpassword = test_input($_POST["password"]);
 
@@ -55,16 +58,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     }
 
     if (!empty($_POST["email"]) && !empty($_POST["password"]))
-    {
-        if (($Useremail == $userEmail) && ($Userpassword == $userPass)){
-            header("Location: userHomePage.php");
-        }
-        else{
-            $loginErr = "Invalid Username or Password!";
-        }
+    {   // Selecting / Reading Query
+        $sql = "SELECT * FROM `userlogin` WHERE email = '{$Useremail}' AND password = '{$Userpassword}'";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+            //   $userEmail = $row["email"];
+            //   $userPass = $row["password"];
+                $_SESSION['user'] = [
+                    'id' => $row['id'],
+                    'name' => $row['username'],
+                    'email' => $row['email']
+                ];
+                
+                header("Location: userHomePage.php");
+            }
+          } else {
+            echo "0 results";
+          }
+          $conn->close();
+
+        // if (($Useremail == $userEmail) && ($Userpassword == $userPass)){
+        //     header("Location: userHomePage.php");
+        // }
+        // else{
+        //     echo "$loginErr = 'Invalid Username or Password!'";
+        // }
     }
     
 }
+    
 ?>
 
 <!DOCTYPE html>
@@ -130,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         <div class="login">
             <fieldset>
-            <form method="post" action = "UserHomePage.php">
+            <form method="POST" action = "loginUser.php">
                 <label for ="email"><h2> Email </h2> </label>
                 <input type="text" id="email" name="email" placeholder="Enter Email" value = "<?php echo $Useremail ?>">
                 <span class="error"><?php echo $emailerror?> </span>
@@ -139,11 +164,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 <span class="error"><?php echo $passworderror?> </span>
                 <p class="error"><?php echo $loginErr ?></p>
                 <p>Don't have an account yet? <a href = "registration.php">Register Here</a></p>
-                <input type = "submit">
+                <input type = "submit" name= "login">
                 <a href="adminlogin.php"><p>Login as Admin</p></a>
             </form>
             </fieldset>
-
+    
         </div>
         <br><br>
     </body>
