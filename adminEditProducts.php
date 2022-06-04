@@ -17,7 +17,7 @@ $sql = "SELECT * FROM `adminstock`";
     $products = [];
     $variants = [];
     $price = [];
-    $quantity = [];
+    $stock = [];
     $description = [];
 
     $idx = 0;
@@ -28,7 +28,7 @@ $sql = "SELECT * FROM `adminstock`";
             $products[$idx] = $row["products"];
             $variations[$idx] = $row["variations"];
             $price[$idx] = $row["price"];
-            $quantity[$idx] = $row["quantity"];
+            $stock[$idx] = $row["stock"];
             $description[$idx] = $row["description"];
             $idx++;
         }
@@ -94,7 +94,7 @@ $sql = "SELECT * FROM `adminstock`";
 </fieldset>
     <?php
         for($idx = 0; $idx < count($id); $idx++){
-        echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx];
+        echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $stock[$idx] . " " . $description[$idx] . " " . $picture[$idx];
         echo "<br>";
         }
     ?>

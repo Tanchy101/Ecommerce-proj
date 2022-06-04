@@ -9,7 +9,9 @@
   $products = [];
   $variants = [];
   $price = [];
-  $quantity = [];
+  $stock = [];
+  $description = [];
+  $picture = [];
 
   $idx = 0;
   if($result->num_rows > 0){
@@ -19,8 +21,9 @@
           $products[$idx] = $row["products"];
           $variations[$idx] = $row["variations"];
           $price[$idx] = $row["price"];
-          $quantity[$idx] = $row["quantity"];
+          $stock[$idx] = $row["stock"];
           $description[$idx] = $row["description"];
+          $picture[$idx] = $row["picture"];
           $idx++;
       }
   }
@@ -191,74 +194,20 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
             if(isset($id[$idx])){
                 echo "<div style = 'margin-left: 30px;' class = 'featured'>";
                 echo "<a target = '_blank' href = '#'>";
-                echo "<img class = 'featimg' src = 'https://cdn.shopify.com/s/files/1/0472/7118/2499/products/10057226.jpg?v=1632395566'></a>";          
+                echo "<img class = 'featimg' src = '" . $picture[$idx] . "'></a>";          
                 echo "<div class = 'desc'>";
-                echo $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx] . " " . $description[$idx];
+                echo "<strong>" . $products[$idx] . "</strong> " . "(" . $variations[$idx] . ")"; 
+                echo "<p><b>₱" . $price[$idx] . "</b></p>";
+                echo "<p>" . $description[$idx] . "</p>";
+                echo "<form>";
+                echo "<input type='number' name='quantity'>";
+                echo "<input type='submit' value='Add to Cart'>";
+                echo "</form>";
                 echo "</div>";
                 echo "</div>";
             }
         }
         ?>
-        <!--2nd image -->
-        <div class = "featured">
-            <div class = "desc"></div>
-        </div> -->
-        <!--3rd image -->
-        <!-- <div class = "featured">
-            <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://i0.wp.com/ibitsphil.com/wp-content/uploads/2018/03/Panda-Ballpen.png?fit=450%2C334&ssl=1">
-            </a>
-            <div class = "desc"><strong>Panda Ballpen</strong> <br> Panda Ballpen (Size: 0.3, 0.5, 0.7) </div>
-        </div> -->
-        <!--4th image -->        
-        <!-- <div class = "featured">
-            <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://smudgestationery.com/wp-content/uploads/2020/03/Highlighters-1_1024x1024.jpg">
-            </a>
-            <div class = "desc"><strong>Highlight Markers</strong> <br> Highlighters (4 Colors: Pink, Blue, Yellow Green, Orange)</div>
-        </div> -->
-        <!--5th image -->       
-        <!-- <div class = "featured">
-            <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://www.collinsdictionary.com/images/full/scissors_100136453.jpg?version=4.0.69">
-            </a>
-            <div class = "desc"><strong>Scissors</strong> <br> High quality, stainless scissors </div>
-        </div> -->
-        
-        <!--ito yung lower part ng featured part para di kayo maguluhan mwamwa <3 -->
-        <!-- <div style = "margin-left: 30px;" class = "featured">
-            <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://ph-test-11.slatic.net/p/7cec874ad42b94ae432ca0a8ec525729.jpg">
-            </a>
-            <div class = "desc"><strong>Correction Tape</strong> <br> Re-Write correction tape (CT-02)</div>
-        </div> -->
-        <!-- 2nd image-->
-        <!-- <div class = "featured">
-            <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://tse4.mm.bing.net/th?id=OIP.JgoU6wHKH_xFFWkKHM-n7AHaHa&pid=Api">
-            </a>
-            <div class = "desc"><strong>Notebooks</strong> <br> Notebooks (Plain, Grid, Lined, Dotted) A6/A5/B6</div>
-        </div> -->
-        <!--3rd image-->
-        <!-- <div class = "featured">
-            <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://cf.shopee.ph/file/d4b7608a2832e4d3603e939f484858c6">
-            </a>
-            <div class = "desc"><strong>Hardbound Journals</strong> <br> Hardbound Lined Journal Notebook</div>
-        </div> -->
-        <!--4th image-->
-        <!-- <div class = "featured">
-            <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://crella.sfo2.cdn.digitaloceanspaces.com/wp-content/uploads/2020/04/28163916/daily.jpg">
-            </a>
-            <div class = "desc"><strong>Planners</strong> <br> Daily planners</div>
-        </div> -->
-        <!--5th image -->
-        <!-- <div class = "featured">
-            <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://media.accobrands.com/media/560-560/400328.jpg?width=680px&height=449px">
-            </a>
-            <div class = "desc"><strong>Staplers</strong> <br>High quality Swingline staplers</div>
-        </div> -->
+       
 </body>
 </html>

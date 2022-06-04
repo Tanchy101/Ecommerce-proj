@@ -10,12 +10,13 @@ if (isset($_POST["postCheck"]))
     $addProducts = $_POST["products"];
     $addVariations = $_POST["variations"];
     $addPrice = $_POST["price"];
-    $addQuantity = $_POST["quantity"];
+    $addStock = $_POST["stock"];
     $addDescription = $_POST["description"];
+    $addPicture = $_POST["picture"];
 
 
-    $sql = "INSERT INTO adminstock (categories, products, variations, price, quantity, description)
-    VALUES ('" . $addCategories . "', '" . $addProducts . "', '" . $addVariations . "', '" . $addPrice . "', '" . $addQuantity . "', '" . $addDescription . "'". ");";
+    $sql = "INSERT INTO adminstock (categories, products, variations, price, stock, description, picture)
+    VALUES ('" . $addCategories . "', '" . $addProducts . "', '" . $addVariations . "', '" . $addPrice . "', '" . $addStock . "', '" . $addDescription . "', '" . $addPicture . "');";
 
     if ($conn->query($sql) === TRUE) {
     } else {
@@ -33,7 +34,9 @@ $sql = "SELECT * FROM `adminstock`";
     $products = [];
     $variants = [];
     $price = [];
-    $quantity = [];
+    $stock = [];
+    $description = [];
+    $picture = [];
 
     $idx = 0;
     if($result->num_rows > 0){
@@ -43,7 +46,9 @@ $sql = "SELECT * FROM `adminstock`";
             $products[$idx] = $row["products"];
             $variations[$idx] = $row["variations"];
             $price[$idx] = $row["price"];
-            $quantity[$idx] = $row["quantity"];
+            $stock[$idx] = $row["stock"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
             $idx++;
         }
     }
@@ -127,12 +132,16 @@ $sql = "SELECT * FROM `adminstock`";
     <input type="number" name="price" required>
     <br>
     <br>
-    <label for="quantity">Quantity:</label>
-    <input type="number" name="quantity" required>
+    <label for="stock">Stock:</label>
+    <input type="number" name="stock" required>
     <br>
     <br>
     <label for="description">Description:</label>
     <textarea name="description" rows="10" cols="30" required></textarea>
+    <br>
+    <br>
+    <label for="picture">Picture URL:</label>
+    <input type="text" name="picture" required>
     <br>
     <br>
     <input type='hidden' name='postCheck' value='1'>
@@ -142,7 +151,7 @@ $sql = "SELECT * FROM `adminstock`";
 <br>
     <?php
         for($idx = 0; $idx < count($id); $idx++){
-        echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx];
+        echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $stock[$idx] . " " . $description[$idx] . " " . $picture[$idx];
         echo "<br>";
         }
     ?>
