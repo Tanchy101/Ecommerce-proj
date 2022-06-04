@@ -8,12 +8,11 @@ include "Config.php";
     <title> Welcome to Admin Main Page: List of Products! </title>
     <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     <br>
-    <br>
     <h1> The Paper Bag. </h1>
-    <h3> List of Products </h3>
+    <h2> Welcome to the Admin Page: List of Products! </h2>
 </head>
 <style>
-    head, h1, h3 {
+    head, h1, h2 {
         font-family: monospace;
     }
     table {
@@ -21,6 +20,7 @@ include "Config.php";
         border: 2px solid #d3a35d;
         border-collapse: collapse;
         width: 100;
+       
     }
     td {
         border: 2px solid #d3a35d;
@@ -32,15 +32,17 @@ include "Config.php";
         font-weight: bold;
         border: 2px solid #d3a35d;
         text-align: center;
-        padding: 8px;
+        padding: 8px; 
+        background-color: #ffcbb5;
     }
     body {
     margin: 25px;
     }
 </style>
-
 <body style = "background-color: #ffedc0">
-    
+<br>
+    <center><h1> ALL PRODUCTS </h1></center>
+    <center>
     <table> 
         <tr>
             <th> Categories </th>
@@ -186,7 +188,6 @@ include "Config.php";
                 </td>
         </tr>
     </table>
-    
+</center>
 </body>
-
 </html>
