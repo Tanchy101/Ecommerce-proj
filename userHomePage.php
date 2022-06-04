@@ -153,7 +153,7 @@
             <h2>The Paper Bag.</h2>
             <a href="logout.php">Logout</a>
             <a class="active" href="#">Cart</a>
-            <a href="#">Profile</a>
+            <a href="profile.php">Profile</a>
             <a href="userHomePage.php">Home</a>
            
                 <div class="search-container">
