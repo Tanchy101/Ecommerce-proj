@@ -72,7 +72,6 @@
         margin-top: 10px;
         margin-bottom: 10px;
         margin-right: 20px;
-        visibility: hidden;
         }
 
         div.feature:hover {
@@ -186,20 +185,24 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     </div>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
-        <div style = "margin-left: 30px; <?php if(isset($id[0])){echo "visibility: visible";} ?>" class = "featured">
-            <a target = "_blank" href = "#">
-                <img class = "featimg" src = "https://cdn.shopify.com/s/files/1/0472/7118/2499/products/10057226.jpg?v=1632395566">
-            </a>
-            <div class = "desc">
-                <?php
-            echo $categories[0] . " " . $products[0] . " " . $variations[0] . " " . $price[0] . " " . $quantity[0] . " " . $description[0];
-                ?>
-            </div>
-        </div>
+        <?php
+        for($idx = 0; $idx < count($id); $idx++)
+        {
+            if(isset($id[$idx])){
+                echo "<div style = 'margin-left: 30px;' class = 'featured'>";
+                echo "<a target = '_blank' href = '#'>";
+                echo "<img class = 'featimg' src = 'https://cdn.shopify.com/s/files/1/0472/7118/2499/products/10057226.jpg?v=1632395566'></a>";          
+                echo "<div class = 'desc'>";
+                echo $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $quantity[$idx] . " " . $description[$idx];
+                echo "</div>";
+                echo "</div>";
+            }
+        }
+        ?>
         <!--2nd image -->
         <div class = "featured">
             <div class = "desc"></div>
-        </div>
+        </div> -->
         <!--3rd image -->
         <!-- <div class = "featured">
             <a target = "_blank" href = "#">
