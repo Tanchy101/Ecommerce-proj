@@ -125,13 +125,11 @@
         
 
         <div class = "register">
+            <center>
            <br>
+           <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "400" height = "380" align: "center" >
            <br>
-           <br>
-           <br>
-           <br>
-           <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "400" height = "380" style = "float: right" >
-           <br>
+        </center>
             <fieldset>
                 <center> <h2>Registration Form</h2> </center>
             <form method = "post" action = "">
