@@ -100,12 +100,40 @@
         .warning{
             color: red;
         }
+        body {
+            font-family: monospace;
+            margin: 25px;
+        }
+        @media screen and (min-width:430px) 
+            {
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 5px, 5px;
+            }
+            fieldset{
+                width: 8%;
+                min-width: 320px;
+                margin: auto;
+            }
+    }
     </style>
 
-    <body>
-        <h3>Register here</h3>
+<body style = "background-color: #ffedc0">
+        
 
         <div class = "register">
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "400" height = "380" style = "float: right" >
+           <br>
+            <fieldset>
+                <center> <h2>Registration Form</h2> </center>
             <form method = "post" action = "">
                 <label for = "usemail" >Email</label> <br>
                 <input type = "text" name = "usemail" id = "usemail" placeholder = "Enter email">
@@ -153,6 +181,7 @@
                 <p>Already have an account?<a href = "loginUser.php">Log in here</a></p>
 
             </form>
+    </fieldset>
         </div>
         
     </body>
