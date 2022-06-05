@@ -76,10 +76,10 @@ if (!empty($_SESSION['user'])) {
             display: inline;
             text-align: center;
             padding: 14px 16px;
-            margin-left : 30px;
+            margin-left : 15px;
         }
 
-        h4 {
+        h2 {
             padding: 0;
             float: left;
             margin: 10px;
@@ -149,6 +149,7 @@ if (!empty($_SESSION['user'])) {
             }
     </style>
     <body style = "background-color: #ffedc0">
+        
         <!-- pwede ka na mag lagay dito sa ilalim ng comment ko na to na mga need
         na ilagay sa home page-->
 
@@ -177,14 +178,14 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <div class="category">
         <li><a href="Paper_subfolder/PaperCategoryPage.php">Papers</a></li>
         <li><a href="Pencil_subfolder/PencilCategoryPage.php">Pencils</a></li>
-        <li><a href="Ballpens_subfolder/BallpensCategoryPage.html">Ballpens</a></li>
-        <li><a href="Markers_subfolder/MarkersCategoryPage.html">Markers</a></li>
-        <li><a href="Arts&Crafts_subfolder/Arts&CraftsCategoryPage.html">Arts & Crafts</a></li>
-        <li><a href="Erasers_subfolder/ErasersCategoryPage.html">Erasers</a></li>
-        <li><a href="Notebooks_subfolder/NotebooksCategoryPage.html">Notebooks</a></li>
-        <li><a href="Journals_subfolder/JournalsCategoryPage.html">Journals</a></li>
-        <li><a href="Planners_subfolder/PlannersCategoryPage.html">Planners</a></li>
-        <li><a href="OfficeSupplies_subfolder/OfficeSuppliesCategoryPage.html">Office Supplies</a></li>
+        <li><a href="Ballpens_subfolder/BallpensCategoryPage.php">Ballpens</a></li>
+        <li><a href="Markers_subfolder/MarkersCategoryPage.php">Markers</a></li>
+        <li><a href="Arts&Crafts_subfolder/Arts&CraftsCategoryPage.php">Arts & Crafts</a></li>
+        <li><a href="Erasers_subfolder/ErasersCategoryPage.php">Erasers</a></li>
+        <li><a href="Notebooks_subfolder/NotebooksCategoryPage.php">Notebooks</a></li>
+        <li><a href="Journals_subfolder/JournalsCategoryPage.php">Journals</a></li>
+        <li><a href="Planners_subfolder/PlannersCategoryPage.php">Planners</a></li>
+        <li><a href="OfficeSupplies_subfolder/OfficeSuppliesCategoryPage.php">Office Supplies</a></li>
     </div>
     <br><br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
