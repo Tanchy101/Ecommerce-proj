@@ -30,7 +30,7 @@ session_start();
       }
   }
 
-if (!empty($_SESSION['user'])) {
+  if (!empty($_SESSION['user'])) {
     // Get ALL user details from database using user id
     $sql = "SELECT * FROM userlogin WHERE id ='{$_SESSION["user"]["id"]}'";
     $result = $conn->query($sql);
@@ -50,6 +50,7 @@ if (!empty($_SESSION['user'])) {
     header("Location: loginUser.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -149,6 +150,20 @@ if (!empty($_SESSION['user'])) {
             }
     </style>
     <body style = "background-color: #ffedc0">
+        <?php //if ($result->num_rows > 0) {
+             //output data of each row
+
+            //while($row = $result->fetch_assoc()) {
+              //  $greet = $row["username"]; 
+          // }
+        //} else {
+         //   echo "<center><h1>You did not enter any Email or Password!!</h1></center>";
+        //    header("Location: login.php");
+
+        //}
+        //$conn->close();
+        //
+        ?>
         
         <!-- pwede ka na mag lagay dito sa ilalim ng comment ko na to na mga need
         na ilagay sa home page-->
@@ -197,15 +212,41 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
         <?php
         for($idx = 0; $idx < count($id); $idx++)
         {
+            // $var = [];
+            // $checker = [];
+            // $count = 0;
+            // for ($c = 0; $c < count($id); $c++){
+            //     $checker[$c] = 0;
+            // }
+            // for($varCheck = 0; $varCheck < count($id); $varCheck++){
+            //     for($j = 0; $j < count($id); $j++){
+
+            //         if($checker[$varCheck] == 1){
+            //             // Nothing
+            //         }
+            //         else if($products[$varCheck] == $products[$j]){
+            //             $var[$count] = $variations[$varCheck];
+            //             $checker[$varCheck] = 1;
+            //             $count++;
+            //         }
+            //     }
+            // }
+
             if(isset($id[$idx])){
                 echo "<div style = 'margin-left: 30px;' class = 'featured'>";
                 echo "<a target = '_blank' href = '#'>";
                 echo "<img class = 'featimg' src = '" . $picture[$idx] . "'></a>";          
                 echo "<div class = 'desc'>";
-                echo "<strong>" . $products[$idx] . "</strong> " . "(" . $variations[$idx] . ")"; 
+                echo "<strong>" . $products[$idx] . "</strong> ";
                 echo "<p><b>₱" . $price[$idx] . "</b></p>";
                 echo "<p>" . $description[$idx] . "</p>";
                 echo "<form>";
+                // for ($i = 0; $i < 2; $i++){
+                //     echo "<input type='radio' id='". $var[$i] . "' name='variation' value='" . $var[$i] . "'>";
+                //     echo "<label>" . $var[$i] . "</label"; 
+                //     echo "<br>";
+                // }
+                echo "<br>";
                 echo "<input type='number' name='quantity'>";
                 echo "<input type='submit' value='Add to Cart'>";
                 echo "</form>";

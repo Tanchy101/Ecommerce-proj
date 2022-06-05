@@ -5,6 +5,7 @@ include "Config.php";
 if (isset($_POST["postCheck"])){
 
 
+    // Product
     $deleteID = [];
     if(isset($_POST["idDelete"])){
     $deleteID = ($_POST["idDelete"]);
@@ -32,6 +33,35 @@ if (isset($_POST["postCheck"])){
         else{
 
         }
+
+    // Variation
+    $deleteID = [];
+    if(isset($_POST["var_idDelete"])){
+        $deleteID = ($_POST["var_idDelete"]);
+
+        $idImplode = implode(",", $deleteID);
+
+        for ($idx = 0; $idx < count($deleteID); $idx++){
+
+            $sql = "DELETE FROM `adminstockvariant` WHERE `id` IN ($idImplode)";
+
+            if ($conn->query($sql) == TRUE){
+
+            }
+            else{
+
+            }
+        }   
+
+            $sql = "ALTER TABLE adminstockvariant AUTO_INCREMENT = 1;";
+
+            if ($conn->query($sql) == TRUE){
+
+            }
+            else{
+
+            }
+    }
 }
 
 
@@ -43,9 +73,6 @@ $sql = "SELECT * FROM `adminstock`";
     $id = [];
     $categories = [];
     $products = [];
-    $variants = [];
-    $price = [];
-    $stock = [];
     $description = [];
     $picture = [];
 
@@ -55,16 +82,33 @@ $sql = "SELECT * FROM `adminstock`";
             $id[$idx] = $row["id"];
             $categories [$idx] = $row["categories"]; 
             $products[$idx] = $row["products"];
-            $variations[$idx] = $row["variations"];
-            $price[$idx] = $row["price"];
-            $stock[$idx] = $row["stock"];
             $description[$idx] = $row["description"];
             $picture[$idx] = $row["picture"];
             $idx++;
         }
     }
 
-   
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+
 
 ?>
 
@@ -108,8 +152,17 @@ $sql = "SELECT * FROM `adminstock`";
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <?php
         for($idx = 0; $idx < count($id); $idx++){
+            echo "<h3>" . $products[$idx] . "</h3>";
             echo "<input type='checkbox' name='idDelete[$idx]' value='$id[$idx]'>";
-            echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $variations[$idx] . " " . $price[$idx] . " " . $stock[$idx] . " " . $description[$idx] . " " . $picture[$idx];
+            echo $id[$idx] . " " . $categories[$idx] . " " . $products[$idx] . " " . $description[$idx] . " " . $picture[$idx];
+            echo "<h4>Variations</h4>";
+            for ($i = 0; $i < count($var_id); $i++){
+                if($id[$idx] == $product_id[$i]){
+                    echo "<input type='checkbox' name='var_idDelete[$idx]' value='$var_id[$idx]'>";
+                    echo $var_id[$i] . " " . $variation[$i] . " " . $price[$i] . " " . $stock[$i]; 
+                }
+            }
+            echo "<br>";
             echo "<br>";
         }
         ?>
