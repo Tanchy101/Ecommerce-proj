@@ -1,11 +1,25 @@
 <?php
 include "Config.php";
 
-if(isset($_POST["update"]))
+if(isset($_POST["postCheck"]))
 {
     $changePrice = $_POST["price"];
-    $changeQuantity = $_POST["quantity"];
+    $changeStock = $_POST["stock"];
+    $product_id = $_POST["id"];
 
+    $sql = "UPDATE `adminstock` SET `price`='$changePrice',`stock`='$changeStock' WHERE `id`='$product_id'";
+    
+    $result = $conn->query($sql); 
+
+    if ($result == TRUE) {
+
+        echo "Record updated successfully.";
+
+    }else{
+
+        echo "Error:" . $sql . "<br>" . $conn->error;
+
+    }
     
 }
 
@@ -19,6 +33,7 @@ $sql = "SELECT * FROM `adminstock`";
     $price = [];
     $stock = [];
     $description = [];
+    $picture = [];
 
     $idx = 0;
     if($result->num_rows > 0){
@@ -30,6 +45,7 @@ $sql = "SELECT * FROM `adminstock`";
             $price[$idx] = $row["price"];
             $stock[$idx] = $row["stock"];
             $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
             $idx++;
         }
     }
@@ -77,16 +93,16 @@ $sql = "SELECT * FROM `adminstock`";
     <fieldset style = "float:right">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
         <br>
-        <label for = "products">Enter Product's ID</label>
-        <input type="number" name="products" required>
+        <label for = "id">Enter Product's ID</label>
+        <input type="number" name="id" required>
         <br>
         <br>
         <label for = "price">New Price</label>
         <input type="number" name="price">
         <br>
         <br>
-        <label for = "quantity">New Quantity</label>
-        <input type="number" name="quantity"> 
+        <label for = "quantity">New Stock</label>
+        <input type="number" name="stock"> 
         <br>
         <br>
         <center> <input type="submit" name= "update" value="UPDATE"> </center>

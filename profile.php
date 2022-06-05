@@ -1,34 +1,6 @@
 <?php
 session_start();
-
-  include "Config.php";
-
-  $sql = "SELECT * FROM adminstock";
-  $result = $conn->query($sql);
-
-  $id = [];
-  $categories = [];
-  $products = [];
-  $variants = [];
-  $price = [];
-  $stock = [];
-  $description = [];
-  $picture = [];
-
-  $idx = 0;
-  if($result->num_rows > 0){
-      while($row = $result->fetch_assoc()){
-          $id[$idx] = $row["id"];
-          $categories [$idx] = $row["categories"]; 
-          $products[$idx] = $row["products"];
-          $variations[$idx] = $row["variations"];
-          $price[$idx] = $row["price"];
-          $stock[$idx] = $row["stock"];
-          $description[$idx] = $row["description"];
-          $picture[$idx] = $row["picture"];
-          $idx++;
-      }
-  }
+include 'Config.php';
 
 if (!empty($_SESSION['user'])) {
     // Get ALL user details from database using user id
@@ -39,7 +11,7 @@ if (!empty($_SESSION['user'])) {
         //output data of each row
     
        while($row = $result->fetch_assoc()) {
-           $greet = $row["username"]; 
+           $user = $row;
       }
     } else {
         session_destroy();
@@ -49,7 +21,9 @@ if (!empty($_SESSION['user'])) {
     session_destroy();
     header("Location: loginUser.php");
 }
+
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -159,7 +133,7 @@ if (!empty($_SESSION['user'])) {
             <h2>The Paper Bag.</h2>
             <a href="logoutFileForUsers.php">Logout</a>
             <a class="active" href="#">Cart</a>
-            <a href="profile.php"><?= $greet ?>'s Profile</a>
+            <a href="profile.php"><?= $user['username']; ?>'s Profile</a>
             <a href="userHomePage.php">Home</a>
            
                 <div class="search-container">
@@ -190,30 +164,15 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <br><br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
     <div class="row"> 
-        <h3 class="drawLine"><span >Featured Item</span></h3>        
+        <h3 class="drawLine"><span >Your Profile</span></h3>        
     </div>
-  <!--DITO IS YUNG MGA FEATURED ITEMS -->
-        <!--1st image -->
-        <?php
-        for($idx = 0; $idx < count($id); $idx++)
-        {
-            if(isset($id[$idx])){
-                echo "<div style = 'margin-left: 30px;' class = 'featured'>";
-                echo "<a target = '_blank' href = '#'>";
-                echo "<img class = 'featimg' src = '" . $picture[$idx] . "'></a>";          
-                echo "<div class = 'desc'>";
-                echo "<strong>" . $products[$idx] . "</strong> " . "(" . $variations[$idx] . ")"; 
-                echo "<p><b>₱" . $price[$idx] . "</b></p>";
-                echo "<p>" . $description[$idx] . "</p>";
-                echo "<form>";
-                echo "<input type='number' name='quantity'>";
-                echo "<input type='submit' value='Add to Cart'>";
-                echo "</form>";
-                echo "</div>";
-                echo "</div>";
-            }
-        }
-        ?>
-       
-</body>
-</html>
+
+
+    <div align = "center">
+        <h3>Your Personal Information</h3>
+        Username: <?= $user['username']; ?><br>
+        Email: <?= $user['email']; ?><br>
+        First Name: <?= $user['firstname']; ?><br>
+        Last Name: <?= $user['lastname']; ?><br>
+        Contact: <?= $user['contact']; ?>
+    </div>
