@@ -148,6 +148,12 @@ session_start();
         a.active {
             color: #ffcbb5;
             }
+        .footer {
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #ffcbb5;
+            text-align: center;
+            }
     </style>
     <body style = "background-color: #ffedc0">
         <?php //if ($result->num_rows > 0) {
@@ -255,6 +261,8 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
             }
         }
         ?>
-       
+       <div class = "footer">
+        footer.
+       </div>
 </body>
 </html>
