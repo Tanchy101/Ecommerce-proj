@@ -102,7 +102,6 @@
         }
         body {
             font-family: monospace;
-            margin: 25px;
         }
         @media screen and (min-width:430px) 
             {
@@ -118,7 +117,13 @@
                 min-width: 320px;
                 margin: auto;
             }
-    }
+            }
+            .footer {
+                padding: 20px;
+                margin-top: 20px;
+                background-color: #ffcbb5;
+                text-align: center;
+            }
     </style>
 
 <body style = "background-color: #ffedc0">
@@ -180,7 +185,8 @@
 
             </form>
     </fieldset>
+        <div class = "footer">
+        footer.
         </div>
-        
     </body>
 </html>

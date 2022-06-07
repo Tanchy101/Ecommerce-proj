@@ -147,7 +147,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 min-width: 320px;
                 margin: auto;
             }
-    }
+            }
+          .footer {
+                padding: 20px;
+                margin-top: 20px;
+                position: absolute;
+                background-color: #ffcbb5;
+                text-align: center;
+            }
     </style>
 
     <body style = "background-color: #ffedc0">
@@ -171,6 +178,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
         </div>
         <br><br>
+        <div class = "footer">
+            footer.
+        </div>
     </body>
 
 </html>
