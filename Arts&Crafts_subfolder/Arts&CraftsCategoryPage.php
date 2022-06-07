@@ -1,4 +1,28 @@
+<?php
+session_start();
+include '../Config.php';
 
+if (!empty($_SESSION['user'])) {
+    // Get ALL user details from database using user id
+    $sql = "SELECT * FROM userlogin WHERE id ='{$_SESSION["user"]["id"]}'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        //output data of each row
+    
+       while($row = $result->fetch_assoc()) {
+           $user = $row;
+      }
+    } else {
+        session_destroy();
+        header("Location: loginUser.php");
+    }
+} else {
+    session_destroy();
+    header("Location: loginUser.php");
+}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -108,7 +132,7 @@
             <h2>The Paper Bag.</h2>
             <a href="../logoutFileForUsers.php">Logout</a>
             <a class="active" href="#">Cart</a>
-            <a href="../profile.php">Profile</a>
+            <a href="../profile.php"><?= $user['username']; ?>'s Profile</a>
             <a href="../userHomePage.php">Home</a>
            
                 <div class="search-container">

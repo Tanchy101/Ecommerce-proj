@@ -22,12 +22,31 @@ if (!empty($_SESSION['user'])) {
     header("Location: loginUser.php");
 }
 
+if(isset($_POST['edituser'])){
+    $idemail = $_POST['email'];
+    $changeusername = $_POST['username'];
+    $changefirstname = $_POST['firstname'];
+    $changelastname = $_POST['lastname'];
+    $changeaddress = $_POST['address'];
+    $changecontact = $_POST['contact'];
+
+    $sql = "UPDATE userlogin SET username = '$changeusername', firstname = '$changefirstname', lastname = '$changelastname',
+    address = '$changeaddress', contact = '$changecontact' WHERE email = '$idemail'";
+    $result = $conn->query($sql); 
+    if($result == TRUE){
+        $_SESSION['succ'] = "Profile Succesfully Updated!";
+        header("Location: profile.php");
+    }else{
+        echo "Error:" . $sql . "<br>" . $conn->error;
+    }
+
+}
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome User</title>
+        <title>Edit Info</title>
         <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -167,24 +186,28 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
         <h3 class="drawLine"><span >Your Profile</span></h3>        
     </div>
 
-    <?php if (isset($_SESSION['succ'])) { ?>
-    <div class = "successmess">
-        <?php echo $_SESSION['succ']; ?>
-    </div>
-    <?php } ?>
 
     <div align = "center">
-        <h3>Your Personal Information</h3>
-        <p>Username: <?= $user['username']; ?></p> 
-        <p>Email: <?= $user['email']; ?></p>
-        <p>First Name: <?= $user['firstname']; ?></p> 
-        <p>Last Name: <?= $user['lastname']; ?></p> 
-        <p>Contact: <?= $user['contact']; ?></p> 
-        <p>Address: <?= $user['address']; ?></p> 
-        <br>
-        <a href = "editUser.php"><button name = "edituser">Edit Info</button></a>
-    </div>
+        <h3>Edit Your Personal Information</h3>
+        <form method= "post" action = "">
+            <label for = "email">Enter email</label><br>
+            <input type = "text" name = "email" required><br>
 
-    <?php
-    unset($_SESSION['succ']);
-    ?>
+            <label for = "username">New Username:</label><br>
+            <input type = "text" name = "username"><br>
+
+            <label for = "firstname">New First Name:</label><br>
+            <input type = "text" name = "firstname"><br>
+
+            <label for = "lastname">New Last Name:</label><br>
+            <input type = "text" name = "lastname"><br>
+
+            <label for = "address">New Address:</label><br>
+            <input type = "text" name = "address"><br>
+
+            <label for = "contact">New Contact:</label><br>
+            <input type = "text" name = "contact"><br>
+            <br>
+            <button name = "edituser">Submit</button>
+        </form>
+    </div>

@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include '../Config.php';
 
@@ -23,35 +22,11 @@ if (!empty($_SESSION['user'])) {
     header("Location: loginUser.php");
 }
 
-$sql = "SELECT * FROM adminstock WHERE categories='Pencils'";
-$result = $conn->query($sql);
-
-$id = [];
-$categories = [];
-$products = [];
-$variants = [];
-$price = [];
-$quantity = [];
-
-$idx = 0;
-if($result->num_rows > 0){
-    while($row = $result->fetch_assoc()){
-        $id[$idx] = $row["id"];
-        $categories [$idx] = $row["categories"]; 
-        $products[$idx] = $row["products"];
-        $variations[$idx] = $row["variations"];
-        $price[$idx] = $row["price"];
-        $quantity[$idx] = $row["quantity"];
-        $description[$idx] = $row["description"];
-        $idx++;
-    }
-}
-
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Erasers</title>
+        <title>Ballpens</title>
         <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -188,31 +163,23 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <br><br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
     <div class="row"> 
-        <h3 class="drawLine"><span >Pencils</span></h3>        
+        <h3 class="drawLine"><span >Ballpens</span></h3>        
     </div>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
   <!--1st image -->
-    <div style = "margin-left: 30px; <?php if(isset($id[0])){echo "visibility: visible";} ?>" class = "featured">
-        <a target = "_blank" href = "#">
-            <img class = "featimg" src = "https://cdn.shopify.com/s/files/1/0472/7118/2499/products/10057226.jpg?v=1632395566">
-        </a>
-        <div class = "desc">
-            <?php
-        echo $categories[0] . " " . $products[0] . " " . $variations[0] . " " . $price[0] . " " . $quantity[0] . " " . $description[0];
-            ?>
-        </div>
-    </div>
+  <div style = "margin-left: 30px;" class = "featured">
+    <a target = "_blank" href = "#">
+        <img class = "featimg" src = "https://i.pinimg.com/564x/79/84/2e/79842e43a0850e77ba8a8a492b9a32a3.jpg">
+    </a>
+    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+</div>
 <!--2nd image -->
-    <div style = "margin-left: 30px; <?php if(isset($id[1])){echo "visibility: visible";} ?>" class = "featured">
-        <a target = "_blank" href = "#">
-            <img class = "featimg" src = "https://cdn.shopify.com/s/files/1/0472/7118/2499/products/10057226.jpg?v=1632395566">
-        </a>
-        <div class = "desc">
-            <?php
-        echo $categories[1] . " " . $products[1] . " " . $variations[1] . " " . $price[1] . " " . $quantity[1] . " " . $description[1];
-            ?>
-        </div>
-    </div>
+<div class = "featured">
+    <a target = "_blank" href = "#">
+        <img class = "featimg" src = "https://i.pinimg.com/564x/33/f1/f3/33f1f3248267b29345134383a56000f8.jpg">
+    </a>
+    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
+</div>
 <!--3rd image -->
 <div class = "featured">
     <a target = "_blank" href = "#">
@@ -272,3 +239,4 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
 </div>
     </body>
 </html>
+
