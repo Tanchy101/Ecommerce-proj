@@ -9,9 +9,6 @@ session_start();
   $id = [];
   $categories = [];
   $products = [];
-  $variants = [];
-  $price = [];
-  $stock = [];
   $description = [];
   $picture = [];
 
@@ -21,11 +18,29 @@ session_start();
           $id[$idx] = $row["id"];
           $categories [$idx] = $row["categories"]; 
           $products[$idx] = $row["products"];
-          $variations[$idx] = $row["variations"];
-          $price[$idx] = $row["price"];
-          $stock[$idx] = $row["stock"];
           $description[$idx] = $row["description"];
           $picture[$idx] = $row["picture"];
+          $idx++;
+      }
+  }
+
+  $sql = "SELECT * FROM `adminstockvariant`";
+  $result = $conn->query($sql);
+
+  $var_id = [];
+  $product_id = [];
+  $variation = [];
+  $price = [];
+  $stock = [];
+
+  $idx = 0;
+  if($result->num_rows > 0){
+      while($row = $result->fetch_assoc()){
+          $var_id[$idx] = $row["id"];
+          $product_id[$idx] = $row["product_id"]; 
+          $variation[$idx] = $row["variation"];
+          $price[$idx] = $row["price"];
+          $stock[$idx] = $row["stock"];
           $idx++;
       }
   }
@@ -237,21 +252,41 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 echo "<a target = '_blank' href = '#'>";
                 echo "<img class = 'featimg' src = '" . $picture[$idx] . "'></a>";          
                 echo "<div class = 'desc'>";
-                echo "<strong>" . $products[$idx] . "</strong> ";
-                echo "<p><b>₱" . $price[$idx] . "</b></p>";
+                echo "<strong>" . $products[$idx] . "</strong>";
+                echo "<p><b>";
+                for ($i = 0; $i < count($var_id); $i++){
+                    
+                    if($id[$idx] == $product_id[$i])
+                    {
+                        echo "₱" . $price[$i] . " ";
+                    }
+                }
+                echo "</b></p>";
                 echo "<p>" . $description[$idx] . "</p>";
                 echo "<form>";
-                // for ($i = 0; $i < 2; $i++){
-                //     echo "<input type='radio' id='". $var[$i] . "' name='variation' value='" . $var[$i] . "'>";
-                //     echo "<label>" . $var[$i] . "</label"; 
-                //     echo "<br>";
-                // }
+                $rbuttons = 0;
+                // $rvariant = [];
+                // $rprice = [];
+            
+                for ($i = 0; $i < count($var_id); $i++){
+                    if($id[$idx] == $product_id[$i])
+                    {
+                        echo "<input type='radio' id='". $var_id[$i] . "' name='variation' value='" . $variation[$i] . "'>";
+                        echo "<label>" . $variation[$i] . "</label"; 
+                        echo "<br>";
+                        $rbuttons++;
+                        // array_push($rvariant, $var_id[$i]);
+                        // array_push($rprice, $price[$i]);
+                    }
+                }
+    
                 echo "<br>";
-                echo "<input type='number' name='quantity'>";
+                echo "<input type='number' min='0' name='quantity'>";
                 echo "<input type='submit' value='Add to Cart'>";
                 echo "</form>";
                 echo "</div>";
                 echo "</div>";
+                
             }
         }
         ?>

@@ -69,7 +69,6 @@ if (isset($_POST["postCheck"]))
         $addVariation = $_POST["variations"];
         $addPrice = $_POST["price"];
         $addStock = $_POST["stock"];
-        echo $idAdd;
         $sql = "INSERT INTO adminstockvariant (product_id, variation, price, stock)
         VALUES ('" . $idAdd . "', '" . $addVariation . "', '" . $addPrice . "', '" . $addStock . "');";
 
@@ -229,6 +228,7 @@ $sql = "SELECT * FROM `adminstock`";
             for($i = 0; $i < count($var_id); $i++){
                 if ($id[$idx] == $product_id[$i]){
                     echo $var_id[$i] . " " . $variation[$i] . " " . $price[$i] . " " . $stock[$i];
+                    echo "<br>";
                 }
             }
         echo "<br>";

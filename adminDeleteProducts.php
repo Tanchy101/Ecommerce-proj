@@ -34,6 +34,15 @@ if (isset($_POST["postCheck"])){
 
         }
 
+        $sql = "ALTER TABLE adminstockvariant AUTO_INCREMENT = 1;";
+
+        if ($conn->query($sql) == TRUE){
+
+        }
+        else{
+
+        }
+
     // Variation
     $deleteID = [];
     if(isset($_POST["var_idDelete"])){
