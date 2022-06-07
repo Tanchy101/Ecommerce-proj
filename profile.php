@@ -180,7 +180,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
         <p>First Name: <?= $user['firstname']; ?></p> 
         <p>Last Name: <?= $user['lastname']; ?></p> 
         <p>Contact: <?= $user['contact']; ?></p> 
-        <p>Address: <?php $user['address']; ?></p> 
+        <p>Address: <?= $user['address']; ?></p> 
         <br>
         <a href = "editUser.php"><button name = "edituser">Edit Info</button></a>
     </div>
