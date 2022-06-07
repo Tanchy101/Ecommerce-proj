@@ -1,17 +1,25 @@
 <?php 
+session_start();
+include '../Config.php';
 
-$host = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$databaseName = "thepaperbag";
-$port = 3306;
+if (!empty($_SESSION['user'])) {
+    // Get ALL user details from database using user id
+    $sql = "SELECT * FROM userlogin WHERE id ='{$_SESSION["user"]["id"]}'";
+    $result = $conn->query($sql);
 
-// Create connection
-$conn = new mysqli($host, $dbusername, $dbpassword, $databaseName, $port);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    if ($result->num_rows > 0) {
+        //output data of each row
+    
+       while($row = $result->fetch_assoc()) {
+           $user = $row;
+      }
+    } else {
+        session_destroy();
+        header("Location: loginUser.php");
+    }
+} else {
+    session_destroy();
+    header("Location: loginUser.php");
 }
 
 $sql = "SELECT * FROM adminstock WHERE categories='Papers'";
@@ -38,15 +46,17 @@ if($result->num_rows > 0){
     }
 }
 
+
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Papers </title>
+        <title>Erasers</title>
+        <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-               .topnav a {
+    <style> 
+        .topnav a {
             float: right;
             text-align: center;
             padding: 14px 16px;
@@ -64,10 +74,10 @@ if($result->num_rows > 0){
             display: inline;
             text-align: center;
             padding: 14px 16px;
-            margin-left : 30px;
+            margin-left : 15px;
         }
 
-        h4 {
+        h2 {
             padding: 0;
             float: left;
             margin: 10px;
@@ -83,7 +93,6 @@ if($result->num_rows > 0){
         margin-top: 10px;
         margin-bottom: 10px;
         margin-right: 20px;
-        visibility:hidden;
         }
 
         div.feature:hover {
@@ -120,14 +129,37 @@ if($result->num_rows > 0){
         position: relative;
         padding-right: 5px; 
         }
+        body {
+            font-family: monospace;
+            margin: 25px;
+        }
+        a:link {
+            color: #000000;
+            }
+        a:visited {
+            color: #d3a35d;
+            }
+        a:hover {
+            color: #ffb2a0;
+            }
+        a.active {
+            color: #ffcbb5;
+            }
     </style>
-    <body name = "PaperCategory">
+    <body style = "background-color: #ffedc0">
+        
+        <!-- pwede ka na mag lagay dito sa ilalim ng comment ko na to na mga need
+        na ilagay sa home page-->
+
+        <!-- cart and profile under nito-->
         <div class="topnav">
-            <h4>The Paper Bag</h4>
-            <a href="logout.php">Logout</a>
+            <br>
+            <h2>The Paper Bag.</h2>
+            <a href="../logoutFileForUsers.php">Logout</a>
             <a class="active" href="#">Cart</a>
-            <a href="#">Profile</a>
+            <a href="../profile.php"><?= $user['username']; ?>'s Profile</a>
             <a href="../userHomePage.php">Home</a>
+           
                 <div class="search-container">
                     <form action="search.php ">
                         <input type="text" placeholder="Search " size="50" name="search">
@@ -135,22 +167,23 @@ if($result->num_rows > 0){
                     </form>
                 </div>
         </div>
-        <br><br><br><br>
-
+        <br>
+        <br>
+        <br>
+        <br>
         <!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
 AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
-
     <div class="category">
-        <li><a href="../Paper_subfolder/PaperCategoryPage.html">Papers</a></li>
-        <li><a href="../Pencil_subfolder/PencilCategoryPage.html">Pencils</a></li>
-        <li><a href="../Ballpens_subfolder/BallpensCategoryPage.html">Ballpens</a></li>
-        <li><a href="../Markers_subfolder/MarkersCategoryPage.html">Markers</a></li>
-        <li><a href="../Arts&Crafts_subfolder/Arts&CraftsCategoryPage.html">Arts & Crafts</a></li>
-        <li><a href="../Erasers_subfolder/ErasersCategoryPage.html">Erasers</a></li>
-        <li><a href="../Notebooks_subfolder/NotebooksCategoryPage.html">Notebooks</a></li>
-        <li><a href="../Journals_subfolder/JournalsCategoryPage.html">Journals</a></li>
-        <li><a href="../Planners_subfolder/PlannersCategoryPage.html">Planners</a></li>
-        <li><a href="../OfficeSupplies_subfolder/OfficeSuppliesCategoryPage.html">Office Supplies</a></li>
+        <li><a href="../Paper_subfolder/PaperCategoryPage.php">Papers</a></li>
+        <li><a href="../Pencil_subfolder/PencilCategoryPage.php">Pencils</a></li>
+        <li><a href="../Ballpens_subfolder/BallpensCategoryPage.php">Ballpens</a></li>
+        <li><a href="../Markers_subfolder/MarkersCategoryPage.php">Markers</a></li>
+        <li><a href="../Arts&Crafts_subfolder/Arts&CraftsCategoryPage.php">Arts & Crafts</a></li>
+        <li><a href="../Erasers_subfolder/ErasersCategoryPage.php">Erasers</a></li>
+        <li><a href="../Notebooks_subfolder/NotebooksCategoryPage.php">Notebooks</a></li>
+        <li><a href="../Journals_subfolder/JournalsCategoryPage.php">Journals</a></li>
+        <li><a href="../Planners_subfolder/PlannersCategoryPage.php">Planners</a></li>
+        <li><a href="../OfficeSupplies_subfolder/OfficeSuppliesCategoryPage.php">Office Supplies</a></li>
     </div>
     <br><br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
