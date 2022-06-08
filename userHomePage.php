@@ -118,8 +118,8 @@ session_start();
         }
 
         .featimg {
-        width: 100%;
-        height: auto;
+        width: 220px;
+        height: 200px;
         }
 
         .desc {
@@ -256,7 +256,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                     if($id[$idx] == $product_id[$i])
                     {
                         echo "<input type='radio' id='". $var_id[$i] . "' name='variation' value='" . $variation[$i] . "'>";
-                        echo "<label>" . $variation[$i] . "</label"; 
+                        echo "<label>" . $variation[$i] . "</label>"; 
                         echo "<br>";
                     }
                 }
