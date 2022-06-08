@@ -22,6 +22,48 @@ if (!empty($_SESSION['user'])) {
     header("Location: loginUser.php");
 }
 
+$sql = "SELECT * FROM adminstock WHERE categories='Ballpens'";
+$result = $conn->query($sql);
+
+$id = [];
+$categories = [];
+$products = [];
+$description = [];
+$picture = [];
+
+$idx = 0;
+if($result->num_rows > 0){
+    while($row = $result->fetch_assoc()){
+        $id[$idx] = $row["id"];
+        $categories [$idx] = $row["categories"]; 
+        $products[$idx] = $row["products"];
+        $description[$idx] = $row["description"];
+        $picture[$idx] = $row["picture"];
+        $idx++;
+    }
+}
+
+$sql = "SELECT * FROM `adminstockvariant`";
+$result = $conn->query($sql);
+
+$var_id = [];
+$product_id = [];
+$variation = [];
+$price = [];
+$stock = [];
+
+$idx = 0;
+if($result->num_rows > 0){
+    while($row = $result->fetch_assoc()){
+        $var_id[$idx] = $row["id"];
+        $product_id[$idx] = $row["product_id"]; 
+        $variation[$idx] = $row["variation"];
+        $price[$idx] = $row["price"];
+        $stock[$idx] = $row["stock"];
+        $idx++;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -167,76 +209,47 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     </div>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
   <!--1st image -->
-  <div style = "margin-left: 30px;" class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/79/84/2e/79842e43a0850e77ba8a8a492b9a32a3.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
-<!--2nd image -->
-<div class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/33/f1/f3/33f1f3248267b29345134383a56000f8.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
-<!--3rd image -->
-<div class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/b5/a7/73/b5a7738245a23baaf0146a1a4f47889d.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
-<!--4th image -->        
-<div class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/1e/60/dd/1e60ddbe7d9b24ee314b5a3f9d13b77e.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
-<!--5th image -->       
-<div class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/22/b8/64/22b86414aada2d6baf2460e6b9123feb.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
+  <?php
+  for($idx = 0; $idx < count($id); $idx++)
+        {
 
-<!--ito yung lower part ng featured part para di kayo maguluhan mwamwa <3 -->
-<div style = "margin-left: 30px;" class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/e7/be/ab/e7beab0c20a25d7adde57a31a3b5d114.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
-<!-- 2nd image-->
-<div class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/d8/5a/c7/d85ac78599e4198804d344fae43b7bd9.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
-<!--3rd image-->
-<div class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/07/6d/77/076d775f925c5d9776d15b4896c76649.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
-<!--4th image-->
-<div class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/b0/db/7c/b0db7caff956c56ea9db8e6eea658436.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
-<!--5th image -->
-<div class = "featured">
-    <a target = "_blank" href = "#">
-        <img class = "featimg" src = "https://i.pinimg.com/564x/b2/02/d5/b202d52d002f584c26d2b02845360a2f.jpg">
-    </a>
-    <div class = "desc"><strong>Product Name</strong> <br> short desciption of the Product</div>
-</div>
+            if(isset($id[$idx])){
+                echo "<div style = 'margin-left: 30px;' class = 'featured'>";
+                echo "<a target = '_blank' href = '#'>";
+                echo "<img class = 'featimg' src = '" . $picture[$idx] . "'></a>";          
+                echo "<div class = 'desc'>";
+                echo "<strong>" . $products[$idx] . "</strong>";
+                echo "<p><b>";
+                for ($i = 0; $i < count($var_id); $i++){
+                    
+                    if($id[$idx] == $product_id[$i])
+                    {
+                        echo "₱" . $price[$i] . " ";
+                    }
+                }
+                echo "</b></p>";
+                echo "<p>" . $description[$idx] . "</p>";
+                echo "<form>";
+            
+                for ($i = 0; $i < count($var_id); $i++){
+                    if($id[$idx] == $product_id[$i])
+                    {
+                        echo "<input type='radio' id='". $var_id[$i] . "' name='variation' value='" . $variation[$i] . "'>";
+                        echo "<label>" . $variation[$i] . "</label"; 
+                        echo "<br>";
+                    }
+                }
+    
+                echo "<br>";
+                echo "<input type='number' min='0' name='quantity'>";
+                echo "<input type='submit' value='Add to Cart'>";
+                echo "</form>";
+                echo "</div>";
+                echo "</div>";
+                
+            }
+        }
+        ?>
     </body>
 </html>
 

@@ -160,6 +160,37 @@ $sql = "SELECT * FROM `adminstock`";
                 min-width: 320px;
                 margin: auto;
             }
+
+            table{
+                border: 1px solid black;
+                font-family: Arial, Helvetica, sans-serif;
+                width:50%;
+            }
+
+            tr:nth-child(even){background-color: #f2f2f2;}
+            tr:nth-child(odd){background-color: #fff;}
+
+            td{
+                border: 1px solid #ddd;
+                text-align: center;
+            }
+            #product{
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background-color: #d3a35d;
+                color: white;
+                text-align: center;
+            }
+            #category{
+                padding: 12px;
+                text-align: center;
+                font-weight: bold;
+            }
+            #variation{
+                background-color: #d3a35d;
+                color: white;
+                text-align: center;
+            }
     }
 </style>
 
@@ -221,17 +252,32 @@ $sql = "SELECT * FROM `adminstock`";
 <br>
     <?php
         for($idx = 0; $idx < count($id); $idx++){
-        echo "<h3>" . $products[$idx] . "</h3>";
-        echo $id[$idx] . " " . $categories[$idx]  .  " " . $description[$idx] . " " . $picture[$idx];
+        echo "<table>";
+        echo "<tr>";
+        echo "<th id = 'product' colspan = '4'><h3>" . $products[$idx] . "</h3></th>";
+        echo "</tr>";
+        echo "<tr id = 'category'>";
+        echo "<td>ID</td><td>Category</td><td>Description</td><td>Picture</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<td>$id[$idx]</td><td>$categories[$idx]</td><td>$description[$idx]</td><td><img width='220px' src='$picture[$idx]'</td>";
+        echo "</tr>";
         echo "<br>";
-        echo "<h4>Variations</h4>";
+        echo "<tr>";
+        echo "<th id = 'variation' colspan = '4'><h4>Variations</h4></th>";
+        echo "<tr id = 'category'>";
+        echo "<td>ID</td><td>Variation</td><td>Price</td><td>Stock</td>";
+        echo "</tr>";
             for($i = 0; $i < count($var_id); $i++){
                 if ($id[$idx] == $product_id[$i]){
-                    echo $var_id[$i] . " " . $variation[$i] . " " . $price[$i] . " " . $stock[$i];
-                    echo "<br>";
+                    echo "<tr>";
+                    echo "<td>" . $var_id[$i] . "</td><td>" . $variation[$i] . "</td><td>"  . $price[$i] . "</td><td>" . $stock[$i] . "</td>";
+                    echo "</tr>";
                 }
             }
+
         echo "<br>";
+        echo "</table>";
         }
     ?>
 </body>

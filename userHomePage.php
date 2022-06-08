@@ -233,25 +233,6 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
         <?php
         for($idx = 0; $idx < count($id); $idx++)
         {
-            // $var = [];
-            // $checker = [];
-            // $count = 0;
-            // for ($c = 0; $c < count($id); $c++){
-            //     $checker[$c] = 0;
-            // }
-            // for($varCheck = 0; $varCheck < count($id); $varCheck++){
-            //     for($j = 0; $j < count($id); $j++){
-
-            //         if($checker[$varCheck] == 1){
-            //             // Nothing
-            //         }
-            //         else if($products[$varCheck] == $products[$j]){
-            //             $var[$count] = $variations[$varCheck];
-            //             $checker[$varCheck] = 1;
-            //             $count++;
-            //         }
-            //     }
-            // }
 
             if(isset($id[$idx])){
                 echo "<div style = 'margin-left: 30px;' class = 'featured'>";
@@ -270,9 +251,6 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 echo "</b></p>";
                 echo "<p>" . $description[$idx] . "</p>";
                 echo "<form>";
-                $rbuttons = 0;
-                // $rvariant = [];
-                // $rprice = [];
             
                 for ($i = 0; $i < count($var_id); $i++){
                     if($id[$idx] == $product_id[$i])
@@ -280,9 +258,6 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                         echo "<input type='radio' id='". $var_id[$i] . "' name='variation' value='" . $variation[$i] . "'>";
                         echo "<label>" . $variation[$i] . "</label"; 
                         echo "<br>";
-                        $rbuttons++;
-                        // array_push($rvariant, $var_id[$i]);
-                        // array_push($rprice, $price[$i]);
                     }
                 }
     
