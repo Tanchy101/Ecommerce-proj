@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title> Admin Create Products </title>
+<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+    <br>
+    <h1> The Paper Bag. </h1>
+    <h2> Welcome to the Admin Page: Create Products! </h2>
+</head>
+
+
+<body bgcolor = "#ffedc0">
+
+    <a href="adminMainpage.php"><h3>Main Page</h3></a>
+    <hr style = "color:#d3a35d">
+    
+    <br>
+    <h1 style="text-align: center">Add a New Product</h1>
+    <center><table border = "1" width = "40%" bgcolor = "#ffedc0"></center> 
+        <tr>
+            <td>
+<form method="post">
+<br>
+<br>
+    <label for="categories">Category: </label>
+    <select name="categories" required>
+        <option value="Papers">Papers</option>
+        <option value="Pencils">Pencils</option>
+        <option value="Ballpens">Ballpens</option>
+        <option value="Markers">Markers</option>
+        <option value="Arts/Crafts">Arts and Crafts</option>
+        <option value="Erasers">Erasers</option>
+        <option value="Notebooks">Notebooks</option>
+        <option value="Journals">Journals</option>
+        <option value="Planners">Planners</option>
+        <option value="Office Supplies">Office Supplies</option>
+        <option value="Books">Books</option>
+        <option value="Measuring Tools">Measuring Tools</option>
+        <option value="Pouches">Pouches</option>
+        <option value="Bags">Bags</option>
+    </select>
+    <br>
+    <br>
+    <label for="products">Product:</label>
+    <input type="text" name="products" required>
+    <br>
+    <br>
+    <label for="description">Description:</label>
+    <textarea name="description" rows="10" cols="30" required></textarea>
+    <br>
+    <br>
+    <label for="picture">Picture URL:</label>
+    <input type="text" name="picture" required>
+    <br>
+    <br>
+    <center> <h2>Variation</h2> </center>
+    <label for="variations">Variation:</label>
+    <input type="text" name="variations" required>
+    <br>
+    <br>
+    <label for="price">Price:</label>
+    <input type="number" name="price" required>
+    <br>
+    <br>
+    <label for="stock">Stock:</label>
+    <input type="number" name="stock" required>
+    <br>
+    <br>
+    <input type='hidden' name='postCheck' value='1'>
+    <center> <input  type="submit" value="CREATE"> </center>
+</form>
+</td>
+</tr>
+</table>
+<br>
+   
+</body>
+
+</html>
