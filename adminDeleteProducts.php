@@ -626,6 +626,10 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
+<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+<br>
+<h1> Admin </h1>
+<h2>Welcome to the Admin Page: Delete Products!</h2>
 <style>
     head, body {
         font-family: monospace;
@@ -723,12 +727,7 @@ else{
 </head>
 
 <body style = "background-color: #ffedc0">
-<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
-<br>
-<h1> Admin </h1>
-<h2>Welcome to the Admin Page: Delete Products!</h2>
-
-<br>
+<hr style = "color:#d3a35d">
 <br>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="btn-group" style="width:100%">
   <input type="submit" name="Papers" value="Papers" style="width:10%">
