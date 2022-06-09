@@ -624,6 +624,10 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
+<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+<br>
+<h1> Admin </h1>
+<h2>Welcome to the Admin Page: Delete Products!</h2>
 <style>
     body {
         font-family: monospace;

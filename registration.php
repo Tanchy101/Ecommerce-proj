@@ -102,7 +102,20 @@
         }
         body {
             font-family: monospace;
+            font-weight: bold;
         }
+        a:link {
+        color: #000000;
+            }
+        a:visited {
+            color: #d3a35d;
+            }
+        a:hover {
+            color: #ffb2a0; 
+            }
+        a.active {
+            color: #ffcbb5;
+            }    
         @media screen and (min-width:430px) 
             {
             fieldset {
@@ -116,6 +129,7 @@
                 width: 8%;
                 min-width: 320px;
                 margin: auto;
+                font-size: 15px;
             }
             }
             .footer {
@@ -196,8 +210,7 @@
                 <br>
                 <p><?php echo $passnomatch?></p>
                 <br>
-                <button name = "submit">SUBMIT</button>
-                <br>
+                <center> <button name = "submit">SUBMIT</button> </center>
                 <br>
                 <p>Already have an account?<a href = "loginUser.php">Log in here</a></p>
 

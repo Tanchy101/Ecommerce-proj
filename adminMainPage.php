@@ -21,6 +21,7 @@ include 'Config.php'
             body {
                 font-family: monospace;
                 margin: 25px;
+                font-weight: bold;
             }
             a:link {
             color: #000000;
@@ -42,6 +43,7 @@ include 'Config.php'
                  border-color: #d3a35d;
                  min-width: 200;
                  padding: 5px, 5px;
+                 font-size: 15px;
             }
             fieldset{
                 width: 8%;
@@ -54,10 +56,11 @@ include 'Config.php'
 
     <body style = "background-color: #ffedc0">
    
-        <a href = "adminChangePass.php">Change password</a>
+        <a href = "adminChangePass.php"><h3>Change password</h3></a>
+        <hr style = "color:#d3a35d">
         
         <br>
-        <center> <h2> Manage Products </h2> </center>
+        <center> <h1> Manage Products </h1> </center>
         <fieldset>
             <center>
         <a href = "adminProducts.php">See All Products </a>

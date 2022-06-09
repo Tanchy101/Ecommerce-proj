@@ -91,11 +91,26 @@ if (isset($_POST["postCheck"]))
 
 <head>
 <title> Admin Create Products </title>
-
+<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+    <br>
+    <h1> The Paper Bag. </h1>
+    <h2> Welcome to the Admin Page: Create Products! </h2>
 <style>
     head, body {
         font-family: monospace;
     }
+    a:link {
+            color: #000000;
+            }
+            a:visited {
+            color: #d3a35d;
+            }
+            a:hover {
+            color: #ffb2a0;
+            }
+            a.active {
+            color: #ffcbb5;
+            }
     @media screen and (min-width:430px) 
             {
             fieldset {
@@ -104,6 +119,7 @@ if (isset($_POST["postCheck"]))
                  border-color: #d3a35d;
                  min-width: 200;
                  padding: 5px, 5px;
+                 font-size: 15px;
             }
             fieldset{
                 width: 40%;
@@ -193,10 +209,15 @@ if (isset($_POST["postCheck"]))
     <li><a href="adminDeleteProducts.php">Delete Products</a></li>
     </ul>
 
-    <h1 style="text-align: center">Insert a Product</h1>
+    <a href="adminMainpage.php"><h3>Main Page</h3></a>
+    <hr style = "color:#d3a35d">
+    
+    <br>
+    <h1 style="text-align: center">Add a New Product</h1>
 <fieldset style = "margin-left: auto; margin-right: auto">
-    <h2>Insert a Product</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<br>
+<br>
     <label for="categories">Category: </label>
     <select name="categories" required>
         <option value="Papers">Papers</option>
@@ -228,7 +249,7 @@ if (isset($_POST["postCheck"]))
     <input type="text" name="picture" required>
     <br>
     <br>
-    <h2>Variation</h2>
+    <center> <h2>Variation</h2> </center>
     <label for="variations">Variation:</label>
     <input type="text" name="variations" required>
     <br>
