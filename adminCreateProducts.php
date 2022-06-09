@@ -91,12 +91,22 @@ if (isset($_POST["postCheck"]))
 
 <head>
 <title> Admin Create Products </title>
-
 <style>
     head, body {
         font-family: monospace;
-        margin: 25px;
     }
+    a:link {
+            color: #000000;
+            }
+            a:visited {
+            color: #d3a35d;
+            }
+            a:hover {
+            color: #ffb2a0;
+            }
+            a.active {
+            color: #ffcbb5;
+            }
     @media screen and (min-width:430px) 
             {
             fieldset {
@@ -105,11 +115,44 @@ if (isset($_POST["postCheck"]))
                  border-color: #d3a35d;
                  min-width: 200;
                  padding: 5px, 5px;
+                 font-size: 15px;
             }
             fieldset{
                 width: 40%;
                 min-width: 320px;
                 margin: auto;
+            }
+
+                        /* navigaton bar */
+                        ul {
+            list-style-type: none;
+
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            }
+
+            li {
+            float: left;
+            }
+
+            li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+
+            li a:hover {
+            background-color: #111;
+            }
+
+            .active {
+            background-color: #4CAF50;
             }
 
             table{
@@ -148,18 +191,27 @@ if (isset($_POST["postCheck"]))
 
 
 <body style = "background-color: #ffedc0">
-<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
-    <br>
+<a href="adminMainPage.php"><img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left"></a>
     <br>
     <h1> The Paper Bag. </h1>
     <h2> Welcome to the Admin Page: Create Products! </h2>
     <br>
-    <a href="adminMainpage.php"><h2>Main Page</h2></a>
+    <br>
+    <ul>
+    <li><a class="active" href="adminMainPage.php">Home</a></li>
+    <li><a href="adminProducts.php">View Products</a></li>
+    <li><a href="adminCreateProducts.php">Create Products</a></li>
+    <li><a href="adminEditProducts.php">Edit Products</a></li>
+    <li><a href="adminDeleteProducts.php">Delete Products</a></li>
+    </ul>
 
-    <h1 style="text-align: center">Insert a Product</h1>
+    
+    <br>
+    <h1 style="text-align: center">Add a New Product</h1>
 <fieldset style = "margin-left: auto; margin-right: auto">
-    <h2>Insert a Product</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<br>
+<br>
     <label for="categories">Category: </label>
     <select name="categories" required>
         <option value="Papers">Papers</option>
@@ -191,7 +243,7 @@ if (isset($_POST["postCheck"]))
     <input type="text" name="picture" required>
     <br>
     <br>
-    <h2>Variation</h2>
+    <center> <h2>Variation</h2> </center>
     <label for="variations">Variation:</label>
     <input type="text" name="variations" required>
     <br>

@@ -95,6 +95,7 @@
 <html>
     <head>
         <title>Registration Form</title>
+        <script src="https://kit.fontawesome.com/f83ff6aaae.js"></script>
     </head>
     <style>
         .warning{
@@ -103,6 +104,18 @@
         body {
             font-family: monospace;
         }
+        a:link {
+            color: #000000;
+            }
+            a:visited {
+            color: #d3a35d;
+            }
+            a:hover {
+            color: #ffb2a0;
+            }
+            a.active {
+            color: #ffcbb5;
+            }
         @media screen and (min-width:430px) 
             {
             fieldset {
@@ -117,31 +130,46 @@
                 min-width: 320px;
                 margin: auto;
             }
-            }
-            .footer {
-                padding: 45px 0 20px;
-                margin-top: 25px;
-                line-height: 10px;
-                background-color: #ffcbb5;
-                font-size: 15px;
-            }
-            .footer hr
-            {
-                border-top-color:#bbb;
-                opacity:0.5
-            }
-            .footer hr.small
-            {
-                 margin:20px 0
-            }
-            .footer h6
-            {
-                color:#000000;
-                font-size:16px;
-                text-transform:uppercase;
-                margin-top:5px;
-                letter-spacing:2px;
-            }
+        } footer {
+            width: 100%;
+            bottom: 0;
+            background: linear-gradient(to right, #d3a35d, #ffcbb5);
+            padding: 100px 0 30px;
+            border-top-left-radius: 125px;
+            border-top-right-radius: 125px;
+            font-size: 13px;
+            line-height: 20px;
+        }
+        .row {
+            width: 85%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        .col {
+            flex-basis: 25%; 
+            padding: 10px;
+        }
+        .logo {
+            height: 140px;
+            width: 160px;
+            margin-bottom: 30px;
+        }
+        .col h3 {
+            width: fit-content;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        ul li {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+        ul li a {
+            text-decoration: none;
+            color: #000000;
+        }
     </style>
 
 <body style = "background-color: #ffedc0">
@@ -196,37 +224,39 @@
                 <br>
                 <p><?php echo $passnomatch?></p>
                 <br>
-                <button name = "submit">SUBMIT</button>
+                <center> <button name = "submit">SUBMIT</button> </center>
                 <br>
                 <br>
-                <p>Already have an account?<a href = "loginUser.php">Log in here</a></p>
-
+                <p>Already have an account? &nbsp;<a href = "loginUser.php">Log in here</a></p>
             </form>
     </fieldset>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-              <center> <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "120" height = "110"> </center>
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <!-- <h6>Follow us on</h6>
-            <a href= #><img src = "https://i.imgur.com/TbcePZW.png"  height = 100px weight = 100px></a>  
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <h6>Working Hours</h6> -->
-              
-        <hr style = "color:#d3a35d">
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <center> <p class="copyright-text">
-                Copyright &copy; 2022 All Rights Reserved by The Paper Bag.
-            </p> </center>  
-        </div>
-    </body>
+            <br>
+            <br>
+            <br>
+    <footer>
+            <div class = "row">
+                <div class = "col">
+                    <!--logo-->
+                    <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo"  class = "logo">
+                    <p>A local stationery shop </p>
+                    <p>based in Manila, Philippines.</P>
+                 </div>
+                 <div class = "col">
+                    <center> <h3> Follow us on </h3> </center>
+                    <ul>
+                        <a href = ""><img src = "https://i.imgur.com/TE6yEdE.png" alt = "fb" width = "80" height = "80"></a>
+                        <a href = ""><img src = "https://i.imgur.com/TbcePZW.png" alt = "ig" width = "100" height = "80"></a>
+                        <a href = ""><img src = "https://i.imgur.com/cuKSoZO.png" alt = "twt" width = "80" height = "70"></a>
+                    </ul>
+                </div>
+                <div class = "col">
+                    <h3> Working Hours </h3>
+                    <p> Monday - Saturday</p>
+                    <p> 8:00 AM - 10:00 PM</p>
+                </div>
+             </div>
+           <hr>
+             <center> <p><i> Copryright &copy; 2022 - The Paper Bag.All Right Reserved. </i></p> </center> 
+        </footer>
+    </body>   
 </html>

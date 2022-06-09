@@ -201,6 +201,23 @@ if(isset($_POST['addcart'])){
             }
     </style>
     <body style = "background-color: #ffedc0">
+
+    
+        <?php //if ($result->num_rows > 0) {
+             //output data of each row
+
+            //while($row = $result->fetch_assoc()) {
+              //  $greet = $row["username"]; 
+          // }
+        //} else {
+         //   echo "<center><h1>You did not enter any Email or Password!!</h1></center>";
+        //    header("Location: login.php");
+
+        //}
+        //$conn->close();
+        //
+        ?>
+
         
         <!-- cart and profile under nito-->
         <div class="topnav">
@@ -224,6 +241,8 @@ if(isset($_POST['addcart'])){
         <br>
         <!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
 AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
+<hr style = "color:#d3a35d">
+
     <div class="category">
         <li><a href="Paper_subfolder/PaperCategoryPage.php">Papers</a></li>
         <li><a href="Pencil_subfolder/PencilCategoryPage.php">Pencils</a></li>

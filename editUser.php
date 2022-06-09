@@ -140,6 +140,21 @@ if(isset($_POST['edituser'])){
         a.active {
             color: #ffcbb5;
             }
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 5px, 5px;
+                 font-size: 15px;
+                 font-weight: bold;
+            }
+            fieldset{
+                width: 40%;
+                min-width: 320px;
+                margin: auto;
+            }
+    }
     </style>
     <body style = "background-color: #ffedc0">
         
@@ -168,6 +183,7 @@ if(isset($_POST['edituser'])){
         <br>
         <!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
 AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
+<hr style = "color:#d3a35d">
     <div class="category">
         <li><a href="Paper_subfolder/PaperCategoryPage.php">Papers</a></li>
         <li><a href="Pencil_subfolder/PencilCategoryPage.php">Pencils</a></li>
@@ -188,26 +204,29 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
 
 
     <div align = "center">
-        <h3>Edit Your Personal Information</h3>
+        <fieldset>
+            <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your Personal Information </h2>
+            <br><br><br>
         <form method= "post" action = "">
-            <label for = "email">Enter email</label><br>
-            <input type = "text" name = "email" required><br>
+            <label for = "email">Enter email</label><br><br>
+            <input type = "text" name = "email" required><br><br>
 
-            <label for = "username">New Username:</label><br>
-            <input type = "text" name = "username"><br>
+            <label for = "username">New Username:</label><br><br>
+            <input type = "text" name = "username"><br><br>
 
-            <label for = "firstname">New First Name:</label><br>
-            <input type = "text" name = "firstname"><br>
+            <label for = "firstname">New First Name:</label><br><br>
+            <input type = "text" name = "firstname"><br><br>
 
-            <label for = "lastname">New Last Name:</label><br>
-            <input type = "text" name = "lastname"><br>
+            <label for = "lastname">New Last Name:</label><br><br>
+            <input type = "text" name = "lastname"><br><br>
 
-            <label for = "address">New Address:</label><br>
-            <input type = "text" name = "address"><br>
+            <label for = "address">New Address:</label><br><br>
+            <input type = "text" name = "address"><br><br>
 
-            <label for = "contact">New Contact:</label><br>
-            <input type = "text" name = "contact"><br>
-            <br>
+            <label for = "contact">New Contact:</label><br><br>
+            <input type = "text" name = "contact"><br><br>
+
             <button name = "edituser">Submit</button>
         </form>
+        </fieldset>
     </div>

@@ -3,8 +3,6 @@
 include "Config.php";
 
 if (isset($_POST["postCheck"])){
-
-
     // Product
     $deleteID = [];
     if(isset($_POST["idDelete"])){
@@ -626,10 +624,14 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
+<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+<br>
+<h1> Admin </h1>
+<h2>Welcome to the Admin Page: Delete Products!</h2>
+<br>
 <style>
-    head, body {
+    body {
         font-family: monospace;
-        margin: 25px;
     }
     @media screen and (min-width:430px) 
             {
@@ -654,6 +656,39 @@ else{
                 width:50%;
             }
 
+            /* navigaton bar */
+            ul {
+            list-style-type: none;
+
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            }
+
+            li {
+            float: left;
+            }
+
+            li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+
+            li a:hover {
+            background-color: #111;
+            }
+
+            .active {
+            background-color: #4CAF50;
+            }
+
+            /*button Group */
             .btn-group input {
             background-color: #d3a35d;
             border: 1px solid black;
@@ -723,13 +758,16 @@ else{
 </head>
 
 <body style = "background-color: #ffedc0">
-<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
-<br>
-<h1> Admin </h1>
-<h2>Welcome to the Admin Page: Delete Products!</h2>
 
 <br>
-<br>
+<ul>
+  <li><a class="active" href="adminMainPage.php">Home</a></li>
+  <li><a href="adminProducts.php">View Products</a></li>
+  <li><a href="adminCreateProducts.php">Create Products</a></li>
+  <li><a href="adminEditProducts.php">Edit Products</a></li>
+  <li><a href="adminDeleteProducts.php">Delete Products</a></li>
+</ul>
+
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="btn-group" style="width:100%">
   <input type="submit" name="Papers" value="Papers" style="width:10%">
   <input type="submit" name="Pencils" value="Pencils" style="width:10%">
