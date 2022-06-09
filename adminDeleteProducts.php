@@ -628,6 +628,7 @@ else{
 <br>
 <h1> Admin </h1>
 <h2>Welcome to the Admin Page: Delete Products!</h2>
+<br>
 <style>
     body {
         font-family: monospace;
@@ -757,10 +758,7 @@ else{
 </head>
 
 <body style = "background-color: #ffedc0">
-<a href="adminMainPage.php"><img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left"></a>
-<br>
-<h1> Admin </h1>
-<h2>Welcome to the Admin Page: Delete Products!</h2>
+
 <br>
 <ul>
   <li><a class="active" href="adminMainPage.php">Home</a></li>

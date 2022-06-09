@@ -687,6 +687,7 @@ else{
     <h1> The Paper Bag. </h1>
     <h2> Welcome to the Admin Page: List of Products! </h2>
     <br>
+    <br>
     <ul>
     <li><a class="active" href="adminMainPage.php">Home</a></li>
     <li><a href="adminProducts.php">View Products</a></li>

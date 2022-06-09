@@ -91,10 +91,6 @@ if (isset($_POST["postCheck"]))
 
 <head>
 <title> Admin Create Products </title>
-<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
-    <br>
-    <h1> The Paper Bag. </h1>
-    <h2> Welcome to the Admin Page: Create Products! </h2>
 <style>
     head, body {
         font-family: monospace;
@@ -197,9 +193,9 @@ if (isset($_POST["postCheck"]))
 <body style = "background-color: #ffedc0">
 <a href="adminMainPage.php"><img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left"></a>
     <br>
-    <br>
     <h1> The Paper Bag. </h1>
     <h2> Welcome to the Admin Page: Create Products! </h2>
+    <br>
     <br>
     <ul>
     <li><a class="active" href="adminMainPage.php">Home</a></li>
@@ -209,8 +205,6 @@ if (isset($_POST["postCheck"]))
     <li><a href="adminDeleteProducts.php">Delete Products</a></li>
     </ul>
 
-    <a href="adminMainpage.php"><h3>Main Page</h3></a>
-    <hr style = "color:#d3a35d">
     
     <br>
     <h1 style="text-align: center">Add a New Product</h1>

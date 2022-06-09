@@ -568,7 +568,7 @@ else{
                  font-weight: bold;
             }
             fieldset{
-                width: 40%;
+                width: 80%;
                 min-width: 320px;
                 margin: auto;
             }
@@ -603,6 +603,46 @@ else{
             .active {
             background-color: #4CAF50;
             }
+             /*button Group */
+             .btn-group input {
+            background-color: #d3a35d;
+            border: 1px solid black;
+            color: white; /* White text */
+            padding: 10px 24px; /* Some padding */
+            cursor: pointer; /* Pointer/hand icon */
+            float: left; /* Float the buttons side by side */
+            }
+
+            /* Clear floats (clearfix hack) */
+            .btn-group:after {
+            content: "";
+            clear: both;
+            display: table;
+            }
+
+            .btn-group input:not(:last-child) {
+            border-right: none; /* Prevent double borders */
+            }
+
+            .alldiv{
+                display:block;
+                text-align:center;
+                
+            }
+            .all{
+                background-color: #d3a35d;
+                border: 1px solid black;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                text-align: center;
+                display: inline-block;
+                cursor: pointer;
+            }
+
 
             /* Tables */
             #main{
@@ -646,6 +686,7 @@ else{
     <h1> Admin </h1>
     <h2> Welcome to the Admin Page: Edit Products! </h2>
     <br>
+    <br>
     <ul>
     <li><a class="active" href="adminMainPage.php">Home</a></li>
     <li><a href="adminProducts.php">View Products</a></li>
@@ -653,10 +694,34 @@ else{
     <li><a href="adminEditProducts.php">Edit Products</a></li>
     <li><a href="adminDeleteProducts.php">Delete Products</a></li>
     </ul>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="btn-group" style="width:100%">
+  <input type="submit" name="Papers" value="Papers" style="width:10%">
+  <input type="submit" name="Pencils" value="Pencils" style="width:10%">
+  <input type="submit" name="Ballpens" value="Ballpens" style="width:10%">
+  <input type="submit" name="Markers" value="Markers" style="width:10%">
+  <input type="submit" name="Arts/Crafts" value="Arts/Crafts" style="width:10%">
+  <input type="submit" name="Erasers" value="Erasers" style="width:10%">
+  <input type="submit" name="Notebooks" value="Notebooks" style="width:10%">
+  <input type="submit" name="Journals" value="Journals" style="width:10%">
+  <input type="submit" name="Planners" value="Planners" style="width:10%">
+  <input type="submit" name="OfficeSupplies" value="Office Supplies" style="width:10%">
+</form>
+<br>
+<div class="alldiv">
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"">
+<input class="all" type="submit" name="All" value="All Products">
+</form>
+</div>
+<br>
+<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="margin-right: auto; margin-left: auto; text-align: center">
+<h3> Search Products</h3>
+<input type="text" name="search">
+<input type="submit" hidden>
+</form>
 
     <br>
-</fieldset>
-
+<fieldset>
+<center> <h1> <?php echo $nav; ?></h1> </center>
 <?php
         for($idx = 0; $idx < count($id); $idx++){
         echo "<table id='main'>";
@@ -697,6 +762,7 @@ else{
     ?>
     <br>
     <br>
+</fieldset>
   
 </body>
 
