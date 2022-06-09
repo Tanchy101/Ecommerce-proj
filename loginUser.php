@@ -125,10 +125,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         color: #000000;
             }
         a:visited {
-            color: #ffb2a0;
+            color: #d3a35d;
             }
         a:hover {
-            color: #d3a35d; 
+            color: #ffb2a0; 
             }
         a.active {
             color: #ffcbb5;
@@ -141,20 +141,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                  border-color: #d3a35d;
                  min-width: 200;
                  padding: 5px, 5px;
+                 font-size: 15px;
             }
             fieldset{
                 width: 40%;
                 min-width: 320px;
                 margin: auto;
             }
-            }
-          .footer {
-                padding: 20px;
-                margin-top: 20px;
-                position: absolute;
-                background-color: #ffcbb5;
-                text-align: center;
-            }
+        }
     </style>
 
     <body style = "background-color: #ffedc0">
@@ -178,8 +172,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
         </div>
         <br><br>
-        <div class = "footer">
-            footer.
         </div>
     </body>
 

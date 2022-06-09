@@ -86,6 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                  border-color: #d3a35d;
                  min-width: 200;
                  padding: 5px, 5px;
+                 font-size: 15px;
             }
             fieldset{
                 width: 40%;
@@ -99,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <body style = "background-color: #ffedc0">
         <center> <h1>Admin</h1> </center>
         <fieldset>
-        <h3>Change Username or Password</h3>
+        <h2>Change Username or Password</h2>
         <form method = "post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         New Name:<input type = "text" name = "changename" value = "<?php echo $changename ?>"><span class="error"><?php echo $changenameErr ?> </span>
         <br>

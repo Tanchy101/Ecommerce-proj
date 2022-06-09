@@ -100,6 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                  border-color: #d3a35d;
                  min-width: 200;
                  padding: 5px, 5px;
+                 font-size: 15px;
             }
             fieldset{
                 width: 40%;
@@ -113,15 +114,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     <body style = "background-color: #ffedc0">
         <fieldset>
+        <center>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <label name = "name"><h3>Admin:</h3></label> <input type="text" name="name" value="<?php echo $name ?>"> <span class="error"><?php echo $nameErr?> </span>
+        <label name = "name"><h2>Admin:</h2></label> <input type="text" name="name" value="<?php echo $name ?>"> <span class="error"><?php echo $nameErr?> </span>
         <br>
         <br>
-        <label name = "password"><h3>Password:</h3></label> <input type="password" name="password" value="<?php echo $password ?>"> <span class="error"><?php echo $passwordErr?> </span>
+        <label name = "password"><h2>Password:</h2></label> <input type="password" name="password" value="<?php echo $password ?>"> <span class="error"><?php echo $passwordErr?> </span>
         <br>
         <br>
         <a href = "adminChangePass.php">Forgot Password?</a>
         <p class="error"><?php echo $loginErr ?></p>
+        </center>
         <br>
             <center> <input type="submit"> </center>
         </form>

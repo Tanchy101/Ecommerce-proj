@@ -104,6 +104,18 @@
             font-family: monospace;
             font-weight: bold;
         }
+        a:link {
+        color: #000000;
+            }
+        a:visited {
+            color: #d3a35d;
+            }
+        a:hover {
+            color: #ffb2a0; 
+            }
+        a.active {
+            color: #ffcbb5;
+            }    
         @media screen and (min-width:430px) 
             {
             fieldset {
