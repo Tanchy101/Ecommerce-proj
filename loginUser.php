@@ -211,21 +211,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             </fieldset>
     
         </div>
-        <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br>
+        <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br>
         <footer>
             <div class = "row">
                 <div class = "col">
                     <!--logo-->
                     <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo"  class = "logo">
                     <p>A local stationery shop </p>
-                    <p>based in Manila, Philippines.</P>
+                    <p>Manila, Philippines.</P>
+                    <p> thepaperbag_mnl@gmail.com</P>
+                    <h4>(+63) 930 732 9433 </h4>
                  </div>
                  <div class = "col">
                     <center> <h3> Follow us on </h3> </center>
                     <ul>
-                        <a href = ""><img src = "https://i.imgur.com/TE6yEdE.png" alt = "fb" width = "80" height = "80"></a>
-                        <a href = ""><img src = "https://i.imgur.com/TbcePZW.png" alt = "ig" width = "100" height = "80"></a>
-                        <a href = ""><img src = "https://i.imgur.com/cuKSoZO.png" alt = "twt" width = "80" height = "70"></a>
+                        <a href = ""><img src = "https://i.imgur.com/TE6yEdE.png" alt = "fb" width = "70" height = "60"></a>
+                        <a href = ""><img src = "https://i.imgur.com/TbcePZW.png" alt = "ig" width = "80" height = "60"></a>
+                        <a href = ""><img src = "https://i.imgur.com/cuKSoZO.png" alt = "twt" width = "70" height = "60"></a>
                     </ul>
                 </div>
                 <div class = "col">
