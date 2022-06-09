@@ -115,7 +115,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <br>
         <center> <input type = "submit"> </center>
         </form>
-        </fiedset
+        </fiedset>
+        
 
     </body>
 </html>
