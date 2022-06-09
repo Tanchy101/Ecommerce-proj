@@ -781,7 +781,7 @@ if(isset($_POST['addcart'])){
             <br>
             <h2>The Paper Bag.</h2>
             <a href="logoutFileForUsers.php">Logout</a>
-            <a class="active" href="addtoCart.php">Cart</a>
+            <a href="addtoCart.php">Cart</a>
             <a href="profile.php"><?= $greet ?>'s Profile</a>
             <a href="userHomePage.php">Home</a>
            
