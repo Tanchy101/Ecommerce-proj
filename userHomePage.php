@@ -201,6 +201,7 @@ if(isset($_POST['addcart'])){
             }
     </style>
     <body style = "background-color: #ffedc0">
+    
         <?php //if ($result->num_rows > 0) {
              //output data of each row
 
@@ -241,6 +242,8 @@ if(isset($_POST['addcart'])){
         <br>
         <!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
 AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
+<hr style = "color:#d3a35d">
+
     <div class="category">
         <li><a href="Paper_subfolder/PaperCategoryPage.php">Papers</a></li>
         <li><a href="Pencil_subfolder/PencilCategoryPage.php">Pencils</a></li>
