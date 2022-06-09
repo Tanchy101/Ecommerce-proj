@@ -72,7 +72,7 @@ if(isset($_POST['addcart'])){
 
         if(!in_array($_POST['product_id'], $session_array_id)){
             $session_array = array(
-            'product_id' => $_GET['product_id'],
+            'product_id' => $_POST['product_id'],
             "quantity" => $_POST['quantity'],
             "products" => $_POST['product'],
             "variation" => $_POST['variation'],

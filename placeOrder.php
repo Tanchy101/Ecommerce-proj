@@ -195,7 +195,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <br><br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
     <div class="row"> 
-        <h3 class="drawLine"><span > Your Cart</span></h3>        
+        <h3 class="drawLine"><span > Your Order</span></h3>        
     </div>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
@@ -228,11 +228,6 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                     <input type="submit" value="REMOVE">
                 </form>
                 </td>
-                <td>
-                <form action = "placeOrder.php">
-                    <input type = "submit" value ="PLACE ORDER">
-                </form>
-                </td>
             </tr>
         <?php 
             $totalprice = $totalprice + ( $value['quantity'] * $value['price']);
@@ -247,21 +242,10 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
             <?php
             }
             ?>
-            
-            
+           
+       
         </div>
-        <?php
-        if(isset($_GET["action"])){
-            if($_GET["action"]  == "remove"){
-                foreach($_SESSION['cart'] as $susi => $value){
-                    if($values['product_id'] == $_GET['product_id']){
-                        unset($_SESSION['cart'][$susi]) ;
-                    }
-                }
-            }
-        }
-        
-        ?>
+       
     
        
 
