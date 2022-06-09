@@ -3,24 +3,41 @@
 
 <head>
 <title> Admin Create Products </title>
-<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
-    <br>
-    <h1> The Paper Bag. </h1>
-    <h2> Welcome to the Admin Page: Create Products! </h2>
 </head>
 
 
 <body bgcolor = "#ffedc0">
-
-    <a href="adminMainpage.html"><h3>Main Page</h3></a>
-    <hr style = "color:#d3a35d">
-    
-    <br>
-    <h1 style="text-align: center">Add a New Product</h1>
-    <center><table border = "1" width = "40%" bgcolor = "#ffedc0"></center> 
+    <table width = "35%">
         <tr>
             <td>
-<form method="post">
+                <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <br>
+        </td>
+        <td> 
+    <h2>Admin</h2>
+    <h2>Welcome to Admin Page: Create Products!</h2>
+</td>
+</tr>
+    <br>
+    <br>
+    <table border="1" width = "50%">
+        <tr>
+    <td> <a href="adminMainPage.html">Home</a> </td>
+    <td> <a href="adminProducts.html"> View Products </a></td>
+    <td> <a href="adminCreateProducts.html"> Create Products </a> </td>
+    <td> <a href="adminEditProducts.html"> Edit Products </a></td>
+    <td> <a href="adminDeleteProducts.html"> Delete Products </a></td>
+    </tr>
+    </table>
+    <br>
+    
+    <br>
+    <center> <h1> Add a New Product</h1> </center>
+    <center><table border = "1" width = "40%" bgcolor = "beige"></center> 
+        <tr>
+            <td>
+
 <br>
 <br>
     <label for="categories">Category: </label>
@@ -69,6 +86,7 @@
     <br>
     <input type='hidden' name='postCheck' value='1'>
     <center> <input  type="submit" value="CREATE"> </center>
+    <br>
 </form>
 </td>
 </tr>
