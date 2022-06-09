@@ -119,10 +119,28 @@
             }
             }
             .footer {
-                padding: 20px;
-                margin-top: 20px;
+                padding: 45px 0 20px;
+                margin-top: 25px;
+                line-height: 10px;
                 background-color: #ffcbb5;
-                text-align: center;
+                font-size: 15px;
+            }
+            .footer hr
+            {
+                border-top-color:#bbb;
+                opacity:0.5
+            }
+            .footer hr.small
+            {
+                 margin:20px 0
+            }
+            .footer h6
+            {
+                color:#000000;
+                font-size:16px;
+                text-transform:uppercase;
+                margin-top:5px;
+                letter-spacing:2px;
             }
     </style>
 
@@ -185,8 +203,30 @@
 
             </form>
     </fieldset>
-        <div class = "footer">
-        footer.
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+              <center> <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "120" height = "110"> </center>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <!-- <h6>Follow us on</h6>
+            <a href= #><img src = "https://i.imgur.com/TbcePZW.png"  height = 100px weight = 100px></a>  
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Working Hours</h6> -->
+              
+        <hr style = "color:#d3a35d">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <center> <p class="copyright-text">
+                Copyright &copy; 2022 All Rights Reserved by The Paper Bag.
+            </p> </center>  
         </div>
     </body>
 </html>

@@ -151,8 +151,8 @@ if(isset($_POST['addcart'])){
         }
 
         .featimg {
-        width: 100%;
-        height: auto;
+        width: 220px;
+        height: 200px;
         }
 
         .desc {
@@ -195,12 +195,6 @@ if(isset($_POST['addcart'])){
             }
         a.active {
             color: #ffcbb5;
-            }
-        .footer {
-            padding: 20px;
-            margin-top: 20px;
-            background-color: #ffcbb5;
-            text-align: center;
             }
     </style>
     <body style = "background-color: #ffedc0">
@@ -314,8 +308,5 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
        var_dump($_SESSION['cart']); 
        
         ?>
-       <div class = "footer">
-        footer.
-       </div>
 </body>
 </html>

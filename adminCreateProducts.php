@@ -6,6 +6,7 @@ include "Config.php";
 
 if (isset($_POST["postCheck"]))
 {
+    
     // Add Product Table Values on Variables
     $addCategories = $_POST["categories"];
     $addProducts = $_POST["products"];
@@ -51,6 +52,7 @@ if (isset($_POST["postCheck"]))
             }
             
             $notUnique++;
+            echo '<script>alert("New Variation Succesfully Created!")</script>';
         }
 
     }
@@ -76,55 +78,11 @@ if (isset($_POST["postCheck"]))
         } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
         }
+        echo '<script>alert("New Product Succesfully Created!")</script>';
     }
-
-
 
 }
 
-// Get Data from Database for Print out
-$sql = "SELECT * FROM `adminstock`";
-    $result = $conn->query($sql);
-
-    $id = [];
-    $categories = [];
-    $products = [];
-    $description = [];
-    $picture = [];
-
-    $idx = 0;
-    if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-            $id[$idx] = $row["id"];
-            $categories [$idx] = $row["categories"]; 
-            $products[$idx] = $row["products"];
-            $description[$idx] = $row["description"];
-            $picture[$idx] = $row["picture"];
-            $idx++;
-        }
-    }
-
-    $sql = "SELECT * FROM `adminstockvariant`";
-    $result = $conn->query($sql);
-
-    $var_id = [];
-    $product_id = [];
-    $variation = [];
-    $price = [];
-    $stock = [];
-
-    $idx = 0;
-    if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-            $var_id[$idx] = $row["id"];
-            $product_id[$idx] = $row["product_id"]; 
-            $variation[$idx] = $row["variation"];
-            $price[$idx] = $row["price"];
-            $stock[$idx] = $row["stock"];
-            $idx++;
-        }
-    }
-    
 
 ?>
 
@@ -133,13 +91,6 @@ $sql = "SELECT * FROM `adminstock`";
 
 <head>
 <title> Admin Create Products </title>
-    <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
-    <br>
-    <br>
-    <h1> The Paper Bag. </h1>
-    <h2> Welcome to the Admin Page: Create Products! </h2>
-    <br>
-</head>
 
 <style>
     head, body {
@@ -193,12 +144,20 @@ $sql = "SELECT * FROM `adminstock`";
             }
     }
 </style>
+</head>
+
 
 <body style = "background-color: #ffedc0">
+<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+    <br>
+    <br>
+    <h1> The Paper Bag. </h1>
+    <h2> Welcome to the Admin Page: Create Products! </h2>
+    <br>
+    <a href="adminMainpage.php"><h2>Main Page</h2></a>
 
-<body>
-    <h1>ALL PRODUCTS</h1>
-<fieldset style = "float:right">
+    <h1 style="text-align: center">Insert a Product</h1>
+<fieldset style = "margin-left: auto; margin-right: auto">
     <h2>Insert a Product</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <label for="categories">Category: </label>
@@ -207,7 +166,7 @@ $sql = "SELECT * FROM `adminstock`";
         <option value="Pencils">Pencils</option>
         <option value="Ballpens">Ballpens</option>
         <option value="Markers">Markers</option>
-        <option value="Arts and Crafts">Arts and Crafts</option>
+        <option value="Arts/Crafts">Arts and Crafts</option>
         <option value="Erasers">Erasers</option>
         <option value="Notebooks">Notebooks</option>
         <option value="Journals">Journals</option>
@@ -246,40 +205,11 @@ $sql = "SELECT * FROM `adminstock`";
     <br>
     <br>
     <input type='hidden' name='postCheck' value='1'>
-    <center> <input type="submit" value="CREATE"> </center>
+    <center> <input  type="submit" value="CREATE"> </center>
 </form>
 </fieldset>
 <br>
-    <?php
-        for($idx = 0; $idx < count($id); $idx++){
-        echo "<table>";
-        echo "<tr>";
-        echo "<th id = 'product' colspan = '4'><h3>" . $products[$idx] . "</h3></th>";
-        echo "</tr>";
-        echo "<tr id = 'category'>";
-        echo "<td>ID</td><td>Category</td><td>Description</td><td>Picture</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td>$id[$idx]</td><td>$categories[$idx]</td><td>$description[$idx]</td><td><img width='220px' src='$picture[$idx]'</td>";
-        echo "</tr>";
-        echo "<br>";
-        echo "<tr>";
-        echo "<th id = 'variation' colspan = '4'><h4>Variations</h4></th>";
-        echo "<tr id = 'category'>";
-        echo "<td>ID</td><td>Variation</td><td>Price</td><td>Stock</td>";
-        echo "</tr>";
-            for($i = 0; $i < count($var_id); $i++){
-                if ($id[$idx] == $product_id[$i]){
-                    echo "<tr>";
-                    echo "<td>" . $var_id[$i] . "</td><td>" . $variation[$i] . "</td><td>"  . $price[$i] . "</td><td>" . $stock[$i] . "</td>";
-                    echo "</tr>";
-                }
-            }
-
-        echo "<br>";
-        echo "</table>";
-        }
-    ?>
+   
 </body>
 
 </html>
