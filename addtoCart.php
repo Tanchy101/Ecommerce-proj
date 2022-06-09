@@ -2,8 +2,27 @@
 session_start();
 
   include "Config.php";
+  if (!empty($_SESSION['user'])) {
+    // Get ALL user details from database using user id
+    $sql = "SELECT * FROM userlogin WHERE id ='{$_SESSION["user"]["id"]}'";
+    $result = $conn->query($sql);
 
+    if ($result->num_rows > 0) {
+        //output data of each row
+    
+       while($row = $result->fetch_assoc()) {
+           $greet = $row["username"]; 
+      }
+    } else {
+        session_destroy();
+        header("Location: loginUser.php");
+    }
+} else {
+    session_destroy();
+    header("Location: loginUser.php");
+}
  
+
 ?>
 
 <!DOCTYPE html>
@@ -170,7 +189,65 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     </div>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
-       <?php?>
+       <div id = "cartNatin">
+           <table>
+               <tr>
+                   <th>product name</th>
+                   <th>quantity</th>
+                   <th>Variation</th>
+                   <th>Price</th>
+                </tr>
+           <?php
+
+           if(!empty($_SESSION['cart'])){
+            $totalprice = 0;
+
+                foreach($_SESSION['cart'] as $susi => $value){
+                    
+                
+           
+            ?>
+            <tr>
+                <td><?= $value['products']; ?></td>
+                <td><?= $value['quantity']; ?></td>
+                <td><?= $value['variation']; ?></td>
+                <td><?= $value['price']; ?></td>
+                <td><?php number_format($value['quantity'] * $value['price'], 2); ?></td>
+                <td>
+                    <a href ="addtoCart.php?action=remove%id=<?php echo $values['product_id']; ?>"><button>Remove</span></button>
+                </td>
+            </tr>
+        <?php 
+            $totalprice = $totalprice + ( $value['quantity'] * $value['price']);
+               }
+            ?>
+            <tr>
+                <td colspan = "3" align = "right"><b>Total Price</b></td>
+                <td align = "right">PHP <?php echo number_format($totalprice, 2); ?></td>
+                <td></td>
+            </tr>
+            <?php
+            }
+            ?>
+            
+       
+        </div>
+        <?php
+        if(isset($_GET["action"])){
+            if($_GET["action"]  == "remove"){
+                foreach($_SESSION['cart'] as $susi => $value){
+                    if($values['product_id'] == $_GET['product_id']){
+                        unset($_SESSION['cart'][$susi]) ;
+                    }
+                }
+            }
+        }
+        var_dump($_SESSION['cart']);
+        ?>
+    
+       
+
+
             
        <div class = "footer">
         footer.

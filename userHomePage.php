@@ -75,7 +75,7 @@ if(isset($_POST['addcart'])){
 
 
             $session_array = array(
-            'product_id' => $_POST['product_id'],
+            'product_id' => $_GET['product_id'],
             "quantity" => $_POST['quantity'],
             "products" => $_POST['product'],
             "variation" => $_POST['variation'],
@@ -201,30 +201,13 @@ if(isset($_POST['addcart'])){
             }
     </style>
     <body style = "background-color: #ffedc0">
-        <?php //if ($result->num_rows > 0) {
-             //output data of each row
-
-            //while($row = $result->fetch_assoc()) {
-              //  $greet = $row["username"]; 
-          // }
-        //} else {
-         //   echo "<center><h1>You did not enter any Email or Password!!</h1></center>";
-        //    header("Location: login.php");
-
-        //}
-        //$conn->close();
-        //
-        ?>
         
-        <!-- pwede ka na mag lagay dito sa ilalim ng comment ko na to na mga need
-        na ilagay sa home page-->
-
         <!-- cart and profile under nito-->
         <div class="topnav">
             <br>
             <h2>The Paper Bag.</h2>
             <a href="logoutFileForUsers.php">Logout</a>
-            <a class="active" href="#">Cart</a>
+            <a class="active" href="addtoCart.php">Cart</a>
             <a href="profile.php"><?= $greet ?>'s Profile</a>
             <a href="userHomePage.php">Home</a>
            
@@ -274,12 +257,13 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 
                 echo "</b></p>";
                 echo "<p>" . $description[$idx] . "</p>";
-                echo "<form method = 'post' action = '#'>";
                 
                 for ($i = 0; $i < count($var_id); $i++){
                     
                     if($id[$idx] == $product_id[$i])
                     {
+                        echo "<form method = 'post' action = '#'>";
+
                         echo "₱" . $price[$i] . " ";
                         echo "<input type = 'hidden' name = 'price' value ='". $price[$i] . "'>";
                     }
@@ -306,9 +290,8 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 
                 
             }
-        }
-       var_dump($_SESSION['cart']); 
-       
-        ?>
+        } 
+        
+         ?>
 </body>
 </html>
