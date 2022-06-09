@@ -3,106 +3,13 @@ session_start();
 
   include "Config.php";
 
-  $sql = "SELECT * FROM adminstock";
-  $result = $conn->query($sql);
-
-  $id = [];
-  $categories = [];
-  $products = [];
-  $description = [];
-  $picture = [];
-
-  $idx = 0;
-  if($result->num_rows > 0){
-      while($row = $result->fetch_assoc()){
-          $id[$idx] = $row["id"];
-          $categories [$idx] = $row["categories"]; 
-          $products[$idx] = $row["products"];
-          $description[$idx] = $row["description"];
-          $picture[$idx] = $row["picture"];
-          $idx++;
-      }
-  }
-
-  $sql = "SELECT * FROM `adminstockvariant`";
-  $result = $conn->query($sql);
-
-  $var_id = [];
-  $product_id = [];
-  $variation = [];
-  $price = [];
-  $stock = [];
-
-  $idx = 0;
-  if($result->num_rows > 0){
-      while($row = $result->fetch_assoc()){
-          $var_id[$idx] = $row["id"];
-          $product_id[$idx] = $row["product_id"]; 
-          $variation[$idx] = $row["variation"];
-          $price[$idx] = $row["price"];
-          $stock[$idx] = $row["stock"];
-          $idx++;
-      }
-  }
-
-  if (!empty($_SESSION['user'])) {
-    // Get ALL user details from database using user id
-    $sql = "SELECT * FROM userlogin WHERE id ='{$_SESSION["user"]["id"]}'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        //output data of each row
-    
-       while($row = $result->fetch_assoc()) {
-           $greet = $row["username"]; 
-      }
-    } else {
-        session_destroy();
-        header("Location: loginUser.php");
-    }
-} else {
-    session_destroy();
-    header("Location: loginUser.php");
-}
-
-if(isset($_POST['addcart'])){
-      
-    if(isset($_SESSION['cart'])){
-        $session_array_id = array_column($_SESSION['cart'], "product_id");
-
-        if(!in_array($_GET['product_id'], $session_array_id)){
-            $session_array = array(
-            'product_id' => $_GET['product_id'],
-            "quantity" => $_POST['quantity'],
-            "products" => $_POST['product'],
-            "variation" => $_POST['variation'],
-            "price" => $_POST['price']
-            );
-            $_SESSION['cart'][] = $session_array;
-        }
-
-    }else{
-
-
-        $session_array = array(
-            'product_id' => $_GET['product_id'],
-            "quantity" => $_POST['quantity'],
-            "products" => $_POST['product'],
-            "variation" => $_POST['variation'],
-            "price" => $_POST['price']
-        );
-
-        $_SESSION['cart'][] = $session_array;
-    }
-}
-
-
+ 
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome User</title>
+        <title>My Cart</title>
         <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -259,61 +166,12 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <br><br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
     <div class="row"> 
-        <h3 class="drawLine"><span >Featured Item</span></h3>        
+        <h3 class="drawLine"><span > Your Cart</span></h3>        
     </div>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
-        <?php
-        for($idx = 0; $idx < count($id); $idx++)
-        {
-
-            if(isset($id[$idx])){
-                echo "<div style = 'margin-left: 30px;' class = 'featured'>";
-                echo "<a target = '_blank' href = '#'>";
-                echo "<img class = 'featimg' src = '" . $picture[$idx] . "'></a>";          
-                echo "<div class = 'desc'>";
-                echo "<strong>" . $products[$idx] . "</strong>";
-                echo "<p><b>";
-                
-                echo "</b></p>";
-                echo "<p>" . $description[$idx] . "</p>";
-                echo "<form method = 'post' action = 'userHomePage.php?action=add&id='". $id[$idx] . "'>";
-                
-                for ($i = 0; $i < count($var_id); $i++){
-                    
-                    if($id[$idx] == $product_id[$i])
-                    {
-                        echo "₱" . $price[$i] . " ";
-                        echo "<input type = 'hidden' name = 'price' value ='". $price[$i] . "'>";
-                    }
-                }
-                echo "<br>";
-                for ($i = 0; $i < count($var_id); $i++){
-                    if($id[$idx] == $product_id[$i])
-                    {
-                        echo "<input type='radio' id='". $var_id[$i] . "' name='variation' value='" . $variation[$i] . "'>";
-                        echo "<label>" . $variation[$i] . "</label>"; 
-                        echo "<br>";
-                        echo "<input type = 'hidden' name = 'variation' value ='". $variation[$i] . "'>";
-
-                    }
-                }
-    
-                echo "<br>";
-             
-                echo "<input type = 'hidden' name = 'product' value = '" . $products[$idx] . "'>";
-                echo "<input type='number'  value = '1' name='quantity'>";
-                echo "<input type='submit' name = 'addcart' value='addtocart'>";
-                echo "</form>";
-                echo "</div>";
-                echo "</div>";
-                
-                
-            }
-        }
-       var_dump($_SESSION['cart']); 
-       
-        ?>
+       <?php?>
+            
        <div class = "footer">
         footer.
        </div>
