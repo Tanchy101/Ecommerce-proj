@@ -234,6 +234,8 @@ else if(isset($_POST["editVariant"])){
         echo "<input type='hidden' name='editType' value='Variation'>";
         echo "<input type='submit' value ='EDIT'>";
     }
+
+
     ?>
 <br>
 <br>
