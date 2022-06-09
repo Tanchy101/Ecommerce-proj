@@ -91,15 +91,9 @@ if (isset($_POST["postCheck"]))
 
 <head>
 <title> Admin Create Products </title>
-<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
-    <br>
-    <h1> The Paper Bag. </h1>
-    <h2> Welcome to the Admin Page: Create Products! </h2>
 <style>
     head, body {
         font-family: monospace;
-        margin: 25px;
-        font-weight: bold;
     }
     a:link {
             color: #000000;
@@ -127,6 +121,38 @@ if (isset($_POST["postCheck"]))
                 width: 40%;
                 min-width: 320px;
                 margin: auto;
+            }
+
+                        /* navigaton bar */
+                        ul {
+            list-style-type: none;
+
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            }
+
+            li {
+            float: left;
+            }
+
+            li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+
+            li a:hover {
+            background-color: #111;
+            }
+
+            .active {
+            background-color: #4CAF50;
             }
 
             table{
@@ -165,9 +191,20 @@ if (isset($_POST["postCheck"]))
 
 
 <body style = "background-color: #ffedc0">
+<a href="adminMainPage.php"><img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left"></a>
+    <br>
+    <h1> The Paper Bag. </h1>
+    <h2> Welcome to the Admin Page: Create Products! </h2>
+    <br>
+    <br>
+    <ul>
+    <li><a class="active" href="adminMainPage.php">Home</a></li>
+    <li><a href="adminProducts.php">View Products</a></li>
+    <li><a href="adminCreateProducts.php">Create Products</a></li>
+    <li><a href="adminEditProducts.php">Edit Products</a></li>
+    <li><a href="adminDeleteProducts.php">Delete Products</a></li>
+    </ul>
 
-    <a href="adminMainpage.php"><h3>Main Page</h3></a>
-    <hr style = "color:#d3a35d">
     
     <br>
     <h1 style="text-align: center">Add a New Product</h1>
