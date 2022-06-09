@@ -198,8 +198,7 @@
                 <br>
                 <p><?php echo $passnomatch?></p>
                 <br>
-                <button name = "submit">SUBMIT</button>
-                <br>
+                <center> <button name = "submit">SUBMIT</button> </center>
                 <br>
                 <p>Already have an account?<a href = "loginUser.php">Log in here</a></p>
 
