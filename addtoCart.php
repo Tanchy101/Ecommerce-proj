@@ -21,6 +21,16 @@ session_start();
     session_destroy();
     header("Location: loginUser.php");
 }
+
+if (isset($_POST["remove"])){
+
+    $removeValue = $_POST["remove"];
+    
+    unset($_SESSION["cart"][0]); 
+
+    $_SESSION["cart"] = array_values($_SESSION["cart"]);
+
+}
  
 
 ?>
@@ -201,11 +211,10 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
 
            if(!empty($_SESSION['cart'])){
             $totalprice = 0;
+            $valueArray = 0;
 
                 foreach($_SESSION['cart'] as $susi => $value){
-                    
-                
-           
+
             ?>
             <tr>
                 <td><?= $value['products']; ?></td>
@@ -214,11 +223,15 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 <td><?= $value['price']; ?></td>
                 <td><?php number_format($value['quantity'] * $value['price'], 2); ?></td>
                 <td>
-                    <a href ="addtoCart.php?action=remove%id=<?php echo $values['product_id']; ?>"><button>Remove</span></button>
+                <form action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                    <input type="hidden" name="remove" value="<?php $valueArray ?>">
+                    <input type="submit" value="REMOVE">
+                </form>
                 </td>
             </tr>
         <?php 
             $totalprice = $totalprice + ( $value['quantity'] * $value['price']);
+            $valueArray++;
                }
             ?>
             <tr>

@@ -55,7 +55,6 @@ include 'Config.php'
         </style>
 
     <body style = "background-color: #ffedc0">
-   
         <a href = "adminChangePass.php"><h3>Change password</h3></a>
         <hr style = "color:#d3a35d">
         
@@ -68,7 +67,24 @@ include 'Config.php'
         <a href = "adminCreateProducts.php">Insert a Product</a>
         <br>
         <a href = "adminDeleteProducts.php">Delete Products </a>
+        <br>
+        <a href= "adminEditProducts.php">Edit Products </a>
             </center>
         </fieldset>
+
+        <br>
+        <br>
+        <center> <h1> Manage Vouchers </h1> </center>
+        <fieldset>
+            <center>
+        <a href = "adminProducts.php">See All Products </a>
+        <br>
+        <a href = "adminCreateVoucher.php">Create Vouchers</a>
+        <br>
+        <a href = "adminDeleteVoucher.php">Delete Vouchers </a>
+            </center>
+        </fieldset>
+
+
     </body>
 </html>

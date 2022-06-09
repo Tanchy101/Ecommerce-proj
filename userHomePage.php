@@ -71,9 +71,6 @@ if(isset($_POST['addcart'])){
         $session_array_id = array_column($_SESSION['cart'], "product_id");
 
         if(!in_array($_POST['product_id'], $session_array_id)){
-
-
-
             $session_array = array(
             'product_id' => $_GET['product_id'],
             "quantity" => $_POST['quantity'],
