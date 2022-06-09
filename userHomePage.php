@@ -70,9 +70,12 @@ if(isset($_POST['addcart'])){
     if(isset($_SESSION['cart'])){
         $session_array_id = array_column($_SESSION['cart'], "product_id");
 
-        if(!in_array($_GET['product_id'], $session_array_id)){
+        if(!in_array($_POST['product_id'], $session_array_id)){
+
+
+
             $session_array = array(
-            'product_id' => $_GET['product_id'],
+            'product_id' => $_POST['product_id'],
             "quantity" => $_POST['quantity'],
             "products" => $_POST['product'],
             "variation" => $_POST['variation'],
@@ -85,7 +88,7 @@ if(isset($_POST['addcart'])){
 
 
         $session_array = array(
-            'product_id' => $_GET['product_id'],
+            'product_id' => $_POST['product_id'],
             "quantity" => $_POST['quantity'],
             "products" => $_POST['product'],
             "variation" => $_POST['variation'],
@@ -271,7 +274,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 
                 echo "</b></p>";
                 echo "<p>" . $description[$idx] . "</p>";
-                echo "<form method = 'post' action = 'userHomePage.php?action=add&id='". $id[$idx] . "'>";
+                echo "<form method = 'post' action = '#'>";
                 
                 for ($i = 0; $i < count($var_id); $i++){
                     
@@ -288,8 +291,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                         echo "<input type='radio' id='". $var_id[$i] . "' name='variation' value='" . $variation[$i] . "'>";
                         echo "<label>" . $variation[$i] . "</label>"; 
                         echo "<br>";
-                        echo "<input type = 'hidden' name = 'variation' value ='". $variation[$i] . "'>";
-
+                        echo "<input type = 'hidden' name = 'product_id' value ='". $product_id[$i] . "'>";
                     }
                 }
     

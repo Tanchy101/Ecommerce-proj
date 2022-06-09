@@ -674,6 +674,25 @@ else{
             border-right: none; /* Prevent double borders */
             }
 
+            .alldiv{
+                display:block;
+                text-align:center;
+                
+            }
+            .all{
+                background-color: #d3a35d;
+                border: 1px solid black;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                text-align: center;
+                display: inline-block;
+                cursor: pointer;
+            }
+
             tr:nth-child(even){background-color: #f2f2f2;}
             tr:nth-child(odd){background-color: #fff;}
 
@@ -724,9 +743,11 @@ else{
   <input type="submit" name="OfficeSupplies" value="Office Supplies" style="width:10%">
 </form>
 <br>
+<div class="alldiv">
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"">
-<input type="submit" name="All" value="All">
+<input class="all" type="submit" name="All" value="All Products">
 </form>
+</div>
 <br>
 <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="margin-right: auto; margin-left: auto; text-align: center">
 <h3> Search Products</h3>
