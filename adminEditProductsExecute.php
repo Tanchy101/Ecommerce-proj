@@ -106,10 +106,39 @@ else if(isset($_POST["editVariant"])){
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Admin Edit Products</title>
+        <style>
+            head, body{
+                font-family: monospace;
+            }
+            @media screen and (min-width:430px) {
+                fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 5px, 5px;
+                 font-size: 15px;
+                }
+                fieldset{
+                width: 80%;
+                min-width: 320px;
+                margin: auto;
+                }
+
+        </style>
     </head>
 
-    <body>
-
+    <body style = "background-color: #ffedc0">
+    <a href="adminMainPage.php"><img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left"></a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <?php 
     if ($editOption == "Product"){
         echo "<h1>Edit Product</h1>";
