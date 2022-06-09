@@ -175,7 +175,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
 
     <div align = "center">
         <h3>Your Personal Information</h3>
-        <p>Username: <?= $user['username']; ?></p> 
+        <p>Username: Eucharist  ?></p> 
         <p>Email: <?= $user['email']; ?></p>
         <p>First Name: <?= $user['firstname']; ?></p> 
         <p>Last Name: <?= $user['lastname']; ?></p> 
