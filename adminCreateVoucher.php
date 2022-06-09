@@ -29,7 +29,7 @@ if(isset($_POST["postCheck"])){
     <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     <br>
     <h1> The Paper Bag. </h1>
-    <h2> Welcome to the Admin Page: Create Products! </h2>
+    <h2> Welcome to the Admin Page: Create Vouchers! </h2>
 </head>
 <style>
     head, body {
