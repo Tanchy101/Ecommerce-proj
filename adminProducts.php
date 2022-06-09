@@ -558,7 +558,6 @@ else{
    <style>
     head, body {
         font-family: monospace;
-        margin: 25px;
     }
     @media screen and (min-width:430px) 
             {
@@ -581,6 +580,37 @@ else{
                 border: 1px solid black;
                 font-family: Arial, Helvetica, sans-serif;
                 width:50%;
+            }
+                        /* navigaton bar */
+                        ul {
+            list-style-type: none;
+
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            }
+
+            li {
+            float: left;
+            }
+
+            li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+
+            li a:hover {
+            background-color: #111;
+            }
+
+            .active {
+            background-color: #4CAF50;
             }
 
             .btn-group input {
@@ -652,12 +682,20 @@ else{
 
 <body style = "background-color: #ffedc0">
 <br>
-    <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+    <a href="adminMainPage.php"><img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left"></a>
     <br>
     <h1> The Paper Bag. </h1>
     <h2> Welcome to the Admin Page: List of Products! </h2>
     <br>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="btn-group" style="width:100%">
+    <ul>
+    <li><a class="active" href="adminMainPage.php">Home</a></li>
+    <li><a href="adminProducts.php">View Products</a></li>
+    <li><a href="adminCreateProducts.php">Create Products</a></li>
+    <li><a href="adminEditProducts.php">Edit Products</a></li>
+    <li><a href="adminDeleteProducts.php">Delete Products</a></li>
+    </ul>
+    
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="btn-group" style="width:100%">
   <input type="submit" name="Papers" value="Papers" style="width:10%">
   <input type="submit" name="Pencils" value="Pencils" style="width:10%">
   <input type="submit" name="Ballpens" value="Ballpens" style="width:10%">

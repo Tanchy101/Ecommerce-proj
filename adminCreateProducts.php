@@ -95,7 +95,6 @@ if (isset($_POST["postCheck"]))
 <style>
     head, body {
         font-family: monospace;
-        margin: 25px;
     }
     @media screen and (min-width:430px) 
             {
@@ -110,6 +109,38 @@ if (isset($_POST["postCheck"]))
                 width: 40%;
                 min-width: 320px;
                 margin: auto;
+            }
+
+                        /* navigaton bar */
+                        ul {
+            list-style-type: none;
+
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            }
+
+            li {
+            float: left;
+            }
+
+            li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+
+            li a:hover {
+            background-color: #111;
+            }
+
+            .active {
+            background-color: #4CAF50;
             }
 
             table{
@@ -148,13 +179,19 @@ if (isset($_POST["postCheck"]))
 
 
 <body style = "background-color: #ffedc0">
-<img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+<a href="adminMainPage.php"><img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left"></a>
     <br>
     <br>
     <h1> The Paper Bag. </h1>
     <h2> Welcome to the Admin Page: Create Products! </h2>
     <br>
-    <a href="adminMainpage.php"><h2>Main Page</h2></a>
+    <ul>
+    <li><a class="active" href="adminMainPage.php">Home</a></li>
+    <li><a href="adminProducts.php">View Products</a></li>
+    <li><a href="adminCreateProducts.php">Create Products</a></li>
+    <li><a href="adminEditProducts.php">Edit Products</a></li>
+    <li><a href="adminDeleteProducts.php">Delete Products</a></li>
+    </ul>
 
     <h1 style="text-align: center">Insert a Product</h1>
 <fieldset style = "margin-left: auto; margin-right: auto">
