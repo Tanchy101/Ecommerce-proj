@@ -102,6 +102,7 @@
         }
         body {
             font-family: monospace;
+            font-weight: bold;
         }
         @media screen and (min-width:430px) 
             {
@@ -116,6 +117,7 @@
                 width: 8%;
                 min-width: 320px;
                 margin: auto;
+                font-size: 15px;
             }
             }
             .footer {
