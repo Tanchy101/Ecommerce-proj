@@ -251,7 +251,6 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
             ?>
             <tr>
                 <form action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                <td> <input type="checkbox" name="checkout[]" value="<?php $valueArray ?>"></td>
                 <td><?= $value['products']; ?></td>
                 <td><?= $value['quantity']; ?></td>
                 <td><?= $value['variation']; ?></td>

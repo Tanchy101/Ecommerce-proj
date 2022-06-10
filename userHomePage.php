@@ -3,6 +3,59 @@ session_start();
 
   include "Config.php";
 
+  if(isset($_POST['addcart'])){
+      
+    if(isset($_SESSION['cart'])){
+
+        $var_idPOST = $_POST["variation"];
+        $sql = "SELECT * FROM `adminstockvariant` WHERE id='$var_idPOST'";
+        $result = $conn->query($sql);
+      
+        $var_id = [];
+        $product_id = [];
+        $variation = [];
+        $price = [];
+        $stock = [];
+      
+        $idx = 0;
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $var_id[$idx] = $row["id"];
+                $product_id[$idx] = $row["product_id"]; 
+                $variation[$idx] = $row["variation"];
+                $price[$idx] = $row["price"];
+                $stock[$idx] = $row["stock"];
+                $idx++;
+            }
+        }
+        $session_array_id = array_column($_SESSION['cart'], "product_id");
+
+        if(!in_array($product_id[0], $session_array_id)){
+            $session_array = array(
+            'product_id' => $product_id[0],
+            "quantity" => $_POST['quantity'],
+            "products" => $_POST['product'],
+            "variation" => $variation[0],
+            "price" => $_POST['price']
+            );
+            $_SESSION['cart'][] = $session_array;
+        }
+
+    }else{
+
+
+        $session_array = array(
+            'product_id' => $_POST['product_id'],
+            "quantity" => $_POST['quantity'],
+            "products" => $_POST['product'],
+            "variation" => $_POST['variation'],
+            "price" => $_POST['price']
+        );
+
+        $_SESSION['cart'][] = $session_array;
+    }
+}
+
   $nav = "";
 // READ PRODUCTS
 if (isset($_POST["search"])){
@@ -571,58 +624,7 @@ else{
     header("Location: loginUser.php");
 }
 
-if(isset($_POST['addcart'])){
-      
-    if(isset($_SESSION['cart'])){
 
-        $var_idPOST = $_POST["variation"];
-        $sql = "SELECT * FROM `adminstockvariant` WHERE id='$var_idPOST'";
-        $result = $conn->query($sql);
-      
-        $var_id = [];
-        $product_id = [];
-        $variation = [];
-        $price = [];
-        $stock = [];
-      
-        $idx = 0;
-        if($result->num_rows > 0){
-            while($row = $result->fetch_assoc()){
-                $var_id[$idx] = $row["id"];
-                $product_id[$idx] = $row["product_id"]; 
-                $variation[$idx] = $row["variation"];
-                $price[$idx] = $row["price"];
-                $stock[$idx] = $row["stock"];
-                $idx++;
-            }
-        }
-        $session_array_id = array_column($_SESSION['cart'], "product_id");
-
-        if(!in_array($product_id[0], $session_array_id)){
-            $session_array = array(
-            'product_id' => $product_id[0],
-            "quantity" => $_POST['quantity'],
-            "products" => $_POST['product'],
-            "variation" => $variation[0],
-            "price" => $_POST['price']
-            );
-            $_SESSION['cart'][] = $session_array;
-        }
-
-    }else{
-
-
-        $session_array = array(
-            'product_id' => $_POST['product_id'],
-            "quantity" => $_POST['quantity'],
-            "products" => $_POST['product'],
-            "variation" => $_POST['variation'],
-            "price" => $_POST['price']
-        );
-
-        $_SESSION['cart'][] = $session_array;
-    }
-}
 
 
 ?>
