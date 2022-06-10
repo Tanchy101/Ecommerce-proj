@@ -26,9 +26,9 @@ if (isset($_POST["remove"])){
 
     $removeValue = $_POST["remove"];
     
-    unset($_SESSION["cart"][0]); 
+    unset($_SESSION["myOrder"][0]); 
 
-    $_SESSION["cart"] = array_values($_SESSION["cart"]);
+    $_SESSION["myOrder"] = array_values($_SESSION["myOrder"]);
 
 }
  
@@ -38,7 +38,7 @@ if (isset($_POST["remove"])){
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Cart</title>
+        <title>My Orders</title>
         <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -195,7 +195,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <br><br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
     <div class="row"> 
-        <h3 class="drawLine"><span > Your Order</span></h3>        
+        <h3 class="drawLine"><span >Order Details</span></h3>        
     </div>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
@@ -209,11 +209,11 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 </tr>
            <?php
 
-           if(!empty($_SESSION['cart'])){
-            $totalprice = 0;
+           if(!empty($_SESSION['myOrder'])){
+            $totalprice_order = 0;
             $valueArray = 0;
 
-                foreach($_SESSION['cart'] as $susi => $value){
+                foreach($_SESSION['myOrder'] as $susi => $value){
 
             ?>
             <tr>
@@ -230,20 +230,29 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 </td>
             </tr>
         <?php 
-            $totalprice = $totalprice + ( $value['quantity'] * $value['price']);
+            $totalprice_order = $totalprice_order + ( $value['quantity'] * $value['price']);
             $valueArray++;
                }
             ?>
             <tr>
                 <td colspan = "3" align = "right"><b>Total Price</b></td>
-                <td align = "right">PHP <?php echo number_format($totalprice, 2); ?></td>
+                <td align = "right">PHP <?php echo number_format($totalprice_order, 2); ?></td>
                 <td></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <form method = "post" action = "#">
+                        <input type = "submit" value = "PURCHASE" name = "buy">
+                    </form>
+                </td>
             </tr>
             <?php
             }
+            var_dump($_SESSION['myOrder']);
             ?>
            
-       
+        </table>
         </div>
        
     

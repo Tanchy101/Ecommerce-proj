@@ -302,9 +302,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 echo "<input type='submit' name = 'addcart' value='addtocart'>";
                 echo "</form>";
                 echo "</div>";
-                echo "</div>";
-                
-                
+                echo "</div>";  
             }
         } 
         

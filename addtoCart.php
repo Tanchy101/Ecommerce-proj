@@ -32,6 +32,39 @@ if (isset($_POST["remove"])){
 
 }
  
+if(isset($_POST['order'])){
+
+    if(isset($_SESSION['myOrder'])){
+        $session_array_idcart = array_column($_SESSION['myOrder'], "product_id");
+        
+        if(!in_array($_POST['product_idcart'], $session_array_idcart)){
+            $session_array_cart = array(
+                'product_id' => $_POST['product_idcart'],
+                "quantity" => $_POST['quantitycart'],
+                "products" => $_POST['productcart'],
+                "variation" => $_POST['variationcart'],
+                "price" => $_POST['pricecart']
+            );
+
+            $_SESSION['myOrder'][] = $session_array_cart;
+            header("Location: placeOrder.php");
+        }
+        
+    }else{
+
+        $session_array_cart = array(
+            'product_id' => $_POST['product_idcart'],
+            "quantity" => $_POST['quantitycart'],
+            "products" => $_POST['productcart'],
+            "variation" => $_POST['variationcart'],
+            "price" => $_POST['pricecart']
+        );
+        $_SESSION['myOrder'][] = $session_array_cart;
+    }
+}
+
+
+
 
 ?>
 
@@ -220,7 +253,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 <td><?= $value['products']; ?></td>
                 <td><?= $value['quantity']; ?></td>
                 <td><?= $value['variation']; ?></td>
-                <td><?= $value['price']; ?></td>
+                <td> ₱<?= $value['price']; ?></td>
                 <td><?php number_format($value['quantity'] * $value['price'], 2); ?></td>
                 <td>
                 <form action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
@@ -229,11 +262,17 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 </form>
                 </td>
                 <td>
-                <form action = "placeOrder.php">
-                    <input type = "submit" value ="PLACE ORDER">
+                <form action = "#" method = "post">
+                    <input type = "hidden" name = "product_idcart" value = <?php echo $value['product_id']; ?>>
+                    <input type = "hidden" name = "quantitycart" value = <?php echo $value['quantity']; ?>>
+                    <input type = "hidden" name = "productcart" value = <?php echo $value['products']; ?>>
+                    <input type = "hidden" name = "variationcart" value = <?php echo $value['variation']; ?>>
+                    <input type = "hidden" name = "pricecart" value = <?php echo $value['price']; ?>>
+                    <input type = "submit" value ="CHECK OUT" name = "order">
                 </form>
                 </td>
             </tr>
+            
         <?php 
             $totalprice = $totalprice + ( $value['quantity'] * $value['price']);
             $valueArray++;
@@ -241,27 +280,16 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
             ?>
             <tr>
                 <td colspan = "3" align = "right"><b>Total Price</b></td>
-                <td align = "right">PHP <?php echo number_format($totalprice, 2); ?></td>
+                <td align = "right"> ₱<?php echo number_format($totalprice, 2); ?></td>
                 <td></td>
             </tr>
             <?php
             }
             ?>
             
-            
+        </table>
         </div>
-        <?php
-        if(isset($_GET["action"])){
-            if($_GET["action"]  == "remove"){
-                foreach($_SESSION['cart'] as $susi => $value){
-                    if($values['product_id'] == $_GET['product_id']){
-                        unset($_SESSION['cart'][$susi]) ;
-                    }
-                }
-            }
-        }
-        
-        ?>
+
     
        
 
