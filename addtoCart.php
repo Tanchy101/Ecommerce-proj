@@ -250,26 +250,16 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
 
             ?>
             <tr>
+                <form action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                <td> <input type="checkbox" name="checkout[]" value="<?php $valueArray ?>"></td>
                 <td><?= $value['products']; ?></td>
                 <td><?= $value['quantity']; ?></td>
                 <td><?= $value['variation']; ?></td>
                 <td> ₱<?= $value['price']; ?></td>
                 <td><?php number_format($value['quantity'] * $value['price'], 2); ?></td>
                 <td>
-                <form action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                     <input type="hidden" name="remove" value="<?php $valueArray ?>">
                     <input type="submit" value="REMOVE">
-                </form>
-                </td>
-                <td>
-                <form action = "#" method = "post">
-                    <input type = "hidden" name = "product_idcart" value = <?php echo $value['product_id']; ?>>
-                    <input type = "hidden" name = "quantitycart" value = <?php echo $value['quantity']; ?>>
-                    <input type = "hidden" name = "productcart" value = <?php echo $value['products']; ?>>
-                    <input type = "hidden" name = "variationcart" value = <?php echo $value['variation']; ?>>
-                    <input type = "hidden" name = "pricecart" value = <?php echo $value['price']; ?>>
-                    <input type = "submit" value ="CHECK OUT" name = "order">
-                </form>
                 </td>
             </tr>
             
@@ -279,14 +269,27 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                }
             ?>
             <tr>
+                <td>
+                    <form action = "#" method = "post">
+                    <input type = "hidden" name = "product_idcart" value = <?php echo $value['product_id']; ?>>
+                    <input type = "hidden" name = "quantitycart" value = <?php echo $value['quantity']; ?>>
+                    <input type = "hidden" name = "productcart" value = <?php echo $value['products']; ?>>
+                    <input type = "hidden" name = "variationcart" value = <?php echo $value['variation']; ?>>
+                    <input type = "hidden" name = "pricecart" value = <?php echo $value['price']; ?>>
+                    <input type = "submit" value ="CHECK OUT" name = "order">
+                    </form>
+                </td>
+            </tr>
+            <tr>
                 <td colspan = "3" align = "right"><b>Total Price</b></td>
                 <td align = "right"> ₱<?php echo number_format($totalprice, 2); ?></td>
                 <td></td>
             </tr>
+
             <?php
             }
             ?>
-            
+           
         </table>
         </div>
 
