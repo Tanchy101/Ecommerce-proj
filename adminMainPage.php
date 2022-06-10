@@ -110,6 +110,32 @@ include 'Config.php'
         <a href= "adminEditProducts.php">Edit Products </a>
             </center>
         </fieldset>
+
+        <center> <h1> Manage Vouchers </h1> </center>
+        <fieldset>
+            <center>
+        <a href = "adminVouchers.php">See All Vouchers </a>
+        <br>
+        <a href = "adminCreateVoucher.php">Create Vouchers</a>
+        <br>
+        <a href = "adminDeleteVoucher.php">Delete Vouchers </a>
+        <br>
+        <a href= "adminEditVoucher.php">Edit Vouchers </a>
+            </center>
+        </fieldset>
+
+        <center> <h1> Sales </h1> </center>
+        <fieldset>
+            <center>
+        <a href = "adminVouchers.php">View Sales</a>
+        <br>
+        <a href = "adminCreateVoucher.php">Create Vouchers</a>
+        <br>
+        <a href = "adminDeleteVoucher.php">Delete Vouchers </a>
+        <br>
+        <a href= "adminEditVoucher.php">Edit Vouchers </a>
+            </center>
+        </fieldset>
         <br>
         <br>
         <br>

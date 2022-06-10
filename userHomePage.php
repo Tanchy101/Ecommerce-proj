@@ -3,47 +3,553 @@ session_start();
 
   include "Config.php";
 
-  $sql = "SELECT * FROM adminstock";
-  $result = $conn->query($sql);
+  $nav = "";
+// READ PRODUCTS
+if (isset($_POST["search"])){
+    $search = $_POST["search"];
+    $nav = '"' . $search . '"';
 
-  $id = [];
-  $categories = [];
-  $products = [];
-  $description = [];
-  $picture = [];
+    $sql = "SELECT * FROM `adminstock` WHERE products='" . $search . "'OR categories ='" . $search . "'";
+    $result = $conn->query($sql);
 
-  $idx = 0;
-  if($result->num_rows > 0){
-      while($row = $result->fetch_assoc()){
-          $id[$idx] = $row["id"];
-          $categories [$idx] = $row["categories"]; 
-          $products[$idx] = $row["products"];
-          $description[$idx] = $row["description"];
-          $picture[$idx] = $row["picture"];
-          $idx++;
-      }
-  }
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
 
-  $sql = "SELECT * FROM `adminstockvariant`";
-  $result = $conn->query($sql);
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
 
-  $var_id = [];
-  $product_id = [];
-  $variation = [];
-  $price = [];
-  $stock = [];
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
 
-  $idx = 0;
-  if($result->num_rows > 0){
-      while($row = $result->fetch_assoc()){
-          $var_id[$idx] = $row["id"];
-          $product_id[$idx] = $row["product_id"]; 
-          $variation[$idx] = $row["variation"];
-          $price[$idx] = $row["price"];
-          $stock[$idx] = $row["stock"];
-          $idx++;
-      }
-  }
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+}
+else if (isset($_POST["Papers"])){
+ $nav = "Papers";
+
+    $sql = "SELECT * FROM `adminstock` WHERE categories='Papers'";
+    $result = $conn->query($sql);
+
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
+
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+
+}
+else if (isset($_POST["Pencils"])){
+
+    $nav = "Pencils";
+    $sql = "SELECT * FROM `adminstock` WHERE categories='Pencils'";
+    $result = $conn->query($sql);
+
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
+
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+
+
+}
+else if (isset($_POST["Ballpens"])){
+
+    $nav = "Ballpens";
+    $sql = "SELECT * FROM `adminstock` WHERE categories='Ballpens'";
+    $result = $conn->query($sql);
+
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
+
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+
+}
+else if (isset($_POST["Markers"])){
+
+    $nav = "Markers";
+    $sql = "SELECT * FROM `adminstock` WHERE categories='Markers'";
+    $result = $conn->query($sql);
+
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
+
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+
+    
+}
+else if (isset($_POST["Arts/Crafts"])){
+    $nav = "Arts/Crafts";
+    $sql = "SELECT * FROM `adminstock` WHERE categories='Arts/Crafts'";
+    $result = $conn->query($sql);
+
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
+
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+
+}
+else if (isset($_POST["Erasers"])){
+
+    $nav = "Erasers";
+    $sql = "SELECT * FROM `adminstock` WHERE categories='Erasers'";
+    $result = $conn->query($sql);
+
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
+
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+    
+}
+else if (isset($_POST["Notebooks"])){
+    $nav = "Notebooks";
+    $sql = "SELECT * FROM `adminstock` WHERE categories='Notebooks'";
+    $result = $conn->query($sql);
+
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
+
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+}
+else if (isset($_POST["Journals"])){
+    $nav = "Journals";
+    $sql = "SELECT * FROM `adminstock` WHERE categories='Journals'";
+    $result = $conn->query($sql);
+
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
+
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+}
+else if (isset($_POST["Planners"])){
+    $nav = "Planners";
+    $sql = "SELECT * FROM `adminstock` WHERE categories='Planners'";
+    $result = $conn->query($sql);
+
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
+
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+    
+}
+else if (isset($_POST["OfficeSupplies"])){
+    $nav = "Office Supplies";
+    $sql = "SELECT * FROM `adminstock` WHERE categories='Office Supplies'";
+    $result = $conn->query($sql);
+
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
+
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+    
+}
+else{
+    $nav = "All Products";
+    $sql = "SELECT * FROM `adminstock`";
+    $result = $conn->query($sql);
+
+    $id = [];
+    $categories = [];
+    $products = [];
+    $description = [];
+    $picture = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $id[$idx] = $row["id"];
+            $categories [$idx] = $row["categories"]; 
+            $products[$idx] = $row["products"];
+            $description[$idx] = $row["description"];
+            $picture[$idx] = $row["picture"];
+            $idx++;
+        }
+    }
+
+    $sql = "SELECT * FROM `adminstockvariant`";
+    $result = $conn->query($sql);
+
+    $var_id = [];
+    $product_id = [];
+    $variation = [];
+    $price = [];
+    $stock = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $var_id[$idx] = $row["id"];
+            $product_id[$idx] = $row["product_id"]; 
+            $variation[$idx] = $row["variation"];
+            $price[$idx] = $row["price"];
+            $stock[$idx] = $row["stock"];
+            $idx++;
+        }
+    }
+}
 
   if (!empty($_SESSION['user'])) {
     // Get ALL user details from database using user id
@@ -68,14 +574,36 @@ session_start();
 if(isset($_POST['addcart'])){
       
     if(isset($_SESSION['cart'])){
+
+        $var_idPOST = $_POST["variation"];
+        $sql = "SELECT * FROM `adminstockvariant` WHERE id='$var_idPOST'";
+        $result = $conn->query($sql);
+      
+        $var_id = [];
+        $product_id = [];
+        $variation = [];
+        $price = [];
+        $stock = [];
+      
+        $idx = 0;
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $var_id[$idx] = $row["id"];
+                $product_id[$idx] = $row["product_id"]; 
+                $variation[$idx] = $row["variation"];
+                $price[$idx] = $row["price"];
+                $stock[$idx] = $row["stock"];
+                $idx++;
+            }
+        }
         $session_array_id = array_column($_SESSION['cart'], "product_id");
 
-        if(!in_array($_POST['product_id'], $session_array_id)){
+        if(!in_array($product_id[0], $session_array_id)){
             $session_array = array(
-            'product_id' => $_POST['product_id'],
+            'product_id' => $product_id[0],
             "quantity" => $_POST['quantity'],
             "products" => $_POST['product'],
-            "variation" => $_POST['variation'],
+            "variation" => $variation[0],
             "price" => $_POST['price']
             );
             $_SESSION['cart'][] = $session_array;
@@ -196,6 +724,38 @@ if(isset($_POST['addcart'])){
         a.active {
             color: #ffcbb5;
             }
+
+        ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: black;
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        }
+
+        li {
+        float: left;
+        }
+
+        li input {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        background-color: black;
+        }
+
+        li input:hover {
+        background-color: #111;
+        }
+
+        .active {
+        background-color: #4CAF50;
+        }
     </style>
     <body style = "background-color: #ffedc0">
 
@@ -221,7 +781,7 @@ if(isset($_POST['addcart'])){
             <br>
             <h2>The Paper Bag.</h2>
             <a href="logoutFileForUsers.php">Logout</a>
-            <a class="active" href="addtoCart.php">Cart</a>
+            <a href="addtoCart.php">Cart</a>
             <a href="profile.php"><?= $greet ?>'s Profile</a>
             <a href="userHomePage.php">Home</a>
            
@@ -239,19 +799,38 @@ if(isset($_POST['addcart'])){
         <!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
 AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
 <hr style = "color:#d3a35d">
+        <br>
+        <br>
+        <br>
+        <br>
 
-    <div class="category">
-        <li><a href="Paper_subfolder/PaperCategoryPage.php">Papers</a></li>
-        <li><a href="Pencil_subfolder/PencilCategoryPage.php">Pencils</a></li>
-        <li><a href="Ballpens_subfolder/BallpensCategoryPage.php">Ballpens</a></li>
-        <li><a href="Markers_subfolder/MarkersCategoryPage.php">Markers</a></li>
-        <li><a href="Arts&Crafts_subfolder/Arts&CraftsCategoryPage.php">Arts & Crafts</a></li>
-        <li><a href="Erasers_subfolder/ErasersCategoryPage.php">Erasers</a></li>
-        <li><a href="Notebooks_subfolder/NotebooksCategoryPage.php">Notebooks</a></li>
-        <li><a href="Journals_subfolder/JournalsCategoryPage.php">Journals</a></li>
-        <li><a href="Planners_subfolder/PlannersCategoryPage.php">Planners</a></li>
-        <li><a href="OfficeSupplies_subfolder/OfficeSuppliesCategoryPage.php">Office Supplies</a></li>
-    </div>
+<ul>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="width:100%">
+  <li><input class="active" type="submit" value="All Products"></li>
+  <li><input type="submit" name="Papers" value="Papers"></li>
+  <li><input type="submit" name="Pencils" value="Pencils"  ></li>
+  <li><input type="submit" name="Ballpens" value="Ballpens"  ></li>
+  <li><input type="submit" name="Markers" value="Markers"  ></li>
+  <li><input type="submit" name="Arts/Crafts" value="Arts/Crafts" ></li>
+  <li><input type="submit" name="Erasers" value="Erasers" ></li>
+  <li> <input type="submit" name="Notebooks" value="Notebooks" ></li>
+  <li><input type="submit" name="Planners" value="Planners" ></li>
+  <li><input type="submit" name="OfficeSupplies" value="Office Supplies" ></li>
+  </form>
+</ul>
+
+<!-- <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="btn-group" style="width:100%">
+  <input type="submit" name="Papers" value="Papers" style="width:10%">
+  <input type="submit" name="Pencils" value="Pencils" style="width:10%">
+  <input type="submit" name="Ballpens" value="Ballpens" style="width:10%">
+  <input type="submit" name="Markers" value="Markers" style="width:10%">
+  <input type="submit" name="Arts/Crafts" value="Arts/Crafts" style="width:10%">
+  <input type="submit" name="Erasers" value="Erasers" style="width:10%">
+  <input type="submit" name="Notebooks" value="Notebooks" style="width:10%">
+  <input type="submit" name="Journals" value="Journals" style="width:10%">
+  <input type="submit" name="Planners" value="Planners" style="width:10%">
+  <input type="submit" name="OfficeSupplies" value="Office Supplies" style="width:10%"> -->
+
     <br><br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
     <div class="row"> 
@@ -285,16 +864,19 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                     }
                 }
                 echo "<br>";
+
+                echo "<select name='variation'>";
                 for ($i = 0; $i < count($var_id); $i++){
                     if($id[$idx] == $product_id[$i])
                     {
-                        echo "<input type='radio' id='". $var_id[$i] . "' name='variation' value='" . $variation[$i] . "'>";
-                        echo "<label>" . $variation[$i] . "</label>"; 
-                        echo "<br>";
-                        echo "<input type = 'hidden' name = 'product_id' value ='". $product_id[$i] . "'>";
+                        echo "<option value='$var_id[$i]'>$variation[$i]</option>";
+                        // echo "<input type='radio' id='". $var_id[$i] . "' name='variation' value='" . $variation[$i] . "'>";
+                        // echo "<label>" . $variation[$i] . "</label>"; 
+                        // echo "<br>";
+                        // echo "<input type = 'hidden' name = 'product_id' value ='". $product_id[$i] . "'>";
                     }
                 }
-    
+                echo "</select>";
                 echo "<br>";
              
                 echo "<input type = 'hidden' name = 'product' value = '" . $products[$idx] . "'>";
@@ -307,5 +889,6 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
         } 
         
          ?>
+        <p></p>
 </body>
 </html>
