@@ -22,16 +22,6 @@ session_start();
     header("Location: loginUser.php");
 }
 
-if (isset($_POST["remove"])){
-
-    $removeValue = $_POST["remove"];
-    
-    unset($_SESSION["myOrder"][0]); 
-
-    $_SESSION["myOrder"] = array_values($_SESSION["myOrder"]);
-
-}
- 
 
 ?>
 
@@ -199,61 +189,39 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     </div>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
-       <div id = "cartNatin">
-           <table>
-               <tr>
-                   <th>product name</th>
-                   <th>quantity</th>
-                   <th>Variation</th>
-                   <th>Price</th>
-                </tr>
-           <?php
 
-           if(!empty($_SESSION['myOrder'])){
-            $totalprice_order = 0;
-            $valueArray = 0;
+    <?php 
+            $totalprice = 0;
+            $checkout = [[]];
+            $idx = 0;
 
-                foreach($_SESSION['myOrder'] as $susi => $value){
+                // print_r($_SESSION["cart"][$i]);
+                foreach($_SESSION['cart'] as $susi => $value){
+                    $jdx = 0;
+                    $checkout[$idx][$jdx] = $value['products'];
+                    echo $checkout[$idx][$jdx] . " ";
+                    $jdx++;
+                    $checkout[$idx][$jdx] = $value['quantity'];
+                    echo $checkout[$idx][$jdx] . " ";
+                    $jdx++;
+                    $checkout[$idx][$jdx] = $value['variation'];
+                    echo $checkout[$idx][$jdx] . " ";
+                    $jdx++;
+                    $checkout[$idx][$jdx] = $value['price'];
+                    echo $checkout[$idx][$jdx] . " ";
+                    number_format($value['quantity'] * $value['price'], 2);
 
-            ?>
-            <tr>
-                <td><?= $value['products']; ?></td>
-                <td><?= $value['quantity']; ?></td>
-                <td><?= $value['variation']; ?></td>
-                <td><?= $value['price']; ?></td>
-                <td><?php number_format($value['quantity'] * $value['price'], 2); ?></td>
-                <td>
-                <form action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                    <input type="hidden" name="remove" value="<?php $valueArray ?>">
-                    <input type="submit" value="REMOVE">
-                </form>
-                </td>
-            </tr>
-        <?php 
-            $totalprice_order = $totalprice_order + ( $value['quantity'] * $value['price']);
-            $valueArray++;
-               }
-            ?>
-            <tr>
-                <td colspan = "3" align = "right"><b>Total Price</b></td>
-                <td align = "right">PHP <?php echo number_format($totalprice_order, 2); ?></td>
-                <td></td>
-            </tr>
+                    echo "<br>";
+                    $totalprice = $totalprice + ( $value['quantity'] * $value['price']);
+                }
 
-            <tr>
-                <td>
-                    <form method = "post" action = "#">
-                        <input type = "submit" value = "PURCHASE" name = "buy">
-                    </form>
-                </td>
-            </tr>
-            <?php
-            }
-            var_dump($_SESSION['myOrder']);
-            ?>
-           
-        </table>
-        </div>
+            echo number_format($totalprice, 2);
+    ?>
+
+    <form action = "orderSuccessful.php" method="post">
+        <input type = "submit" name="purchase" value="PURCHASE">
+    </form>
+
        
     
        

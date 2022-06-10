@@ -28,10 +28,11 @@ session_start();
                 $idx++;
             }
         }
-        $session_array_id = array_column($_SESSION['cart'], "product_id");
+        $session_array_id = array_column($_SESSION['cart'], $product_id[0]);
 
         if(!in_array($product_id[0], $session_array_id)){
             $session_array = array(
+            'var_id' => $var_id[0],
             'product_id' => $product_id[0],
             "quantity" => $_POST['quantity'],
             "products" => $_POST['product'],
@@ -45,7 +46,7 @@ session_start();
 
 
         $session_array = array(
-            'product_id' => $_POST['product_id'],
+            'product_id' => $product_id[0],
             "quantity" => $_POST['quantity'],
             "products" => $_POST['product'],
             "variation" => $_POST['variation'],
