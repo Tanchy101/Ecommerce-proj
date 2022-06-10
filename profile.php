@@ -132,7 +132,7 @@ if (!empty($_SESSION['user'])) {
             <br>
             <h2>The Paper Bag.</h2>
             <a href="logoutFileForUsers.php">Logout</a>
-            <a class="active" href="#">Cart</a>
+            <a href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
             <a href="profile.php"><?= $user['username']; ?>'s Profile</a>
             <a href="userHomePage.php">Home</a>
            
@@ -175,7 +175,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
 
     <div align = "center">
         <h3>Your Personal Information</h3>
-        <p>Username: Eucharist  ?></p> 
+        <p>Username: <?= $user['username']; ?></p> 
         <p>Email: <?= $user['email']; ?></p>
         <p>First Name: <?= $user['firstname']; ?></p> 
         <p>Last Name: <?= $user['lastname']; ?></p> 
