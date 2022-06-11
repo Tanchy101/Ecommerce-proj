@@ -640,7 +640,8 @@ else{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style> 
     @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-    
+   
+
 .search {
   width: 100%;
   position: relative;
@@ -800,9 +801,7 @@ else{
         background-color: #f9c389;
         }
 
-        .active {
-        background-color: #d3a35d;
-        } footer {
+     footer {
             width: 100%;
             bottom: 0;
             background: linear-gradient(to right, #d3a35d, #ffcbb5);
@@ -811,6 +810,9 @@ else{
             border-top-right-radius: 125px;
             font-size: 13px;
             line-height: 5px;
+            left: 0;
+           
+
             }
             .row {
             width: 85%;
@@ -834,13 +836,13 @@ else{
             margin-bottom: 40px;
             position: relative;
              }
-             ul li {
+             .col ul li {
             list-style: none;
             margin-bottom: 12px;
              }
              ul li a {
             text-decoration: none;
-            color: #000000;
+            color: #ffedc0;
             }
     </style>
     <body style = "background-color: #ffedc0">
@@ -980,7 +982,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
          ?>
         <p></p>
 
-        <br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
         <footer>
             <div class = "row">
