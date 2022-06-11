@@ -934,8 +934,9 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 echo "<div class = 'desc'>";
                 echo "<strong>" . $products[$idx] . "</strong>";
                 echo "<p><b>";
-                
+                echo "<p id = 'info'>More Info</p>";
                 echo "</b></p>";
+                echo "<div style = 'display:none;' id = 'more' data-id='". $idx ."'>";
                 echo "<p>" . $description[$idx] . "</p>";
                 
                 for ($i = 0; $i < count($var_id); $i++){
@@ -971,15 +972,34 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 echo "<input type='submit' name = 'addcart' value='Add to cart'>";
                 echo "</form>";
                 echo "</div>";
+                echo "<button onclick = 'show_more(this)' id = 'btn'>Show More</button>";
+                echo "</div>";
                 echo "</div>";  
             }
         } 
         
          ?>
         <p></p>
-
+        
         <br><br>
+        <script>
+        function show_more(e) {console.log(e);
+            var div = e.parentElement;
+            var info = div.querySelector("#info");
+            var moreText = div.querySelector("#more");
+            var btnText = div.querySelector("#btn");
 
+            if (info.style.display === "none") {
+                info.style.display = "inline";
+                btnText.innerHTML = "Show more";
+                moreText.style.display = "none";
+            } else {
+                info.style.display = "none";
+                btnText.innerHTML = "Show less";
+                moreText.style.display = "inline";
+            }
+         }
+        </script>
         <footer>
             <div class = "row">
                 <div class = "col">
