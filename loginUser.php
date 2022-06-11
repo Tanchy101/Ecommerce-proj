@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("Location: userHomePage.php");
             }
           } else {
-            echo "0 results";
+            echo "<script>alert('Wrong Username or Password')</script>";
           }
           $conn->close();
 
@@ -110,6 +110,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <style>
         h3{
             text-align: center;
+        }
+
+        .link{
+            text-decoration: none;  
         }
         .login{
             text-align: center;
@@ -204,9 +208,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="password" name="password" id="password" placeholder="Enter Password" value = "<?php echo $Userpassword ?>"> 
                 <span class="error"><?php echo $passworderror?> </span>
                 <p class="error"><?php echo $loginErr ?></p>
-                <p>Don't have an account yet? <a href = "registration.php">Register Here</a></p>
+                <p>Don't have an account yet? <a class ="link" href = "registration.php">Register Here</a></p>
+                <p><a class ="link" href = "userHomePage.php">Continue as Guest</a></p>
                 <input type = "submit" name= "login">
-                <a href="adminlogin.php"><p>Login as Admin</p></a>
+                <a class ="link" href="adminlogin.php"><p>Login as Admin</p></a>
             </form>
             </fieldset>
     

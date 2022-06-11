@@ -616,13 +616,14 @@ else{
        while($row = $result->fetch_assoc()) {
            $greet = $row["username"]; 
       }
+      
     } else {
         session_destroy();
         header("Location: loginUser.php");
     }
-} else {
-    session_destroy();
+}elseif(isset($_POST['addcart'])){
     header("Location: loginUser.php");
+   
 }
 
 
@@ -785,7 +786,13 @@ else{
             <h2>The Paper Bag.</h2>
             <a href="logoutFileForUsers.php">Logout</a>
             <a href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
-            <a href="profile.php"><?= $greet ?>'s Profile</a>
+            <a href="profile.php"><?php 
+                if(!empty($_SESSION['user'])){
+                    $greet;
+                }elseif(empty($_SESSION['user'])){
+                    echo "Guest";
+                }
+                 ?>'s Profile</a>
             <a href="userHomePage.php">Home</a>
            
                 <div class="search-container">
