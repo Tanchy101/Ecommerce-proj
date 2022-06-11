@@ -93,6 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 min-width: 320px;
                 margin: auto;
             }
+
     }
         </style>
     </head>
