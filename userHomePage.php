@@ -827,16 +827,10 @@ else{
         <div class="topnav">
             <br>
             <h2>The Paper Bag.</h2>
-            <a href="logoutFileForUsers.php">Logout</a>
+            <a href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Cart"width="35" height="30"></a>
             <a href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
-            <a href="profile.php"><?php 
-                if(!empty($_SESSION['user'])){
-                    $greet;
-                }elseif(empty($_SESSION['user'])){
-                    echo "Guest";
-                }
-                 ?>'s Profile</a>
-            <a href="userHomePage.php">Home</a>
+            <a href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Cart"width="35" height="30"></a>
+           <a href="#"><img src="https://i.imgur.com/hVZsoCl.png" alt="Cart"width="35" height="30"></a>
            
             <div class="wrap">
                 <div class="search">
@@ -886,11 +880,10 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
   <input type="submit" name="Planners" value="Planners" style="width:10%">
   <input type="submit" name="OfficeSupplies" value="Office Supplies" style="width:10%"> -->
 
-    <br><br><br>
+    <br><br>
     <!--Line lang to pang layout tas name ng section -->
-    <div class="row"> 
-        <h3 class="drawLine"><span >Featured Item</span></h3>        
-    </div>
+    <h2>Featured Item</h2>
+    <br><br><br>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
         <?php

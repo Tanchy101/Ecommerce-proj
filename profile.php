@@ -170,10 +170,10 @@ if (!empty($_SESSION['user'])) {
         <div class="topnav">
             <br>
             <h2>The Paper Bag.</h2>
-            <a href="logoutFileForUsers.php">Logout</a>
+            <a href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Cart"width="35" height="30"></a>
             <a href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
-            <a href="profile.php"><?= $user['username']; ?>'s Profile</a>
-            <a href="userHomePage.php">Home</a>
+            <a href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Cart"width="35" height="30"></a>
+            <a href="userHomePage.php"><img src="https://i.imgur.com/hVZsoCl.png" alt="Cart"width="35" height="30"></a>
            
             <div class="wrap">
                 <div class="search">
@@ -192,16 +192,16 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     
     <br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
-    <div class="row"> 
-        <h3 class="drawLine"><span >Your Profile</span></h3>        
-    </div>
-
+    
+       <h2> Your Profile </h2>       
+    <br><br><br><br>
+    <h3 class="drawLine"></h3> 
     <?php if (isset($_SESSION['succ'])) { ?>
     <div class = "successmess">
         <?php echo $_SESSION['succ']; ?>
     </div>
     <?php } ?>
-
+<br><br>
     <div align = "center">
         <h3>Your Personal Information</h3>
         <p>Username: <?= $user['username']; ?></p> 
