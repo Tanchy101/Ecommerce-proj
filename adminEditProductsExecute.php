@@ -179,11 +179,14 @@ else if(isset($_POST["editVariant"])){
     <br>
     <br>
     <br>
+    <fieldset>
+    <center>
     <?php 
     if ($editOption == "Product"){
         echo "<h1>Edit Product</h1>";
         echo "<form action='" . htmlspecialchars($_SERVER['PHP_SELF']) . "' method='post'>";
-        echo "Categories: ";
+        echo "Categories:";
+        echo "<br>";
         echo "<select name='editCategories' required>";
         echo "<option value='$categories[0]'>$categories[0]</option>";
         echo "<option value='Papers'>Papers</option>";
@@ -202,14 +205,21 @@ else if(isset($_POST["editVariant"])){
         echo "<option value='Bags'>Bags</option>";
         echo "</select>";
         echo "<br>";
+        echo "<br>";
         echo "Name: ";
+        echo "<br>";
         echo "<input type = 'text' name = 'editProduct' value = '$products[0]' required>";
         echo "<br>";
+        echo "<br>";
         echo "Description: ";
+        echo "<br>";
         echo "<textarea name='editDescription' rows='10' cols='30' required>$description[0]</textarea>";
         echo "<br>";
+        echo "<br>";
         echo "Picture: ";
+        echo "<br>";
         echo "<input type = 'text' name = 'editPicture' value = '$picture[0]' required>";
+        echo "<br>";
         echo "<br>";
         echo "<input type='hidden' name='product_id' value='$id[0]'>";
         echo "<input type='hidden' name='editType' value='Product'>";
@@ -234,9 +244,9 @@ else if(isset($_POST["editVariant"])){
         echo "<input type='hidden' name='editType' value='Variation'>";
         echo "<input type='submit' value ='EDIT'>";
     }
-
-
     ?>
+    </center>
+    </fieldset>
 <br>
 <br>
 <br>
