@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 min-width: 320px;
                 margin: auto;
             }
-            footer {
+        } footer {
             width: 100%;
             bottom: 0;
             background: linear-gradient(to right, #d3a35d, #ffcbb5);
