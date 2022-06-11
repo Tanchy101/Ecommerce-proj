@@ -32,16 +32,55 @@ if (!empty($_SESSION['user'])) {
     </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style> 
-        .topnav a {
-            float: right;
-            text-align: center;
-            padding: 14px 16px;
-        }
-
-        .topnav .search-container   {
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+    
+    .search {
+      width: 100%;
+      position: relative;
+      display: flex;
+      
+    }
+    
+    .searchTerm {
+      width: 100%;
+      border: 3px solid #d3a35d;
+      border-right: none;
+      padding: 5px;
+      height: 20px;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      color:#d3a35d;
+    }
+    
+    .searchTerm:focus{
+      color: #d3a35d;
+    }
+    
+    .searchButton {
+      width: 40px;
+      height: 36px;
+      border: 1px solid #d3a35d;
+      background:#d3a35d;
+      text-align: center;
+      color: #fff;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    
+    /*Resize the wrap to see the search bar change!*/
+    .wrap{
         float: right;
+        text-align: center;
         padding: 10px 10px;
-        }
+        width: 35%;
+    }
+            .topnav a {
+                float: right;
+                text-align: center;
+                padding: 14px 16px;
+            }
+    
 
       
         
@@ -136,12 +175,13 @@ if (!empty($_SESSION['user'])) {
             <a href="profile.php"><?= $user['username']; ?>'s Profile</a>
             <a href="userHomePage.php">Home</a>
            
-                <div class="search-container">
-                    <form action="search.php ">
-                        <input type="text" placeholder="Search " size="50" name="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
+            <div class="wrap">
+                <div class="search">
+                <input type="text" class="searchTerm" placeholder="Search">
+                <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+             </button>
+            </div>
         </div>
         <br>
         <br>
@@ -149,19 +189,8 @@ if (!empty($_SESSION['user'])) {
         <br>
         <!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
 AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
-    <div class="category">
-        <li><a href="Paper_subfolder/PaperCategoryPage.php">Papers</a></li>
-        <li><a href="Pencil_subfolder/PencilCategoryPage.php">Pencils</a></li>
-        <li><a href="Ballpens_subfolder/BallpensCategoryPage.php">Ballpens</a></li>
-        <li><a href="Markers_subfolder/MarkersCategoryPage.php">Markers</a></li>
-        <li><a href="Arts&Crafts_subfolder/Arts&CraftsCategoryPage.php">Arts & Crafts</a></li>
-        <li><a href="Erasers_subfolder/ErasersCategoryPage.php">Erasers</a></li>
-        <li><a href="Notebooks_subfolder/NotebooksCategoryPage.php">Notebooks</a></li>
-        <li><a href="Journals_subfolder/JournalsCategoryPage.php">Journals</a></li>
-        <li><a href="Planners_subfolder/PlannersCategoryPage.php">Planners</a></li>
-        <li><a href="OfficeSupplies_subfolder/OfficeSuppliesCategoryPage.php">Office Supplies</a></li>
-    </div>
-    <br><br><br><br><br><br><br>
+    
+    <br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
     <div class="row"> 
         <h3 class="drawLine"><span >Your Profile</span></h3>        
