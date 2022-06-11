@@ -209,6 +209,16 @@ if(isset($_POST['order'])){
             background-color: #ffcbb5;
             text-align: center;
             }
+        table {
+         border-collapse: collapse;
+         width: 80%;
+            }
+
+        td, th {
+       
+        text-align: left;
+        padding: 8px;
+            }
     </style>
     <body style = "background-color: #ffedc0">
         <?php //if ($result->num_rows > 0) {
@@ -260,15 +270,18 @@ if(isset($_POST['order'])){
     <div class="row"> 
         <h3 class="drawLine"></h3>        
     </div>
+    <br><br>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
        <div id = "cartNatin">
-           <table>
+           
+       <table>
                <tr>
-                   <th>product name</th>
-                   <th>quantity</th>
+                   <th>Product name</th>
+                   <th>Quantity</th>
                    <th>Variation</th>
                    <th>Price</th>
+                  
                 </tr>
            <?php
 
@@ -283,7 +296,7 @@ if(isset($_POST['order'])){
                 <td><?= $value['products']; ?></td>
                 <td><?= $value['quantity']; ?></td>
                 <td><?= $value['variation']; ?></td>
-                <td> ₱<?= $value['price']; ?></td>
+                <td> ₱ <?= $value['price']; ?></td>
                 <td><?php number_format($value['quantity'] * $value['price'], 2); ?></td>
                 <td>
                 <form action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
@@ -298,6 +311,13 @@ if(isset($_POST['order'])){
             $valueArray++;
                }
             ?>
+            
+            <tr>
+                <td colspan = "3" align = "right"><b>Total Price</b></td>
+                <td align = "right"> ₱ <?php echo number_format($totalprice, 2); ?></td>
+                <td></td>
+            </tr>
+            
             <tr>
             <td>
             <form action = "placeOrder.php" method = "post">
@@ -305,11 +325,7 @@ if(isset($_POST['order'])){
             </form>
             </td>
             </tr>
-            <tr>
-                <td colspan = "3" align = "right"><b>Total Price</b></td>
-                <td align = "right"> ₱<?php echo number_format($totalprice, 2); ?></td>
-                <td></td>
-            </tr>
+           
             <?php
             }
             ?>

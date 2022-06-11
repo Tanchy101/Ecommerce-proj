@@ -770,7 +770,7 @@ else{
             color: #ffcbb5;
             }
 
-        ul{
+        .tabs ul{
         list-style-type: none;
         margin: 0;
         padding: ;
@@ -779,15 +779,16 @@ else{
         position: -webkit-sticky; /* Safari */
         position: sticky;
         top: 0;
+        
         }
 
-        li {
+        .tabs li {
         float: left;
         margin-left: 30px;
         
         }
 
-        li input {
+        .tabs li input {
         display: block;
         border: 1px #d3a35d;   
         color: white;
@@ -797,7 +798,7 @@ else{
         background-color: #d3a35d;
         }
 
-        li input:hover {
+        .tabs li input:hover {
         background-color: #f9c389;
         }
 
@@ -823,7 +824,7 @@ else{
             justify-content: space-between;
             }
             .col {
-            flex-basis: 25%; 
+            flex-basis: 27%; 
             padding: 10px;
             }
             .logo {
@@ -840,10 +841,11 @@ else{
             list-style: none;
             margin-bottom: 12px;
              }
-             ul li a {
+             .col ul li a {
             text-decoration: none;
-            color: #ffedc0;
+            color: #000000;
             }
+            
     </style>
     <body style = "background-color: #ffedc0">
 
@@ -893,7 +895,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
         <br>
         <br>
         <br>
-
+<div class= "tabs">
 <ul>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="width:100%">
   <li><input class="active" type="submit" value="All Products"></li>
@@ -908,7 +910,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
   <li><input type="submit" name="OfficeSupplies" value="Office Supplies" ></li>
   </form>
 </ul>
-
+<div>
 <!-- <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="btn-group" style="width:100%">
   <input type="submit" name="Papers" value="Papers" style="width:10%">
   <input type="submit" name="Pencils" value="Pencils" style="width:10%">
@@ -938,8 +940,9 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 echo "<div class = 'desc'>";
                 echo "<strong>" . $products[$idx] . "</strong>";
                 echo "<p><b>";
-                
+                echo "<p id = 'info'>More Info</p>";
                 echo "</b></p>";
+                echo "<div style = 'display:none;' id = 'more' data-id='". $idx ."'>";
                 echo "<p>" . $description[$idx] . "</p>";
                 
                 for ($i = 0; $i < count($var_id); $i++){
@@ -975,6 +978,8 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 echo "<input type='submit' name = 'addcart' value='Add to cart'>";
                 echo "</form>";
                 echo "</div>";
+                echo "<button onclick = 'show_more(this)' id = 'btn'>Show More</button>";
+                echo "</div>";
                 echo "</div>";  
             }
         } 
@@ -982,7 +987,28 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
          ?>
         <p></p>
 
+        
+        <br><br>
+        <script>
+        function show_more(e) {console.log(e);
+            var div = e.parentElement;
+            var info = div.querySelector("#info");
+            var moreText = div.querySelector("#more");
+            var btnText = div.querySelector("#btn");
+            if (info.style.display === "none") {
+                info.style.display = "inline";
+                btnText.innerHTML = "Show more";
+                moreText.style.display = "none";
+            } else {
+                info.style.display = "none";
+                btnText.innerHTML = "Show less";
+                moreText.style.display = "inline";
+            }
+         }
+        </script>
+
  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
         <footer>
             <div class = "row">
