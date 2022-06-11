@@ -169,6 +169,41 @@
             text-decoration: none;
             color: #000000;
             }
+            button{
+                background-color: beige;
+                color: #d3a35d;
+            }
+            .btn{
+                overflow: hidden;
+                border: 1px solid #d3a35d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-decoration: none;
+                padding: 20px 50px;
+                position: relative;
+                border-radius: 30px;
+                box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .btn::after{
+                content: "";
+                width: 700px;
+                height: 400px;
+                position: absolute;
+                top: -50px;
+                left: -100px;
+                background-color: #ff3cac;
+                background-image: linear-gradient(225deg, #ffb2a0 0%, #ffcbb5 50%, #d3a35d 100%);
+                z-index: -1;
+                transition: transform 0.5s ease;
+            }
+            .btn:hover{
+                transform: translate(0, -6px);
+                box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
+                color: white;
+            }
     </style>
 
 <body style = "background-color: #ffedc0">
@@ -223,7 +258,7 @@
                 <br>
                 <p><?php echo $passnomatch?></p>
                 <br>
-                <center> <button name = "submit">SUBMIT</button> </center>
+                <center> <button name = "submit" class = "btn">SUBMIT</button> </center>
                 <br>
                 <br>
                 <p>Already have an account? &nbsp;<a href = "loginUser.php">Log in here</a></p>
