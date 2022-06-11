@@ -192,6 +192,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             text-decoration: none;
             color: #000000;
             }
+            .btn{
+                overflow: hidden;
+                border: 1px solid #d3a35d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-decoration: none;
+                padding: 20px 50px;
+                position: relative;
+                color: #fff;
+                border-radius: 30px;
+                box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .btn::after{
+                content: "";
+                width: 700px;
+                height: 400px;
+                position: absolute;
+                top: -50px;
+                left: -100px;
+                background-color: #ff3cac;
+                background-image: linear-gradient(225deg, #ffb2a0 0%, #ffcbb5 50%, #d3a35d 100%);
+                z-index: -1;
+                transition: transform 0.5s ease;
+            }
+            .btn:hover{
+                transform: translate(0, -6px);
+                box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
+                color: white;
+            }
+
     </style>
 
     <body style = "background-color: #ffedc0">
@@ -209,11 +242,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <p class="error"><?php echo $loginErr ?></p>
                 <p>Don't have an account yet? <a class ="link" href = "registration.php">Register Here</a></p>
                 <p><a class ="link" href = "userHomePage.php">Continue as Guest</a></p>
-                <input type = "submit" name= "login">
+                <a class = "btn" href="userHomePage.php">Submit</a>
                 <a class ="link" href="adminlogin.php"><p>Login as Admin</p></a>
             </form>
             </fieldset>
-    
+            <br>
         </div>
         <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br>
         <footer>
