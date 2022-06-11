@@ -43,8 +43,8 @@ if (isset($_POST["postCheck"]))
             $addPrice = $_POST["price"];
             $addStock = $_POST["stock"];
         
-            $sql = "INSERT INTO adminstockvariant (product_id, variation, price, stock)
-            VALUES ('" . $id[$i] . "', '" . $addVariation . "', '" . $addPrice . "', '" . $addStock . "');";
+            $sql = "INSERT INTO adminstockvariant (product_id, variation, price, stock, sold)
+            VALUES ('" . $id[$i] . "', '" . $addVariation . "', '" . $addPrice . "', '" . $addStock . "', '" . 0 . "');";
         
             if ($conn->query($sql) === TRUE) {
             } else {

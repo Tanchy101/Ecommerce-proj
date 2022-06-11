@@ -193,7 +193,8 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
     
-       <h2> Your Profile </h2>       
+       <h2> Your Profile </h2>
+       <a href="userPurchases.php">My Purchases</a>       
     <br><br><br><br>
     <h3 class="drawLine"></h3> 
     <?php if (isset($_SESSION['succ'])) { ?>

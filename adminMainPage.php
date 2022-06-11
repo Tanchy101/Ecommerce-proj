@@ -125,15 +125,21 @@ include 'Config.php'
         <center> <h1> Sales </h1> </center>
         <fieldset>
             <center>
-        <a href = "adminVouchers.php">View Sales</a>
+        <a href = "adminViewSales.php">View Sales and Reports</a>
         <br>
-        <a href = "adminCreateVoucher.php">Create Vouchers</a>
+        <a href = "adminSalesStats.php">Product Stats</a>
         <br>
-        <a href = "adminDeleteVoucher.php">Delete Vouchers </a>
-        <br>
-        <a href= "adminEditVoucher.php">Edit Vouchers </a>
             </center>
         </fieldset>
+
+        <center> <h1> Shipping </h1> </center>
+        <fieldset>
+            <center>
+        <a href = "adminViewSales.php">Update Shipping Status</a>
+        <br>
+            </center>
+        </fieldset>
+
         <br>
         <br>
         <br>
