@@ -911,8 +911,8 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                         echo "<input type = 'hidden' name = 'price' value ='". $price[$i] . "'>";
                     }
                 }
-                echo "<br>";
-
+                echo "<br>"; 
+                echo "<br>"; 
                 echo "<select name='variation'>";
                 for ($i = 0; $i < count($var_id); $i++){
                     if($id[$idx] == $product_id[$i])
@@ -926,10 +926,12 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 }
                 echo "</select>";
                 echo "<br>";
-             
+                echo "<br>";
                 echo "<input type = 'hidden' name = 'product' value = '" . $products[$idx] . "'>";
                 echo "<input type='number'  value = '1' name='quantity'>";
-                echo "<input type='submit' name = 'addcart' value='addtocart'>";
+                echo "<br>";
+                echo "<br>";
+                echo "<input type='submit' name = 'addcart' value='Add to cart'>";
                 echo "</form>";
                 echo "</div>";
                 echo "</div>";  
