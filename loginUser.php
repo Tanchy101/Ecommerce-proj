@@ -192,6 +192,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             text-decoration: none;
             color: #000000;
             }
+            button{
+                background-color: beige;
+                color: #d3a35d;
+            }
             .btn{
                 overflow: hidden;
                 border: 1px solid #d3a35d;
@@ -202,7 +206,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 text-decoration: none;
                 padding: 20px 50px;
                 position: relative;
-                color: #fff;
                 border-radius: 30px;
                 box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -242,7 +245,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <p class="error"><?php echo $loginErr ?></p>
                 <p>Don't have an account yet? <a class ="link" href = "registration.php">Register Here</a></p>
                 <p><a class ="link" href = "userHomePage.php">Continue as Guest</a></p>
-                <a class = "btn" href="userHomePage.php">Submit</a>
+                <center> <button name = "submit" class = "btn">SUBMIT</button> </center>
                 <a class ="link" href="adminlogin.php"><p>Login as Admin</p></a>
             </form>
             </fieldset>
