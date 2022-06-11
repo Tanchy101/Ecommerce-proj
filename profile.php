@@ -149,19 +149,8 @@ if (!empty($_SESSION['user'])) {
         <br>
         <!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
 AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
-    <div class="category">
-        <li><a href="Paper_subfolder/PaperCategoryPage.php">Papers</a></li>
-        <li><a href="Pencil_subfolder/PencilCategoryPage.php">Pencils</a></li>
-        <li><a href="Ballpens_subfolder/BallpensCategoryPage.php">Ballpens</a></li>
-        <li><a href="Markers_subfolder/MarkersCategoryPage.php">Markers</a></li>
-        <li><a href="Arts&Crafts_subfolder/Arts&CraftsCategoryPage.php">Arts & Crafts</a></li>
-        <li><a href="Erasers_subfolder/ErasersCategoryPage.php">Erasers</a></li>
-        <li><a href="Notebooks_subfolder/NotebooksCategoryPage.php">Notebooks</a></li>
-        <li><a href="Journals_subfolder/JournalsCategoryPage.php">Journals</a></li>
-        <li><a href="Planners_subfolder/PlannersCategoryPage.php">Planners</a></li>
-        <li><a href="OfficeSupplies_subfolder/OfficeSuppliesCategoryPage.php">Office Supplies</a></li>
-    </div>
-    <br><br><br><br><br><br><br>
+    
+    <br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
     <div class="row"> 
         <h3 class="drawLine"><span >Your Profile</span></h3>        

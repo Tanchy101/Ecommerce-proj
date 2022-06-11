@@ -731,9 +731,9 @@ else{
         ul{
         list-style-type: none;
         margin: 0;
-        padding: 0;
+        padding: ;
         overflow: hidden;
-        background-color: black;
+        background-color: #d3a35d;
         position: -webkit-sticky; /* Safari */
         position: sticky;
         top: 0;
@@ -741,23 +741,26 @@ else{
 
         li {
         float: left;
+        margin-left: 30px;
+        
         }
 
         li input {
         display: block;
+        border: 1px #d3a35d;   
         color: white;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
-        background-color: black;
+        background-color: #d3a35d;
         }
 
         li input:hover {
-        background-color: #111;
+        background-color: #f9c389;
         }
 
         .active {
-        background-color: #4CAF50;
+        background-color: #d3a35d;
         }
     </style>
     <body style = "background-color: #ffedc0">
@@ -834,7 +837,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
   <input type="submit" name="Planners" value="Planners" style="width:10%">
   <input type="submit" name="OfficeSupplies" value="Office Supplies" style="width:10%"> -->
 
-    <br><br><br><br><br><br><br>
+    <br><br><br>
     <!--Line lang to pang layout tas name ng section -->
     <div class="row"> 
         <h3 class="drawLine"><span >Featured Item</span></h3>        
