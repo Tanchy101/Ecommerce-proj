@@ -640,7 +640,8 @@ else{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style> 
     @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-    
+   
+
 .search {
   width: 100%;
   position: relative;
@@ -809,6 +810,9 @@ else{
             border-top-right-radius: 125px;
             font-size: 13px;
             line-height: 5px;
+            left: 0;
+           
+
             }
             .row {
             width: 85%;
@@ -838,7 +842,7 @@ else{
              }
              ul li a {
             text-decoration: none;
-            color: #000000;
+            color: #ffedc0;
             }
     </style>
     <body style = "background-color: #ffedc0">
@@ -978,7 +982,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
          ?>
         <p></p>
 
-        <br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
         <footer>
             <div class = "row">
