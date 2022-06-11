@@ -800,9 +800,7 @@ else{
         background-color: #f9c389;
         }
 
-        .active {
-        background-color: #d3a35d;
-        } footer {
+     footer {
             width: 100%;
             bottom: 0;
             background: linear-gradient(to right, #d3a35d, #ffcbb5);
@@ -834,7 +832,7 @@ else{
             margin-bottom: 40px;
             position: relative;
              }
-             ul li {
+             .col ul li {
             list-style: none;
             margin-bottom: 12px;
              }
