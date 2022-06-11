@@ -133,8 +133,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             text-decoration: none;
             color: #000000;
             }
-
-    }
         </style>
     </head>
 
