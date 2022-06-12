@@ -217,7 +217,7 @@
         </center>
             <fieldset>
                 <center> <h2>Registration Form</h2> </center>
-            <form method = "post" action = "">
+            <form method = "post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <label for = "usemail" >Email</label> <br>
                 <input type = "text" name = "usemail" id = "usemail" placeholder = "Enter email">
                 <br>

@@ -28,8 +28,6 @@ session_start();
                 $idx++;
             }
         }
-
-
         $session_array_id = array_column($_SESSION['cart'], $product_id[0]);
 
         if(!in_array($product_id[0], $session_array_id)){
@@ -46,35 +44,12 @@ session_start();
 
     }else{
 
-        $var_idPOST = $_POST["variation"];
-        $sql = "SELECT * FROM `adminstockvariant` WHERE id='$var_idPOST'";
-        $result = $conn->query($sql);
-      
-        $var_id = [];
-        $product_id = [];
-        $variation = [];
-        $price = [];
-        $stock = [];
-      
-        $idx = 0;
-        if($result->num_rows > 0){
-            while($row = $result->fetch_assoc()){
-                $var_id[$idx] = $row["id"];
-                $product_id[$idx] = $row["product_id"]; 
-                $variation[$idx] = $row["variation"];
-                $price[$idx] = $row["price"];
-                $stock[$idx] = $row["stock"];
-                $idx++;
-            }
-        }
-
 
         $session_array = array(
-              'var_id' => $var_id[0],
             'product_id' => $product_id[0],
             "quantity" => $_POST['quantity'],
             "products" => $_POST['product'],
-            "variation" => $variation[0],
+            "variation" => $_POST['variation'],
             "price" => $_POST['price']
         );
 
@@ -723,7 +698,7 @@ else{
             display: inline;
             text-align: center;
             padding: 14px 15px;
-            margin-left : 15px;
+            
         }
 
         h2 {
@@ -780,7 +755,7 @@ else{
         }
         body {
             font-family: monospace;
-            margin: 25px;
+            margin:0;
         }
         a:link {
             color: #000000;
@@ -798,7 +773,6 @@ else{
         .tabs ul{
         list-style-type: none;
         margin: 0;
-        padding: ;
         overflow: hidden;
         background-color: #d3a35d;
         position: -webkit-sticky; /* Safari */
@@ -826,6 +800,7 @@ else{
         .tabs li input:hover {
         background-color: #f9c389;
         }
+        
 
      footer {
             width: 100%;
@@ -849,7 +824,7 @@ else{
             justify-content: space-between;
             }
             .col {
-            flex-basis: 27%; 
+            flex-basis: 20%; 
             padding: 10px;
             }
             .logo {
@@ -862,11 +837,12 @@ else{
             margin-bottom: 40px;
             position: relative;
              }
-             .col ul li {
+             .col  li {
             list-style: none;
             margin-bottom: 12px;
+            
              }
-             .col ul li a {
+             .col  li a {
             text-decoration: none;
             color: #000000;
             }
@@ -965,16 +941,15 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 echo "<div class = 'desc'>";
                 echo "<strong>" . $products[$idx] . "</strong>";
                 echo "<p><b>";
-                echo "<p id = 'info'>More Info</p>";
+                
                 echo "</b></p>";
-                echo "<div style = 'display:none;' id = 'more' data-id='". $idx ."'>";
                 echo "<p>" . $description[$idx] . "</p>";
                 
                 for ($i = 0; $i < count($var_id); $i++){
                     
                     if($id[$idx] == $product_id[$i])
                     {
-                        echo "<form method = 'post' action = '#'>";
+                        echo "<form method = 'post' action = '" . htmlspecialchars($_SERVER['PHP_SELF']) . "'>";
 
                         echo "₱" . $price[$i] . " ";
                         echo "<input type = 'hidden' name = 'price' value ='". $price[$i] . "'>";
@@ -1003,8 +978,6 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 echo "<input type='submit' name = 'addcart' value='Add to cart'>";
                 echo "</form>";
                 echo "</div>";
-                echo "<button onclick = 'show_more(this)' id = 'btn'>Show More</button>";
-                echo "</div>";
                 echo "</div>";  
             }
         } 
@@ -1012,28 +985,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
          ?>
         <p></p>
 
-        
-        <br><br>
-        <script>
-        function show_more(e) {console.log(e);
-            var div = e.parentElement;
-            var info = div.querySelector("#info");
-            var moreText = div.querySelector("#more");
-            var btnText = div.querySelector("#btn");
-            if (info.style.display === "none") {
-                info.style.display = "inline";
-                btnText.innerHTML = "Show more";
-                moreText.style.display = "none";
-            } else {
-                info.style.display = "none";
-                btnText.innerHTML = "Show less";
-                moreText.style.display = "inline";
-            }
-         }
-        </script>
-
  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
 
         <footer>
             <div class = "row">
@@ -1043,14 +995,14 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                  </div>
                  <div class = "col">
                     <center> <h3> Follow us on </h3> </center>
-                    <ul>
+                    
                          <a href = "https://www.facebook.com/?stype=lo&jlou=Afdo9_8IzKjd-98S53hgWcs_YTL09G0gr2QFRljr_iv46_YAcls5iVZeqmHpGZC539as2z3YZrVmDMN4Fa7qZwlkDHYfPePzF_auNbBsMVT-8g&smuh=35351&lh=Ac-aDteK0xAi75BCmxY"><img src = "https://i.imgur.com/juyHCD8.png" alt = "fb" width = "70" height = "70"></a> 
                          <a href = "https://www.instagram.com/accounts/login/"><img src = "https://i.imgur.com/VoN7z9i.png" alt = "ig" width = "70" height = "70"></a> 
                          <a href = "https://twitter.com/"><img src = "https://i.imgur.com/yWnTdsy.png" alt = "twt" width = "70" height = "70"></a>
 
                          <p><img src = "https://i.imgur.com/QacTXH9.png" alt = "email" width = "25" height = "25"></a> thepaperbag_mnl@gmail.com <a href = "#"> </p>
                          <p><img src = "https://i.imgur.com/QacTXH9.png" alt = "phone" width = "25" height = "25"></a> (+63) 930 7329 433</p>
-                    </ul>
+                    
                 </div>
                 <div class = "col">
                     <h3> Working Hours </h3>
