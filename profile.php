@@ -28,6 +28,7 @@ if (!empty($_SESSION['user'])) {
 <html>
     <head>
         <title>Welcome User</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
         <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -247,16 +248,35 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <?php } ?>
 <br><br>
     <div align = "center">
-        <h3>Your Personal Information</h3>
-        <p>Username: <?= $user['username']; ?></p> 
-        <p>Email: <?= $user['email']; ?></p>
-        <p>First Name: <?= $user['firstname']; ?></p> 
-        <p>Last Name: <?= $user['lastname']; ?></p> 
-        <p>Contact: <?= $user['contact']; ?></p> 
-        <p>Address: <?= $user['address']; ?></p> 
+        <table  class="table table-dark table-hover" style = "width: 600px; height: 400px;">
+            <tr align = "center">
+                <th colspan ="1">
+                    <h3>Your Personal Information</h3><br>
+                </th>
+            </tr>
+            <tr align = "center">
+                <td>First Name: <?= $user['username']; ?></td>
+            </tr>
+
+            <tr align = "center">
+                <td>Last Name: <?= $user['lastname']; ?></td>
+            </tr>
+
+            <tr align = "center">
+                <td>Your Email: <?= $user['email']; ?></td>
+            </tr>
+            
+            <tr align = "center">
+                <td>Your Contact: <?= $user['contact']; ?></td>
+            </tr>
+
+            <tr align = "center" >
+                <td>Your Adress: <?= $user['address']; ?></td>
+            </tr>
+        </table>
         <br>
         <a href = "editUser.php"><button name = "edituser">Edit Info</button></a>
-        </div>
+    </div>
   
          
 
