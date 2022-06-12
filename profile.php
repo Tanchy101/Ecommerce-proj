@@ -240,44 +240,53 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
        <h2> Your Profile </h2>
        <a href="userPurchases.php">My Purchases</a>  
     <br><br><br><br>
+
     <h3 class="drawLine"></h3> 
+
     <?php if (isset($_SESSION['succ'])) { ?>
     <div class = "successmess">
         <?php echo $_SESSION['succ']; ?>
     </div>
     <?php } ?>
+
 <br><br>
-    <div align = "center">
+    <div align = "center" height = "500px">
         <table  class="table table-dark table-hover" style = "width: 600px; height: 400px;">
             <tr align = "center">
-                <th colspan ="1">
+                <th>
                     <h3>Your Personal Information</h3><br>
                 </th>
             </tr>
             <tr align = "center">
-                <td>First Name: <?= $user['username']; ?></td>
+                <td><b>First Name:</b> <?= $user['username']; ?></td>
             </tr>
 
             <tr align = "center">
-                <td>Last Name: <?= $user['lastname']; ?></td>
+                <td><b>Last Name:</b> <?= $user['lastname']; ?></td>
             </tr>
 
             <tr align = "center">
-                <td>Your Email: <?= $user['email']; ?></td>
+                <td><b>Your Email:</b> <?= $user['email']; ?></td>
             </tr>
             
             <tr align = "center">
-                <td>Your Contact: <?= $user['contact']; ?></td>
+                <td><b><b>Your Contact:</b></b> <?= $user['contact']; ?></td>
             </tr>
 
             <tr align = "center" >
-                <td>Your Adress: <?= $user['address']; ?></td>
+                <td><b>Your Adress:</b> <?= $user['address']; ?></td>
             </tr>
+
+            <tr align = "center">
+                <td><b>
+                    <a style = "margin-right: 220px;" href = "editUser.php"><button name = "edituser">Edit Info</button></a>
+                </td>
+            </tr>
+            
         </table>
-        <br>
-        <a href = "editUser.php"><button name = "edituser">Edit Info</button></a>
+        
     </div>
-  
+        
          
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
