@@ -46,22 +46,61 @@ if(isset($_POST['edituser'])){
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Edit Info</title>
+        <title>Welcome User</title>
         <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style> 
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans);
     
+        .search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #d3a35d;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color:#d3a35d;
+}
+
+.searchTerm:focus{
+  color: #d3a35d;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #d3a35d;
+  background:#d3a35d;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+    float: right;
+    text-align: center;
+    padding: 10px 10px;
+    width: 35%;
+}
         .topnav a {
             float: right;
             text-align: center;
-            padding: 14px 16px;
+            padding: 14px 15px;
         }
 
-        .topnav .search-container   {
-        float: right;
-        padding: 10px 10px;
-        }
+       
 
       
         
@@ -69,8 +108,8 @@ if(isset($_POST['edituser'])){
             float: left;
             display: inline;
             text-align: center;
-            padding: 14px 16px;
-            margin-left : 15px;
+            padding: 14px 15px;
+            
         }
 
         h2 {
@@ -96,8 +135,8 @@ if(isset($_POST['edituser'])){
         }
 
         .featimg {
-        width: 100%;
-        height: auto;
+        width: 220px;
+        height: 200px;
         }
 
         .desc {
@@ -127,7 +166,7 @@ if(isset($_POST['edituser'])){
         }
         body {
             font-family: monospace;
-            margin: 25px;
+            margin:0;
         }
         a:link {
             color: #000000;
@@ -140,7 +179,39 @@ if(isset($_POST['edituser'])){
             }
         a.active {
             color: #ffcbb5;
-        } fieldset {
+            }
+
+        .tabs ul{
+        list-style-type: none;
+        margin: 0;
+        overflow: hidden;
+        background-color: #d3a35d;
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        
+        }
+
+        .tabs li {
+        float: left;
+        margin-left: 30px;
+        
+        }
+
+        .tabs li input {
+        display: block;
+        border: 1px #d3a35d;   
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        background-color: #d3a35d;
+        }
+
+        .tabs li input:hover {
+        background-color: #f9c389;
+        }
+         fieldset {
                  background-color: beige;
                  border-radius: 12px;
                  border-color: #d3a35d;
@@ -152,7 +223,9 @@ if(isset($_POST['edituser'])){
                 width: 40%;
                 min-width: 320px;
                 margin: auto;
-            } footer {
+            } 
+            
+            footer {
             width: 100%;
             bottom: 0;
             background: linear-gradient(to right, #d3a35d, #ffcbb5);
@@ -161,6 +234,9 @@ if(isset($_POST['edituser'])){
             border-top-right-radius: 125px;
             font-size: 13px;
             line-height: 5px;
+            left: 0;
+           
+
             }
             .row {
             width: 85%;
@@ -171,7 +247,7 @@ if(isset($_POST['edituser'])){
             justify-content: space-between;
             }
             .col {
-            flex-basis: 25%; 
+            flex-basis: 20%; 
             padding: 10px;
             }
             .logo {
@@ -184,11 +260,12 @@ if(isset($_POST['edituser'])){
             margin-bottom: 40px;
             position: relative;
              }
-             ul li {
+             .col  li {
             list-style: none;
             margin-bottom: 12px;
+            
              }
-             ul li a {
+             .col  li a {
             text-decoration: none;
             color: #000000;
             }
@@ -202,49 +279,37 @@ if(isset($_POST['edituser'])){
         <div class="topnav">
             <br>
             <h2>The Paper Bag.</h2>
-            <a href="logoutFileForUsers.php">Logout</a>
-            <a class="active" href="#">Cart</a>
-            <a href="profile.php"><?= $user['username']; ?>'s Profile</a>
-            <a href="userHomePage.php">Home</a>
+            <a href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Cart"width="35" height="30"></a>
+            <a href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
+            <a href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Cart"width="35" height="30"></a>
+            <a href="userHomePage.php"><img src="https://i.imgur.com/hVZsoCl.png" alt="Cart"width="35" height="30"></a>
            
-                <div class="search-container">
-                    <form action="search.php ">
-                        <input type="text" placeholder="Search " size="50" name="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
+            <div class="wrap">
+                <div class="search">
+                <input type="text" class="searchTerm" placeholder="Search">
+                <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+             </button>
+            </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
-AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
-<hr style = "color:#d3a35d">
-    <div class="category">
-        <li><a href="Paper_subfolder/PaperCategoryPage.php">Papers</a></li>
-        <li><a href="Pencil_subfolder/PencilCategoryPage.php">Pencils</a></li>
-        <li><a href="Ballpens_subfolder/BallpensCategoryPage.php">Ballpens</a></li>
-        <li><a href="Markers_subfolder/MarkersCategoryPage.php">Markers</a></li>
-        <li><a href="Arts&Crafts_subfolder/Arts&CraftsCategoryPage.php">Arts & Crafts</a></li>
-        <li><a href="Erasers_subfolder/ErasersCategoryPage.php">Erasers</a></li>
-        <li><a href="Notebooks_subfolder/NotebooksCategoryPage.php">Notebooks</a></li>
-        <li><a href="Journals_subfolder/JournalsCategoryPage.php">Journals</a></li>
-        <li><a href="Planners_subfolder/PlannersCategoryPage.php">Planners</a></li>
-        <li><a href="OfficeSupplies_subfolder/OfficeSuppliesCategoryPage.php">Office Supplies</a></li>
-    </div>
-    <br><br><br><br><br><br><br>
+        
+    <br><br><br><br><br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
+    <hr>
+    <br><br>
+    <h2> Your Profile</h2>
+    <br><br>
     <div class="row"> 
-        <h3 class="drawLine"><span >Your Profile</span></h3>        
+        <h3 class="drawLine"></h3>        
     </div>
+    <br><br>
 
 
     <div align = "center">
         <fieldset>
             <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your Personal Information </h2>
             <br><br><br>
-        <form method= "post" action = "">
+        <form method= "post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <label for = "email">Enter email</label><br><br>
             <input type = "text" name = "email" required><br><br>
 
