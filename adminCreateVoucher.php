@@ -91,12 +91,10 @@ if(isset($_POST["postCheck"])){
             text-decoration: none;
             color: #000000;
             }
-            button{
-                background-color: beige;
-                color: #d3a35d;
-            }
             .btn{
                 overflow: hidden;
+                background-color: beige;
+                color: #d3a35d;
                 border: 1px solid #d3a35d;
                 display: flex;
                 align-items: center;
@@ -109,22 +107,9 @@ if(isset($_POST["postCheck"])){
                 box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
             }
-            .btn::after{
-                content: "";
-                width: 700px;
-                height: 400px;
-                position: absolute;
-                top: -50px;
-                left: -100px;
-                background-color: #ff3cac;
-                background-image: linear-gradient(225deg, #ffb2a0 0%, #ffcbb5 50%, #d3a35d 100%);
-                z-index: -1;
-                transition: transform 0.5s ease;
-            }
             .btn:hover{
                 transform: translate(0, -6px);
                 box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
-                color: white;
             }
 </style>
 
@@ -149,7 +134,7 @@ if(isset($_POST["postCheck"])){
     <br>
     <br>
             <input type="hidden" name="postCheck" value="1">
-            <center> <button name = "submit" class = "btn">CREATE</button> </center>
+            <center> <input type="submit" class = "btn"> </center>
     <br>
     </fieldset>
     <br>
