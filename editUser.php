@@ -166,7 +166,7 @@ if(isset($_POST['edituser'])){
         }
         body {
             font-family: monospace;
-            margin:0;
+            margin:25px;
         }
         a:link {
             color: #000000;
@@ -269,6 +269,27 @@ if(isset($_POST['edituser'])){
             text-decoration: none;
             color: #000000;
             }
+            .btn{
+                font-family: monospace;
+                overflow: hidden;
+                background-color: beige;
+                color: #d3a35d;
+                border: 1px solid #d3a35d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-decoration: none;
+                padding: 15px 30px;
+                position: relative;
+                border-radius: 30px;
+                box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .btn:hover{
+                transform: translate(0, -6px);
+                box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
+            }
     </style>
     <body style = "background-color: #ffedc0">
         
@@ -295,10 +316,11 @@ if(isset($_POST['edituser'])){
         
     <br><br><br><br><br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
-    <hr>
-    <br><br>
+    
+    
     <h2> Your Profile</h2>
-    <br><br>
+    <br><br><br>
+    <hr>
     <div class="row"> 
         <h3 class="drawLine"></h3>        
     </div>
@@ -307,7 +329,7 @@ if(isset($_POST['edituser'])){
 
     <div align = "center">
         <fieldset>
-            <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your Personal Information </h2>
+            <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your Personal Information </h2>
             <br><br><br>
         <form method= "post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <label for = "email">Enter email</label><br><br>
@@ -328,8 +350,7 @@ if(isset($_POST['edituser'])){
             <label for = "contact">New Contact:</label><br><br>
             <input type = "text" name = "contact"><br><br>
 
-            <center> <button name = "edituser">Submit</button> </center>
-
+            <center><input type = "submit" name = "edituser" class = "btn"><center>
         </form>
         </fieldset>
         <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br>

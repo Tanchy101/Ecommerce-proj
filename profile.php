@@ -203,6 +203,46 @@ if (!empty($_SESSION['user'])) {
             text-decoration: none;
             color: #000000;
             }
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 5px, 5px;
+                 font-size: 15px;
+                 width: 40%;
+                 min-width: 320px;
+                 margin: auto;
+                }
+                .successmess{
+                 text-align: center;
+                 padding: 5px, 5px;
+                 font-size: 15px;
+                 width: 40%;
+                 min-width: 320px;
+                 margin: auto;
+                 font-weight: bold;
+                }
+                .btn{
+                overflow: hidden;
+                background-color: beige;
+                color: #d3a35d;
+                border: 1px solid #d3a35d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-decoration: none;
+                padding: 15px 30px;
+                position: relative;
+                border-radius: 30px;
+                box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .btn:hover{
+                transform: translate(0, -6px);
+                box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
+            }
     </style>
     <body style = "background-color: #ffedc0">
         
@@ -237,17 +277,23 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     <!--Line lang to pang layout tas name ng section -->
     
        <h2> Your Profile </h2>
-       <a href="userPurchases.php">My Purchases</a>  
-    <br><br><br><br>
-    <h3 class="drawLine"></h3> 
+
+      
+       <a href="userPurchases.php"><h3>My Purchases</h3></a>  
+       
+    <br><br><br>
+    <h3 class="drawLine"></h3> <br><br>
     <?php if (isset($_SESSION['succ'])) { ?>
-    <div class = "successmess">
-        <?php echo $_SESSION['succ']; ?>
+   
+        <div class = "successmess">
+       <?php echo $_SESSION['succ']; ?> 
     </div>
+   
     <?php } ?>
 <br><br>
     <div align = "center">
-        <h3>Your Personal Information</h3>
+    <fieldset>
+        <h3 >Your Personal Information</h3>
         <p>Username: <?= $user['username']; ?></p> 
         <p>Email: <?= $user['email']; ?></p>
         <p>First Name: <?= $user['firstname']; ?></p> 
@@ -255,10 +301,9 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
         <p>Contact: <?= $user['contact']; ?></p> 
         <p>Address: <?= $user['address']; ?></p> 
         <br>
-        <a href = "editUser.php"><button name = "edituser">Edit Info</button></a>
-        </div>
-  
-         
+        <a class ="btn" href = "editUser.php">Edit Info</a>
+    </fieldset>
+    </div>
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         

@@ -205,7 +205,7 @@ if(isset($_POST['order'])){
             }
         table {
          border-collapse: collapse;
-         width: 80%;
+         width:100%;
             }
 
         td, th {
@@ -257,8 +257,38 @@ if(isset($_POST['order'])){
             text-decoration: none;
             color: #000000;
             }
-
-        
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 10px, 10px;
+                 font-size: 15px;
+                 width: 45%;
+                 min-width: 320px;
+                 margin: auto;
+            }
+            .btn{
+                font-family: monospace;
+                overflow: hidden;
+                background-color: beige;
+                color: #d3a35d;
+                border: 1px solid #d3a35d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-decoration: none;
+                padding: 15px 20px;
+                position: relative;
+                border-radius: 30px;
+                box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .btn:hover{
+                transform: translate(0, -6px);
+                box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
+            }
     </style>
     <body style = "background-color: #ffedc0">
         <?php //if ($result->num_rows > 0) {
@@ -306,15 +336,14 @@ if(isset($_POST['order'])){
     <!--Line lang to pang layout tas name ng section -->
 
     <h2> Your Cart</h2>
-    <br><br>
-    <div class="row"> 
-        <h3 class="drawLine"></h3>        
-    </div>
+    <br><br><br>
+    <hr>
     <br><br>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
-       <div id = "cartNatin">
-           
+        <fieldset>
+        <div id = "cartNatin">
+          
        <table>
                <tr>
                    <th>Product name</th>
@@ -361,7 +390,7 @@ if(isset($_POST['order'])){
             <tr>
             <td>
             <form action = "placeOrder.php" method = "post">
-                <input type = "submit" value ="CHECK OUT" name = "order">
+                <input type = "submit" value ="CHECK OUT" name = "order" class = "btn">
             </form>
             </td>
             </tr>
@@ -372,6 +401,7 @@ if(isset($_POST['order'])){
            
         </table>
         </div>
+        </fieldset>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         
         <footer>
