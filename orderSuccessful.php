@@ -2,6 +2,26 @@
 
 session_start();
 include "Config.php";
+$sql = "SELECT * FROM `adminstock`";
+$result = $conn->query($sql);
+
+$id = [];
+$categories = [];
+$products = [];
+$description = [];
+$picture = [];
+
+$idx = 0;
+if($result->num_rows > 0){
+    while($row = $result->fetch_assoc()){
+        $id[$idx] = $row["id"];
+        $categories [$idx] = $row["categories"]; 
+        $products[$idx] = $row["products"];
+        $description[$idx] = $row["description"];
+        $picture[$idx] = $row["picture"];
+        $idx++;
+    }
+}
 
 if(isset($_POST["purchase"])){
 
@@ -9,6 +29,7 @@ if(isset($_POST["purchase"])){
     $checkout = [[]];
     $idx = 0;
         foreach($_SESSION['cart'] as $susi => $value){
+            
             $jdx = 0;
             $checkout[$idx][$jdx] = $value['var_id'];
             echo $checkout[$idx][$jdx] . " ";
@@ -27,11 +48,16 @@ if(isset($_POST["purchase"])){
             $jdx++;
             $checkout[$idx][$jdx] = $value['price'];
             echo $checkout[$idx][$jdx] . " ";
+            $jdx++;
+            $checkout[$idx][$jdx] = $value['picture'];
+            echo $checkout[$idx][$jdx] . " ";
+
 
             echo "<br>";
             $totalprice = $totalprice + ( $value['quantity'] * $value['price']);
             $idx++;
         }
+        
     
         // Updating Stocks
         for ($i = 0; $i < count($_SESSION["cart"]); $i++){
@@ -51,9 +77,20 @@ if(isset($_POST["purchase"])){
                         $sold[$idx] = $row["sold"];
                         $idx++;
         }
+        echo "<br><h1>";
+        echo $checkout[$i][0];
+        echo $checkout[$i][1];
+        echo $checkout[$i][2];
+        echo $checkout[$i][3];
+        echo $checkout[$i][4];
+        echo $checkout[$i][5];
+        echo $checkout[$i][6];
+        echo "</h1>";
 
 
             //Subtract Stock with Quantity
+            echo "<br>";
+            echo $checkout[$i][3];
             $newStock = $stock[0] - $checkout[$i][3];
             $newSold = $sold[0] + 1;
 
@@ -109,8 +146,8 @@ if(isset($_POST["purchase"])){
     for ($i = 0; $i < count($_SESSION["cart"]); $i++){
 
         $finalPrice = $checkout[$i][3] * $checkout[$i][5];
-        $sql = "INSERT INTO adminsales (order_id,var_id, product_id, quantity, price)
-        VALUES ('" . end($order_id) . "', '" . $checkout[$i][0] . "', '" . $checkout[$i][1] . "', '" . $checkout[$i][3] . "', '" . $finalPrice  . "');";
+        $sql = "INSERT INTO adminsales (order_id, product, variation, picture, quantity, price)
+        VALUES ('" . end($order_id) . "', '" . $checkout[$i][2] . "', '" . $checkout[$i][4] . "', '" . $checkout[$i][6] . "', '" . $checkout[$i][3] . "', '" . $finalPrice  . "');";
 
         // echo end($order_id) . "\n";
         // echo $checkout[$i][0] . "\n";

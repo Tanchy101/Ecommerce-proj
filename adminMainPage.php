@@ -135,7 +135,7 @@ include 'Config.php'
         <center> <h1> Shipping </h1> </center>
         <fieldset>
             <center>
-        <a href = "adminViewSales.php">Update Shipping Status</a>
+        <a href = "adminUpdateShipping.php">Update Shipping Status</a>
         <br>
             </center>
         </fieldset>

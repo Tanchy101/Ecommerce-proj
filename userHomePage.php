@@ -28,6 +28,21 @@ session_start();
                 $idx++;
             }
         }
+
+            $sql = "SELECT * FROM `adminstock` WHERE id='$product_id[0]'";
+            $result = $conn->query($sql);
+        
+            $picture = [];
+        
+            $idx = 0;
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $picture[$idx] = $row["picture"];
+                    $idx++;
+                }
+            }
+
+
         $session_array_id = array_column($_SESSION['cart'], $product_id[0]);
 
         if(!in_array($product_id[0], $session_array_id)){
@@ -37,20 +52,58 @@ session_start();
             "quantity" => $_POST['quantity'],
             "products" => $_POST['product'],
             "variation" => $variation[0],
-            "price" => $_POST['price']
+            "price" => $_POST['price'],
+            "picture" => $picture[0]
+
             );
             $_SESSION['cart'][] = $session_array;
         }
 
     }else{
 
+        $var_idPOST = $_POST["variation"];
+        $sql = "SELECT * FROM `adminstockvariant` WHERE id='$var_idPOST'";
+        $result = $conn->query($sql);
+      
+        $var_id = [];
+        $product_id = [];
+        $variation = [];
+        $price = [];
+        $stock = [];
+      
+        $idx = 0;
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $var_id[$idx] = $row["id"];
+                $product_id[$idx] = $row["product_id"]; 
+                $variation[$idx] = $row["variation"];
+                $price[$idx] = $row["price"];
+                $stock[$idx] = $row["stock"];
+                $idx++;
+            }
+        }
+            $sql = "SELECT * FROM `adminstock` WHERE id='$product_id[0]'";
+            $result = $conn->query($sql);
+        
+            $picture = [];
+        
+            $idx = 0;
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $picture[$idx] = $row["picture"];
+                    $idx++;
+                }
+            }
+
 
         $session_array = array(
+            'var_id' => $var_id[0],
             'product_id' => $product_id[0],
             "quantity" => $_POST['quantity'],
             "products" => $_POST['product'],
-            "variation" => $_POST['variation'],
-            "price" => $_POST['price']
+            "variation" => $variation[0],
+            "price" => $_POST['price'],
+            "picture" => $picture[0]
         );
 
         $_SESSION['cart'][] = $session_array;

@@ -27,8 +27,10 @@ if($result->num_rows > 0){
 </head>
 
 <body>
+<h1> Sales </h1>
     <?php 
-    
+
+    // Get orders
     for ($i = 0; $i < count($order_id); $i++)
     {
         echo "<h2>Order $date[$i]<h2>";
@@ -37,54 +39,32 @@ if($result->num_rows > 0){
         $sql = "SELECT * FROM `adminsales` WHERE order_id = '$o_id'";
         $result = $conn->query($sql);
 
-        $var_id = [];
+        $product = [];
+        $variation = [];
+        $picture = [];
         $price = [];
         $quantity = [];
 
         $idx = 0;
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                $var_id[$idx] = $row["var_id"];
+                $product[$idx] = $row["product"];
+                $variation[$idx] = $row["variation"];
+                $picture[$idx] = $row["picture"];
                 $quantity[$idx] = $row["quantity"];
                 $price[$idx] = $row["price"];
                 $idx++;
             }
         }
 
-        for ($j = 0; $j < count($var_id); $j++)
-        {
-            $v_id = $var_id[$j];
-            $sql = "SELECT * FROM `adminstockvariant` WHERE id = '$v_id'";
-            $result = $conn->query($sql);
 
-            $idx = 0;
-            if($result->num_rows > 0){
-                while($row = $result->fetch_assoc()){
-                    $product_id = $row["product_id"]; 
-                    $variation = $row["variation"];
-                    $idx++;
-                }
-            }
-
-            $sql = "SELECT * FROM `adminstock` WHERE id = '$product_id'";
-            $result = $conn->query($sql);
-
-            $idx = 0;
-            if($result->num_rows > 0){
-                while($row = $result->fetch_assoc()){
-                    $products = $row["products"];
-                    $picture = $row["picture"];
-                    $idx++;
-                }
-            }
-
-            echo "<h4>$picture</h4>";
-            echo "<h4>$products</h4>";
-            echo "<h4>$variation</h4>";
-            echo "<h4>$quantity[$j]</h4>";
-            echo "<h4>$price[$j]</h4>";
+            echo "<h4>$picture[0]</h4>";
+            echo "<h4>$product[0]</h4>";
+            echo "<h4>$variation[0]</h4>";
+            echo "<h4>$quantity[0]</h4>";
+            echo "<h4>$price[0]</h4>";
         }
-    }
+    
     
     ?>
 
