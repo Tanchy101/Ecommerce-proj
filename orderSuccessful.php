@@ -394,7 +394,7 @@ if(isset($_POST["purchase"])){
                
                 }
 
-                .btn{
+                .btn {
                 overflow: hidden;
                 background-color: beige;
                 color: #d3a35d;
@@ -409,6 +409,7 @@ if(isset($_POST["purchase"])){
                 border-radius: 30px;
                 box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
+                margin: 10px;
             }
             .btn:hover{
                 transform: translate(0, -6px);
@@ -454,6 +455,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
        <center><img src="https://i.imgur.com/wifw52B.png" alt="Cart"width="35" height="35">
        <center><h3> Order Successful!</h3></center>
        <center><p>Go to My Purchases for more info.<p></center>
+       <center><a class ="btn" href = "userPurchases.php">My Purchases</a></center>
         </fieldset>
         </div>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
