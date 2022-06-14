@@ -167,14 +167,99 @@ session_start();
             text-align: center;
             }
         table {
-         border-collapse: collapse;
+         
          width: 80%;
+         align-items:center;
             }
 
+      
         td, th {
        
         text-align: left;
         padding: 8px;
+        margin: 10px;
+       
+            }
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 20px, 20px;
+                 font-size: 15px;
+                 width: 50%;
+                 margin: auto;
+            }
+            .btn{
+                font-family: monospace;
+                overflow: hidden;
+                background-color: beige;
+                color: #d3a35d;
+                border: 1px solid #d3a35d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-decoration: none;
+                padding: 15px 20px;
+                position: relative;
+                border-radius: 30px;
+                box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                margin: 10px;
+            }
+            .btn:hover{
+                transform: translate(0, -6px);
+                box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
+            }
+            footer {
+            width: 100%;
+            bottom: 0;
+            background: linear-gradient(to right, #d3a35d, #ffcbb5);
+            padding: 100px 0 30px;
+            border-top-left-radius: 125px;
+            border-top-right-radius: 125px;
+            font-size: 13px;
+            line-height: 5px;
+            left: 0;
+           
+
+            }
+            .row {
+            width: 85%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            }
+            .col {
+            flex-basis: 27%; 
+            padding: 10px;
+            }
+            .logo {
+            height: 140px;
+            width: 160px;
+            margin-bottom: 30px;
+            }
+            .col h3 {
+            width: fit-content;
+            margin-bottom: 40px;
+            position: relative;
+             }
+             .col ul li {
+            list-style: none;
+            margin-bottom: 12px;
+             }
+             .col ul li a {
+            text-decoration: none;
+            color: #000000;
+            }
+            .center{
+                margin-left: auto;
+                margin-right: auto;
+                width:100%;
+
             }
     </style>
     <body style = "background-color: #ffedc0">
@@ -223,45 +308,73 @@ session_start();
     <!--Line lang to pang layout tas name ng section -->
 
     <h2> Place Order</h2>
-    <br><br>
-    <div class="row"> 
-        <h3 class="drawLine"></h3>        
-    </div>
+    <br><br><br>
+    <hr>
     <br><br>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
 
-    <?php 
-            $totalprice = 0;
-            $checkout = [[]];
-            $idx = 0;
+   <fieldset>
+<table class = "center">
+               <tr>
+                   <th>Product name</th>
+                   <th>Quantity</th>
+                   <th>Variation</th>
+                   <th>Price</th> 
+                </tr>
+           <?php
 
-                // print_r($_SESSION["cart"][$i]);
-                foreach($_SESSION['cart'] as $susi => $value){
-                    $jdx = 0;
-                    $checkout[$idx][$jdx] = $value['products'];
-                    echo $checkout[$idx][$jdx] . " ";
-                    $jdx++;
-                    $checkout[$idx][$jdx] = $value['quantity'];
-                    echo $checkout[$idx][$jdx] . " ";
-                    $jdx++;
-                    $checkout[$idx][$jdx] = $value['variation'];
-                    echo $checkout[$idx][$jdx] . " ";
-                    $jdx++;
-                    $checkout[$idx][$jdx] = $value['price'];
-                    echo $checkout[$idx][$jdx] . " ";
-                    number_format($value['quantity'] * $value['price'], 2);
+        $totalprice = 0;
+        $checkout = [[]];
+        $idx = 0;
 
-                    echo "<br>";
-                    $totalprice = $totalprice + ( $value['quantity'] * $value['price']);
-                }
+        foreach($_SESSION['cart'] as $susi => $value){
+            $jdx = 0;
 
-            echo number_format($totalprice, 2);
-    ?>
-<br><br>
-    <form action = "orderSuccessful.php" method="post">
-        <input type = "submit" name="purchase" value="PURCHASE">
+            ?>
+            <tr>
+                <td><?php $checkout[$idx][$jdx] = $value['products'];
+                    echo $checkout[$idx][$jdx] . " ";
+                    $jdx++; ?></td>
+                <td><?php $checkout[$idx][$jdx] = $value['quantity'];
+                    echo $checkout[$idx][$jdx] . " ";
+                    $jdx++; ?></td>
+                <td><?php $checkout[$idx][$jdx] = $value['variation'];
+                    echo $checkout[$idx][$jdx] . " ";
+                    $jdx++; ?></td>
+                <td> ₱ <?php $checkout[$idx][$jdx] = $value['price'];
+                    echo $checkout[$idx][$jdx] . " "; ?></td>
+                <td><?php number_format($value['quantity'] * $value['price'], 2); ?></td>
+                <td>
+               <?php number_format($value['quantity'] * $value['price'], 2);
+
+                echo "<br>";
+                $totalprice = $totalprice + ( $value['quantity'] * $value['price']);  }
+                ?>
+            </td>
+            </tr>
+            
+        
+            <tr>
+                <td colspan = "3" align = "right"><b>Total Price</b></td>
+                <td align = "right"> ₱ <?php echo number_format($totalprice, 2); ?></td>
+                
+            </tr>
+            
+          
+           
+        </table>
+
+        <form action = "orderSuccessful.php" method="post">
+        <center><input type = "submit" name="purchase" value="PURCHASE" class = "btn"></center>
     </form>
+        </fieldset>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   
 
        
     
@@ -269,8 +382,31 @@ session_start();
 
 
             
-       <div class = "footer">
-        footer.
-       </div>
+<footer>
+            <div class = "row">
+                <div class = "col">
+                    <!--logo-->
+                    <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo"  class = "logo">
+                 </div>
+                 <div class = "col">
+                    <center> <h3> Follow us on </h3> </center>
+                    <ul>
+                         <a href = "https://www.facebook.com/?stype=lo&jlou=Afdo9_8IzKjd-98S53hgWcs_YTL09G0gr2QFRljr_iv46_YAcls5iVZeqmHpGZC539as2z3YZrVmDMN4Fa7qZwlkDHYfPePzF_auNbBsMVT-8g&smuh=35351&lh=Ac-aDteK0xAi75BCmxY"><img src = "https://i.imgur.com/juyHCD8.png" alt = "fb" width = "70" height = "70"></a> 
+                         <a href = "https://www.instagram.com/accounts/login/"><img src = "https://i.imgur.com/VoN7z9i.png" alt = "ig" width = "70" height = "70"></a> 
+                         <a href = "https://twitter.com/"><img src = "https://i.imgur.com/yWnTdsy.png" alt = "twt" width = "70" height = "70"></a>
+
+                         <p><img src = "https://i.imgur.com/QacTXH9.png" alt = "email" width = "25" height = "25"></a> thepaperbag_mnl@gmail.com <a href = "#"> </p>
+                         <p><img src = "https://i.imgur.com/QacTXH9.png" alt = "phone" width = "25" height = "25"></a> (+63) 930 7329 433</p>
+                    </ul>
+                </div>
+                <div class = "col">
+                    <h3> Working Hours </h3>
+                    <p> Monday - Saturday</p>
+                    <p> 8:00 AM - 10:00 PM</p>
+                </div>
+             </div>
+           <hr>
+             <center> <p><i> Copryright &copy; 2022 - The Paper Bag.All Right Reserved. </i></p> </center> 
+        </footer>
 </body>
 </html>

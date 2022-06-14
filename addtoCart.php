@@ -289,6 +289,27 @@ if(isset($_POST['order'])){
                 transform: translate(0, -6px);
                 box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
             }
+            .btns{
+                font-family: monospace;
+                overflow: hidden;
+                background-color: beige;
+                color: #d3a35d;
+                border: 1px solid #d3a35d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-decoration: none;
+                padding: 5px 10px;
+                position: relative;
+                border-radius: 30px;
+                box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;  
+            }
+            .btns:hover{
+                transform: translate(0, -6px);
+                box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
+            }
     </style>
     <body style = "background-color: #ffedc0">
         <?php //if ($result->num_rows > 0) {
@@ -370,7 +391,7 @@ if(isset($_POST['order'])){
                 <td>
                 <form action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                     <input type="hidden" name="remove" value="<?php $valueArray ?>">
-                    <input type="submit" value="REMOVE">
+                    <input type="submit" value="REMOVE" class = "btns">
                 </form>
                 </td>
             </tr>
@@ -390,7 +411,7 @@ if(isset($_POST['order'])){
             <tr>
             <td>
             <form action = "placeOrder.php" method = "post">
-                <input type = "submit" value ="CHECK OUT" name = "order" class = "btn">
+            <input type = "submit" value ="CHECK OUT" name = "order" class = "btn">
             </form>
             </td>
             </tr>
