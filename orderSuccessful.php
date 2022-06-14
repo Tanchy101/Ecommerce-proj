@@ -92,7 +92,7 @@ if(isset($_POST["purchase"])){
             echo "<br>";
             echo $checkout[$i][3];
             $newStock = $stock[0] - $checkout[$i][3];
-            $newSold = $sold[0] + 1;
+            $newSold = $sold[0] + $checkout[$i][3];
 
             $sql = "UPDATE `adminstockvariant` SET `stock`='$newStock', sold = '$newSold' WHERE `id`='$idForStock';";
             if ($conn->query($sql) === TRUE) {
