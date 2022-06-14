@@ -2,7 +2,7 @@
 
 include "Config.php";
 
-$sql = "SELECT * FROM `userpurchases`";
+$sql = "SELECT * FROM `userpurchases` ORDER BY id DESC";
 $result = $conn->query($sql);
 
 $order_id = [];

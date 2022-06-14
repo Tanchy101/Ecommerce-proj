@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
 }
 
 // Get user id 
-$sql = "SELECT * FROM `userpurchases` WHERE user_id='$user_id'";
+$sql = "SELECT * FROM `userpurchases` WHERE user_id='$user_id' ORDER BY id DESC";
 $result = $conn->query($sql);
 
 $order_id = [];

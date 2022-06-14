@@ -2,8 +2,15 @@
 
 include "Config.php";
 
-if(isset($_POST["ship"])){
+$hide = "";
 
+if(isset($_POST["hide"])){
+
+    $hide = "hide";
+
+}
+
+if(isset($_POST["ship"])){
 
     $shipStatusUpdate = $_POST["ship"];
     $shipUpdateID = $_POST["shipUpdateID"];
@@ -16,22 +23,46 @@ if(isset($_POST["ship"])){
     }
 }
 
+if ($hide == "hide")
+{
+    $sql = "SELECT * FROM `userpurchases` ORDER BY id DESC;";
+    $result = $conn->query($sql);
 
-$sql = "SELECT * FROM `userpurchases`";
-$result = $conn->query($sql);
+    $order_id = [];
+    $shipstatus = [];
+    $date = [];
 
-$order_id = [];
-$shipstatus = [];
-$date = [];
-
-$idx = 0;
-if($result->num_rows > 0){
-    while($row = $result->fetch_assoc()){
-        $order_id[$idx] = $row["order_id"];
-        $shipstatus[$idx] = $row["shipstatus"];
-        $date[$idx] = $row["date"];
-        $idx++;
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $order_id[$idx] = $row["order_id"];
+            $shipstatus[$idx] = $row["shipstatus"];
+            $date[$idx] = $row["date"];
+            $idx++;
+        }
     }
+  
+}
+else
+{
+    $sql = "SELECT * FROM `userpurchases` WHERE NOT shipstatus = 'Delivered' ORDER BY id DESC;";
+    $result = $conn->query($sql);
+    
+    $order_id = [];
+    $shipstatus = [];
+    $date = [];
+    
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $order_id[$idx] = $row["order_id"];
+            $shipstatus[$idx] = $row["shipstatus"];
+            $date[$idx] = $row["date"];
+            $idx++;
+        }
+    }
+    
+ 
 }
 ?>
 
@@ -42,6 +73,10 @@ if($result->num_rows > 0){
 </head>
 
 <body>
+    <form method = "post" action = "<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?> ">
+    <input type="submit" name="hide" value="SHOW DELIVERED">
+    <input type="submit" value="HIDE DELIVERED">
+    </form>
     <?php 
     
     for ($i = 0; $i < count($order_id); $i++)
