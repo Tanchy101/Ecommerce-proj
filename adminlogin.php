@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
       $adminPass = $row["adminPass"];
     }
   } else {
-    echo "0 results";
+    echo "<script>alert('Wrong password or username')</script>";
   }
   $conn->close();
 
