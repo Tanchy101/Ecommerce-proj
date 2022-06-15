@@ -4,26 +4,7 @@ include "Config.php";
 
 if (isset($_POST["LOW"]))
 {
-    $sql = "SELECT * FROM `adminstock`";
-    $result = $conn->query($sql);
 
-    $id = [];
-    $categories = [];
-    $products = [];
-    $description = [];
-    $picture = [];
-
-    $idx = 0;
-    if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-            $id[$idx] = $row["id"];
-            $categories [$idx] = $row["categories"]; 
-            $products[$idx] = $row["products"];
-            $description[$idx] = $row["description"];
-            $picture[$idx] = $row["picture"];
-            $idx++;
-        }
-    }
 
     $sql = "SELECT * FROM `adminstockvariant` ORDER BY sold ASC";
     $result = $conn->query($sql);
@@ -49,10 +30,13 @@ if (isset($_POST["LOW"]))
     }
 
     $count = count($var_id);
+    $highlow = "subtract";
 
 }
 else{
+
     $count = 1;
+    $highlow = "add";
     $sql = "SELECT * FROM `adminstock`";
         $result = $conn->query($sql);
 
@@ -104,7 +88,20 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
+    <title> Welcome to Admin Sales Stats! </title>
+        <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+        <br>
+        <h1> The Paper Bag. </h1>
+        <h2>Welcome to the Admin Sales Status!</h2>
+    
+</head>
+
+<body style = "background-color: #ffedc0">
+<style>
+        head, body {
+        font-family: monospace;
+         }
+
          tr:nth-child(even){background-color: #f2f2f2;}
             tr:nth-child(odd){background-color: #fff;}
 
@@ -129,34 +126,59 @@ else{
                 color: white;
                 text-align: center;
             }
+           
     </style>
-</head>
-
-<body>
+    <br>
+    <br>
     <h1>TOP PRODUCTS</H1>
     <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
     <input type="submit" name="TOP" value="Highest Sold">
     <input type="submit" name="LOW" value="Lowest Sold">
     </form>
 <?php
-        for($idx = 0; $idx < count($id); $idx++){
             echo "<table id='main'>";
             echo "<tr id = 'category'>";
             echo "<td>TOP</td><td>Picture</td><td>Category</td><td>Product</td><td>Variation</td><td>Price</td><td>Stock</td><td>Sold</td>";
             echo "</tr>";
             for($i = 0; $i < count($var_id); $i++){
-                if ($id[$idx] == $product_id[$i]){
+
+                $sql = "SELECT * FROM `adminstock` WHERE id='$product_id[$i]'";
+                $result = $conn->query($sql);
+            
+                $id = [];
+                $categories = [];
+                $products = [];
+                $description = [];
+                $picture = [];
+            
+                $idx = 0;
+                if($result->num_rows > 0){
+                    while($row = $result->fetch_assoc()){
+                        $id[$idx] = $row["id"];
+                        $categories [$idx] = $row["categories"]; 
+                        $products[$idx] = $row["products"];
+                        $description[$idx] = $row["description"];
+                        $picture[$idx] = $row["picture"];
+                        $idx++;
+                    }
+                }
 
                     echo "<tr>";
-                    echo "<td>" . $count . "</td><td><img width='220px' src='$picture[$idx]'</td><td>$categories[$idx]</td><td>$products[$idx]</td>";
+                    echo "<td>" . $count . "</td><td><img width='220px' src='$picture[0]'</td><td>$categories[0]</td><td>$products[0]</td>";
                     echo "<td>" . $variation[$i] . "</td><td>"  . $price[$i] . "</td><td>" . $stock[$i] . "</td><td>" . $sold[$i] . "</td>";
                     echo "</tr>";
-                    $count++;
+                    if ($highlow == "add")
+                    {
+                        $count++;
+                    }
+                    else
+                    {
+                        $count--;
+                    }
+                
+            
                 }
-            }
- 
         echo "<br>";
         echo "</table>";
-        }
 ?>
 </body>

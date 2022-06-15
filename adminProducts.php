@@ -584,13 +584,15 @@ else{
                         /* navigaton bar */
                         ul {
             list-style-type: none;
-
             padding: 0;
             overflow: hidden;
-            background-color: #333;
+            background-color: #f9c389;
             position: -webkit-sticky; /* Safari */
             position: sticky;
+            width: 599px;
+            height: 45px;
             top: 0;
+            border: 1px solid #d3a35d;
             }
 
             li {
@@ -603,14 +605,18 @@ else{
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+            border: 1px solid #d3a35d;
+            
             }
 
             li a:hover {
-            background-color: #111;
+            background-color: #ffcbb5;
+            height: 45px;
             }
 
             .active {
-            background-color: #4CAF50;
+            background-color: #f9c389;
+            
             }
 
             .btn-group input {
