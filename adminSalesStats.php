@@ -88,7 +88,20 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
+    <title> Welcome to Admin Sales Stats! </title>
+        <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+        <br>
+        <h1> The Paper Bag. </h1>
+        <h2>Welcome to the Admin Sales Status!</h2>
+    
+</head>
+
+<body style = "background-color: #ffedc0">
+<style>
+        head, body {
+        font-family: monospace;
+         }
+
          tr:nth-child(even){background-color: #f2f2f2;}
             tr:nth-child(odd){background-color: #fff;}
 
@@ -113,10 +126,10 @@ else{
                 color: white;
                 text-align: center;
             }
+           
     </style>
-</head>
-
-<body>
+    <br>
+    <br>
     <h1>TOP PRODUCTS</H1>
     <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
     <input type="submit" name="TOP" value="Highest Sold">
