@@ -244,10 +244,7 @@ if (!empty($_SESSION['user'])) {
     </head>
     <body style = "background-color: #ffedc0">
         
-        <!-- pwede ka na mag lagay dito sa ilalim ng comment ko na to na mga need
-        na ilagay sa home page-->
-
-        <!-- cart and profile under nito-->
+        
         <div class="topnav">
         <br>
             <h2>The Paper Bag.</h2>
@@ -269,9 +266,7 @@ if (!empty($_SESSION['user'])) {
         <br>
         <br>
         <br>
-        <!-- PARA SA CATEGORY , PAKI EDIT NALANG NG NAMES NG CATEGORY 
-AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
-    
+        
     <br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
 <hr>

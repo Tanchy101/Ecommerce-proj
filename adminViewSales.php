@@ -132,11 +132,16 @@ if($result->num_rows > 0){
         }
 
 
-            echo "<h4>$picture[0]</h4>";
-            echo "<h4>$product[0]</h4>";
-            echo "<h4>$variation[0]</h4>";
-            echo "<h4>$quantity[0]</h4>";
-            echo "<h4>$price[0]</h4>";
+        for ($j = 0; $j < count($product); $j++)
+        {
+            echo "<tr>";
+            echo "<td class = picture > <h4>$picture[$j]</h4>";
+            echo "<td> <h4>$product[$j]</h4></td>";
+            echo "<td><h4>$variation[$j]</h4></td>";
+            echo "<td><h4>$quantity[$j]</h4></td>";
+            echo "<td><h4>₱$price[$j]</h4></td>";
+            echo "</tr>";
+        }
         }
     
     

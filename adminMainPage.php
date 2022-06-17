@@ -98,6 +98,7 @@ include 'Config.php'
 
     <body style = "background-color: #ffedc0">
         <a href = "adminChangePass.php"><h3>Change password</h3></a>
+        <a class = "logout" href = "logoutFileForUsers.php"><h3>Log Out</h3></a>
         <hr style = "color:#d3a35d">
         <div class="maintopnav">
         <a href="adminlogin.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Logout"width="35" height="30"></a>

@@ -586,7 +586,7 @@ else{
             list-style-type: none;
             padding: 0;
             overflow: hidden;
-            background-color: #f9c389;
+            background-color: #d3a35d;
             position: -webkit-sticky; /* Safari */
             position: sticky;
             width: 599px;
@@ -603,19 +603,20 @@ else{
             display: block;
             color: white;
             text-align: center;
-            padding: 14px 16px;
+            padding: 15.5px ;
             text-decoration: none;
             border: 1px solid #d3a35d;
+           
             
             }
 
             li a:hover {
-            background-color: #ffcbb5;
+            background-color: #f9c389;
             height: 45px;
             }
 
             .active {
-            background-color: #f9c389;
+            background-color: #d3a35d;
             
             }
 

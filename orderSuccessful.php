@@ -32,28 +32,21 @@ if(isset($_POST["purchase"])){
             
             $jdx = 0;
             $checkout[$idx][$jdx] = $value['var_id'];
-            echo $checkout[$idx][$jdx] . " ";
             $jdx++;
             $checkout[$idx][$jdx] = $value['product_id'];
-            echo $checkout[$idx][$jdx] . " ";
             $jdx++;
             $checkout[$idx][$jdx] = $value['products'];
-            echo $checkout[$idx][$jdx] . " ";
             $jdx++;
             $checkout[$idx][$jdx] = $value['quantity'];
-            echo $checkout[$idx][$jdx] . " ";
             $jdx++;
             $checkout[$idx][$jdx] = $value['variation'];
-            echo $checkout[$idx][$jdx] . " ";
             $jdx++;
             $checkout[$idx][$jdx] = $value['price'];
-            echo $checkout[$idx][$jdx] . " ";
             $jdx++;
             $checkout[$idx][$jdx] = $value['picture'];
-            echo $checkout[$idx][$jdx] . " ";
 
 
-            echo "<br>";
+
             $totalprice = $totalprice + ( $value['quantity'] * $value['price']);
             $idx++;
         }
@@ -77,20 +70,20 @@ if(isset($_POST["purchase"])){
                         $sold[$idx] = $row["sold"];
                         $idx++;
         }
-        echo "<br><h1>";
-        echo $checkout[$i][0];
-        echo $checkout[$i][1];
-        echo $checkout[$i][2];
-        echo $checkout[$i][3];
-        echo $checkout[$i][4];
-        echo $checkout[$i][5];
-        echo $checkout[$i][6];
-        echo "</h1>";
+        // echo "<br><h1>";
+        // echo $checkout[$i][0];
+        // echo $checkout[$i][1];
+        // echo $checkout[$i][2];
+        // echo $checkout[$i][3];
+        // echo $checkout[$i][4];
+        // echo $checkout[$i][5];
+        // echo $checkout[$i][6];
+        // echo "</h1>";
 
 
             //Subtract Stock with Quantity
-            echo "<br>";
-            echo $checkout[$i][3];
+            // echo "<br>";
+            // echo $checkout[$i][3];
             $newStock = $stock[0] - $checkout[$i][3];
             $newSold = $sold[0] + $checkout[$i][3];
 
@@ -189,9 +182,7 @@ if(isset($_POST["purchase"])){
 
 
 
-    unset($_SESSION["cart"]);
-
-    header("Location: userHomePage.php");    
+    unset($_SESSION["cart"]); 
 }
 
 ?>
