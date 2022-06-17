@@ -23,19 +23,17 @@ if(isset($_POST["postCheck"])){
 ?>
 
 <!DOCTYPE html>
-<html>
 <head>
     <title> Admin Create Vouchers </title>
-    <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     <br>
-    <h1> The Paper Bag. </h1>
+    <a href="adminMainPage.php"><img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left"></a>
+    <br>
+    <h1> Admin </h1>
     <h2> Welcome to the Admin Page: Create Vouchers! </h2>
-</head>
+    <br>
 <style>
     head, body {
         font-family: monospace;
-        margin: 25px;
-        font-weight: bold;
     }
     @media screen and (min-width:430px) 
             {
@@ -46,12 +44,13 @@ if(isset($_POST["postCheck"])){
                  min-width: 200;
                  padding: 5px, 5px;
                  font-size: 15px;
+                 font-weight: bold;
             }
             fieldset{
                 width: 40%;
                 min-width: 320px;
                 margin: auto;
-        } } footer {
+         } } footer {
             width: 100%;
             bottom: 0;
             background: linear-gradient(to right, #d3a35d, #ffcbb5);
@@ -90,7 +89,7 @@ if(isset($_POST["postCheck"])){
              ul li a {
             text-decoration: none;
             color: #000000;
-            }
+            }   
             .btn{
                 overflow: hidden;
                 background-color: beige;
@@ -100,7 +99,10 @@ if(isset($_POST["postCheck"])){
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
+                font-family: monospace;
                 text-decoration: none;
+                font-weight: bold;
+                font-size: 16px;
                 padding: 20px 50px;
                 position: relative;
                 border-radius: 30px;
@@ -111,14 +113,37 @@ if(isset($_POST["postCheck"])){
                 transform: translate(0, -6px);
                 box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
             }
+            .maintopnav{
+                position: absolute;
+                top: 108px;
+                right: 16px;
+                font-size: 18px;
+            }
+            .nav{
+                padding: 20px;
+                color: #926524;
+                font-weight: bold;
+            }
+            .nav:hover{
+                color: #d3a35d;
+            }
+            
 </style>
-
-
-
-<br>
+        </head>
 
 <body style = "background-color: #ffedc0">
-    <hr style = "color:#d3a35d">
+  
+    <div class="maintopnav">
+    <nav>   
+    <a class="nav" href="adminMainPage.php">Home</a> 
+    <a class="nav" href="adminVouchers.php">View Vouchers</a> 
+    <a class="nav" href="adminCreateVoucher.php">Create Voucher</a> 
+    <a class="nav" href="adminEditVoucher.php">Edit Voucher</a> 
+    <a class="nav" href="adminDeleteVoucher.php">Delete Voucher</a> 
+    </nav>
+    </div>
+    <br>
+    <hr>
 
     <br>
     <h1 style="text-align: center">Add a New Voucher</h1>

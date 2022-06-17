@@ -73,7 +73,7 @@ if(isset($_POST['order'])){
     <head>
         <title>My Cart</title>
         <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
-    </head>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style> 
         @import url(https://fonts.googleapis.com/css?family=Open+Sans);
@@ -311,6 +311,7 @@ if(isset($_POST['order'])){
                 box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
             }
     </style>
+    </head>
     <body style = "background-color: #ffedc0">
         <?php //if ($result->num_rows > 0) {
              //output data of each row
@@ -355,10 +356,10 @@ if(isset($_POST['order'])){
     
     <br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
-
+    <hr>
     <h2> Your Cart</h2>
     <br><br><br>
-    <hr>
+    
     <br><br>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->

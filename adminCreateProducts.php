@@ -245,26 +245,45 @@ if (isset($_POST["postCheck"]))
                 transform: translate(0, -6px);
                 box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
             }
+            .maintopnav{
+                position: absolute;
+                top: 108px;
+                right: 16px;
+                font-size: 18px;
+            }
+            .maintopnav .nav {
+                padding: 18px;
+                color: #926524;
+                font-weight: bold;
+            }
+            .maintopnav .nav:hover{
+                color: #d3a35d;
+            }
 </style>
 </head>
 
 
 <body style = "background-color: #ffedc0">
+<br>
 <a href="adminMainPage.php"><img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left"></a>
     <br>
-    <h1> The Paper Bag. </h1>
+    <h1> Admin </h1>
     <h2> Welcome to the Admin Page: Create Products! </h2>
     <br>
     <br>
-    <ul>
-    <li><a class="active" href="adminMainPage.php">Home</a></li>
-    <li><a href="adminProducts.php">View Products</a></li>
-    <li><a href="adminCreateProducts.php">Create Products</a></li>
-    <li><a href="adminEditProducts.php">Edit Products</a></li>
-    <li><a href="adminDeleteProducts.php">Delete Products</a></li>
-    </ul>
+    <div class="maintopnav">
+    <nav>   
+    <a class="nav" href="adminMainPage.php">Home</a> 
+    <a class="nav" href="adminProducts.php">View Products</a>
+    <a class="nav" href="adminCreateProducts.php">Create Products</a> 
+    <a class="nav" href="adminEditProducts.php">Edit Products</a> 
+    <a class="nav" href="adminDeleteProducts.php">Delete Products</a>
+    </div>
 
-    
+  
+    <br>
+    <hr>
+    <br>
     <br>
     <h1 style="text-align: center">Add a New Product</h1>
 <fieldset style = "margin-left: auto; margin-right: auto">
@@ -335,14 +354,14 @@ if (isset($_POST["postCheck"]))
                  </div>
                  <div class = "col">
                     <center> <h3> Follow us on </h3> </center>
-                    <ul>
+                 
                          <a href = "https://www.facebook.com/?stype=lo&jlou=Afdo9_8IzKjd-98S53hgWcs_YTL09G0gr2QFRljr_iv46_YAcls5iVZeqmHpGZC539as2z3YZrVmDMN4Fa7qZwlkDHYfPePzF_auNbBsMVT-8g&smuh=35351&lh=Ac-aDteK0xAi75BCmxY"><img src = "https://i.imgur.com/juyHCD8.png" alt = "fb" width = "70" height = "70"></a> 
                          <a href = "https://www.instagram.com/accounts/login/"><img src = "https://i.imgur.com/VoN7z9i.png" alt = "ig" width = "70" height = "70"></a> 
                          <a href = "https://twitter.com/"><img src = "https://i.imgur.com/yWnTdsy.png" alt = "twt" width = "70" height = "70"></a>
 
                          <p><img src = "https://i.imgur.com/QacTXH9.png" alt = "email" width = "25" height = "25"></a> thepaperbag_mnl@gmail.com <a href = "#"> </p>
                          <p><img src = "https://i.imgur.com/QacTXH9.png" alt = "phone" width = "25" height = "25"></a> (+63) 930 7329 433</p>
-                    </ul>
+            
                 </div>
                 <div class = "col">
                     <h3> Working Hours </h3>

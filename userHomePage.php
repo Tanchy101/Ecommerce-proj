@@ -925,10 +925,10 @@ else{
         <div class="topnav">
             <br>
             <h2>The Paper Bag.</h2>
-            <a href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Cart"width="35" height="30"></a>
+            <a href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Logout"width="35" height="30"></a>
             <a href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
-            <a href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Cart"width="35" height="30"></a>
-           <a href="#"><img src="https://i.imgur.com/hVZsoCl.png" alt="Cart"width="35" height="30"></a>
+            <a href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Profile"width="35" height="30"></a>
+           <a href="#"><img src="https://i.imgur.com/hVZsoCl.png" alt="Home"width="35" height="30"></a>
            
             <div class="wrap">
                 <div class="search">

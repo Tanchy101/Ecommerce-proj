@@ -143,6 +143,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 justify-content: center;
                 flex-direction: column;
                 text-decoration: none;
+                font-family: monospace;
+                font-weight: bold;
+                font-size: 16px;
                 padding: 20px 50px;
                 position: relative;
                 border-radius: 30px;

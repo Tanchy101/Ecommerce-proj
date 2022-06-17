@@ -89,12 +89,19 @@ include 'Config.php'
             text-decoration: none;
             color: #000000;
             }   
+            .maintopnav{
+                position: absolute;
+                top: 108px;
+                right: 16px;
+            }
         </style>
 
     <body style = "background-color: #ffedc0">
         <a href = "adminChangePass.php"><h3>Change password</h3></a>
         <hr style = "color:#d3a35d">
-        
+        <div class="maintopnav">
+        <a href="adminlogin.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Logout"width="35" height="30"></a>
+        </div>
         <br>
         <center> <h1> Manage Products </h1> </center>
         <fieldset>

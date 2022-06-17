@@ -77,11 +77,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             }
             body {
                 font-family: monospace;
-                font-weight: bold;
                 margin: 25px;
             } 
             a:link {
             color: #000000;
+            text-decoration: none;
             }
             a:visited {
             color: #d3a35d;
@@ -156,6 +156,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 justify-content: center;
                 flex-direction: column;
                 text-decoration: none;
+                font-family: monospace;
+                font-weight: bold;
+                font-size: 16px;
                 padding: 20px 50px;
                 position: relative;
                 border-radius: 30px;
@@ -179,11 +182,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         <label name = "password"><h2>Password:</h2></label> <input type="password" name="password" value="<?php echo $password ?>"> <span class="error"><?php echo $passwordErr?> </span>
         <br>
         <br>
-        <a href = "adminChangePass.php" style = "text-decoration:none">Forgot Password?</a>
+        <a href = "adminChangePass.php" style = "text-decoration:none"> <b> Forgot Password? </b> </a>
         <p class="error"><?php echo $loginErr ?></p>
         </center>
         <br>
         <center> <input type="submit" class = "btn"> </center>
+        <br>
+        <center> <a class ="link" href="loginUser.php"><p>Go Back and Login as User</p></a> </center>
         <br>
         <br>
         </form>

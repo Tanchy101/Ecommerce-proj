@@ -61,7 +61,16 @@ if($result->num_rows > 0){
 
 <head>
     <title>Admin Delete Vouchers</title>
+    <br>
+    <a href="adminMainPage.php"><img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left"></a>
+    <br>
+    <h1> Admin </h1>
+    <h2> Welcome to the Admin Page: Delete Vouchers! </h2>
+    <br>
     <style>
+        head, body {
+        font-family: monospace;
+        }
          footer {
             width: 100%;
             bottom: 0;
@@ -103,10 +112,34 @@ if($result->num_rows > 0){
             text-decoration: none;
             color: #000000;
             }
+            .maintopnav{
+                position: absolute;
+                top: 108px;
+                right: 16px;
+                font-size: 18px;
+            }
+            .nav{
+                padding: 20px;
+                color: #926524;
+                font-weight: bold;
+            }
+            .nav:hover{
+                color: #d3a35d;
+            }
         </style>
 </head>
 
-<body>
+<body style = "background-color: #ffedc0">
+<div class="maintopnav">
+    <nav>   
+    <a class="nav" href="adminMainPage.php">Home</a> 
+    <a class="nav" href="adminVouchers.php">View Vouchers</a> 
+    <a class="nav" href="adminCreateVoucher.php">Create Voucher</a> 
+    <a class="nav" href="adminEditVoucher.php">Edit Voucher</a> 
+    <a class="nav" href="adminDeleteVoucher.php">Delete Voucher</a> 
+    </nav>
+    </div>
+    <hr>
     <h3>Delete Vouchers</h3>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <?php

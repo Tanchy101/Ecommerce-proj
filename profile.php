@@ -25,11 +25,9 @@ if (!empty($_SESSION['user'])) {
 ?>
 
 <!DOCTYPE html>
-<html>
     <head>
         <title>Welcome User</title>
         <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
-    </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style> 
         @import url(https://fonts.googleapis.com/css?family=Open+Sans);
@@ -161,7 +159,7 @@ if (!empty($_SESSION['user'])) {
             color: #ffcbb5;
             }
 
-        footer {
+            footer {
             width: 100%;
             bottom: 0;
             background: linear-gradient(to right, #d3a35d, #ffcbb5);
@@ -170,10 +168,8 @@ if (!empty($_SESSION['user'])) {
             border-top-right-radius: 125px;
             font-size: 13px;
             line-height: 5px;
-            left: 0;
-           
             }
-        .row {
+            .row {
             width: 85%;
             margin: auto;
             display: flex;
@@ -181,28 +177,29 @@ if (!empty($_SESSION['user'])) {
             align-items: flex-start;
             justify-content: space-between;
             }
-        .col {
-            flex-basis: 27%; 
+            .col {
+            flex-basis: 25%; 
             padding: 10px;
             }
-        .logo {
+            .logo {
             height: 140px;
             width: 160px;
             margin-bottom: 30px;
             }
-        .col h3 {
+            .col h3 {
             width: fit-content;
             margin-bottom: 40px;
             position: relative;
              }
-        .col ul li {
+             ul li {
             list-style: none;
             margin-bottom: 12px;
              }
-        .col ul li a {
+             ul li a {
             text-decoration: none;
             color: #000000;
             }
+            
             fieldset {
                  background-color: beige;
                  border-radius: 12px;
@@ -244,6 +241,7 @@ if (!empty($_SESSION['user'])) {
                 box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
             }
     </style>
+    </head>
     <body style = "background-color: #ffedc0">
         
         <!-- pwede ka na mag lagay dito sa ilalim ng comment ko na to na mga need
@@ -251,7 +249,7 @@ if (!empty($_SESSION['user'])) {
 
         <!-- cart and profile under nito-->
         <div class="topnav">
-            <br>
+        <br>
             <h2>The Paper Bag.</h2>
             <a href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Cart"width="35" height="30"></a>
             <a href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
@@ -266,6 +264,7 @@ if (!empty($_SESSION['user'])) {
              </button>
             </div>
         </div>
+       
         <br>
         <br>
         <br>
@@ -275,22 +274,22 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     
     <br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
-    
+<hr>
        <h2> Your Profile </h2>
-
       
        <a href="userPurchases.php"><h3>My Purchases</h3></a>  
-       
-    <br><br><br>
-    <h3 class="drawLine"></h3> <br><br>
+     
+    <br><br>
     <?php if (isset($_SESSION['succ'])) { ?>
    
         <div class = "successmess">
        <?php echo $_SESSION['succ']; ?> 
     </div>
-   
+
     <?php } ?>
+    
 <br><br>
+
     <div align = "center">
     <fieldset>
         <h3 >Your Personal Information</h3>
@@ -305,7 +304,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
     </fieldset>
     </div>
 
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         
         <footer>
             <div class = "row">
@@ -315,14 +314,13 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                  </div>
                  <div class = "col">
                     <center> <h3> Follow us on </h3> </center>
-                    <ul>
+                   
                          <a href = "https://www.facebook.com/?stype=lo&jlou=Afdo9_8IzKjd-98S53hgWcs_YTL09G0gr2QFRljr_iv46_YAcls5iVZeqmHpGZC539as2z3YZrVmDMN4Fa7qZwlkDHYfPePzF_auNbBsMVT-8g&smuh=35351&lh=Ac-aDteK0xAi75BCmxY"><img src = "https://i.imgur.com/juyHCD8.png" alt = "fb" width = "70" height = "70"></a> 
                          <a href = "https://www.instagram.com/accounts/login/"><img src = "https://i.imgur.com/VoN7z9i.png" alt = "ig" width = "70" height = "70"></a> 
                          <a href = "https://twitter.com/"><img src = "https://i.imgur.com/yWnTdsy.png" alt = "twt" width = "70" height = "70"></a>
 
                          <p><img src = "https://i.imgur.com/QacTXH9.png" alt = "email" width = "25" height = "25"></a> thepaperbag_mnl@gmail.com <a href = "#"> </p>
                          <p><img src = "https://i.imgur.com/QacTXH9.png" alt = "phone" width = "25" height = "25"></a> (+63) 930 7329 433</p>
-                    </ul>
                 </div>
                 <div class = "col">
                     <h3> Working Hours </h3>
@@ -333,10 +331,10 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
            <hr>
              <center> <p><i> Copryright &copy; 2022 - The Paper Bag.All Right Reserved. </i></p> </center> 
         </footer>
-
+        <?php
+    unset($_SESSION['succ']);
+    ?>
     </body>
     </html>
 
-    <?php
-    unset($_SESSION['succ']);
-    ?>
+  
