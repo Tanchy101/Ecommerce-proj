@@ -270,7 +270,7 @@ if($result->num_rows > 0){
     
             <?php echo "<h4>Order $date[$i]<h4>";?>
             <?php echo "<h4>Shipping Status: $shipstatus[$i]</h4>";?>
-<table >
+<table>
         
                <tr>
                    <th>Picture</th>
@@ -280,15 +280,18 @@ if($result->num_rows > 0){
                    <th>Price</th>
                 </tr>
            
-           <tr>
-           
-        <td class = picture ><?php echo "<img src = '$picture[0]' >"; ?></td>
-        <td><?php echo "<h4>$product[0]</h4>"; ?></td>
-        <td><?php echo "<h4>$variation[0]</h4>";?></td>
-        <td><?php echo "<h4>$quantity[0]</h4>";?></td>
-        <td>₱<?php echo "<h4>$price[0]</h4>";?></td>
-           
-           </tr>
+        <?php
+        for ($j = 0; $j < count($product); $j++)
+        {
+            echo "<tr>";
+            echo "<td class = picture > <img src = '$picture[$j]' ></td>";
+            echo "<td> <h4>$product[$j]</h4></td>";
+            echo "<td><h4>$variation[$j]</h4></td>";
+            echo "<td><h4>$quantity[$j]</h4></td>";
+            echo "<td><h4>₱$price[$j]</h4></td>";
+            echo "</tr>";
+        }
+        ?>
 
     </table>
     </fieldset>
