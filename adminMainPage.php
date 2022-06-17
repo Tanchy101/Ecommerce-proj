@@ -89,18 +89,22 @@ include 'Config.php'
             text-decoration: none;
             color: #000000;
             }   
-            .maintopnav{
+            .logout{
                 position: absolute;
                 top: 108px;
-                right: 16px;
+                right: 30px;
             }
+            .logout:hover{
+                -webkit-filter: drop-shadow(3px 3px 3px #926524);
+                filter: drop-shadow(3px 3px 3px #926524); 
+            }
+   
         </style>
 
     <body style = "background-color: #ffedc0">
         <a href = "adminChangePass.php"><h3>Change password</h3></a>
-        <a class = "logout" href = "logoutFileForUsers.php"><h3>Log Out</h3></a>
         <hr style = "color:#d3a35d">
-        <div class="maintopnav">
+        <div class="logout">
         <a href="adminlogin.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Logout"width="35" height="30"></a>
         </div>
         <br>
