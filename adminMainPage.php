@@ -88,11 +88,15 @@ include 'Config.php'
              ul li a {
             text-decoration: none;
             color: #000000;
-            }   
+            }  
+            .logout{
+                text-align: right;
+            } 
         </style>
 
     <body style = "background-color: #ffedc0">
         <a href = "adminChangePass.php"><h3>Change password</h3></a>
+        <a class = "logout" href = "logoutFileForUsers.php"><h3>Log Out</h3></a>
         <hr style = "color:#d3a35d">
         
         <br>
