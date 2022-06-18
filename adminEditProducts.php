@@ -726,6 +726,7 @@ else{
                 padding: 18px;
                 color: #926524;
                 font-weight: bold;
+                text-decoration: none;
             }
             .maintopnav .nav:hover{
                 color: #d3a35d;

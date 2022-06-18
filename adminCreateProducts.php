@@ -255,6 +255,7 @@ if (isset($_POST["postCheck"]))
                 padding: 18px;
                 color: #926524;
                 font-weight: bold;
+                text-decoration: none;
             }
             .maintopnav .nav:hover{
                 color: #d3a35d;
@@ -283,7 +284,7 @@ if (isset($_POST["postCheck"]))
 
     <br>
     <br>
-    <hr>
+    <hr style = "color:#d3a35d">
     <br>
     <br>
     <h1 style="text-align: center">Add a New Product</h1>

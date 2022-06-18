@@ -98,11 +98,14 @@ include 'Config.php'
                 -webkit-filter: drop-shadow(3px 3px 3px #926524);
                 filter: drop-shadow(3px 3px 3px #926524); 
             }
+            .lnk {
+                text-decoration: none;
+            }
    
         </style>
 
     <body style = "background-color: #ffedc0">
-        <a href = "adminChangePass.php"><h3>Change password</h3></a>
+        <a href = "adminChangePass.php" class = "lnk"><h3>Change password</h3></a>
         <hr style = "color:#d3a35d">
         <div class="logout">
         <a href="adminlogin.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Logout"width="35" height="30"></a>
@@ -111,35 +114,35 @@ include 'Config.php'
         <center> <h1> Manage Products </h1> </center>
         <fieldset>
             <center>
-        <a href = "adminProducts.php">See All Products </a>
+        <a href = "adminProducts.php"  class = "lnk">See All Products </a>
         <br>
-        <a href = "adminCreateProducts.php">Insert a Product</a>
+        <a href = "adminCreateProducts.php"  class = "lnk">Insert a Product</a>
         <br>
-        <a href = "adminDeleteProducts.php">Delete Products </a>
+        <a href = "adminDeleteProducts.php"  class = "lnk">Delete Products </a>
         <br>
-        <a href= "adminEditProducts.php">Edit Products </a>
+        <a href= "adminEditProducts.php"  class = "lnk">Edit Products </a>
             </center>
         </fieldset>
 
         <center> <h1> Manage Vouchers </h1> </center>
         <fieldset>
             <center>
-        <a href = "adminVouchers.php">See All Vouchers </a>
+        <a href = "adminVouchers.php" class = "lnk">See All Vouchers </a>
         <br>
-        <a href = "adminCreateVoucher.php">Create Vouchers</a>
+        <a href = "adminCreateVoucher.php" class = "lnk">Create Vouchers</a>
         <br>
-        <a href = "adminDeleteVoucher.php">Delete Vouchers </a>
+        <a href = "adminDeleteVoucher.php" class = "lnk">Delete Vouchers </a>
         <br>
-        <a href= "adminEditVoucher.php">Edit Vouchers </a>
+        <a href= "adminEditVoucher.php" class = "lnk">Edit Vouchers </a>
             </center>
         </fieldset>
 
         <center> <h1> Sales </h1> </center>
         <fieldset>
             <center>
-        <a href = "adminViewSales.php">View Sales and Reports</a>
+        <a href = "adminViewSales.php" class = "lnk">View Sales and Reports</a>
         <br>
-        <a href = "adminSalesStats.php">Product Stats</a>
+        <a href = "adminSalesStats.php" class = "lnk">Product Stats</a>
         <br>
             </center>
         </fieldset>
@@ -147,7 +150,7 @@ include 'Config.php'
         <center> <h1> Shipping </h1> </center>
         <fieldset>
             <center>
-        <a href = "adminUpdateShipping.php">Update Shipping Status</a>
+        <a href = "adminUpdateShipping.php" class = "lnk">Update Shipping Status</a>
         <br>
             </center>
         </fieldset>
