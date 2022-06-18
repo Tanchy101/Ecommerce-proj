@@ -99,11 +99,8 @@ else{
         font-family: monospace;
          }
 
-         tr:nth-child(even){background-color: #f2f2f2;}
-            tr:nth-child(odd){background-color: #fff;}
-
             td{
-                border: 1px solid #ddd;
+                border: 1px solid #d3a35d;
                 text-align: center;
             }
             #product{
@@ -177,7 +174,55 @@ else{
             .nav:hover{
                 color: #d3a35d;
             }
-           
+            .btn{
+                font-family: monospace;
+                overflow: hidden;
+                background-color: beige;
+                color: #d3a35d;
+                border: 2px solid #d3a35d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-decoration: none;
+                padding: 5px 15px;
+                position: relative;
+                border-radius: 30px;
+                box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                margin : 15px;
+                float : left;
+            }
+            .btn:hover{
+                transform: translate(0, -6px);
+                box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
+            }
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 10px, 10px;
+                 font-size: 15px;
+                 min-width: 320px;
+                 margin: auto;
+                 width : 80%;
+                 margin: 20px;
+            }
+            table { 
+                border-collapse: collapse;
+                border-spacing: 20;
+                width: 100%
+            }
+                th, td {
+    
+              padding: 20px;
+              text-align: center;
+                }
+                .picture{
+                height: 200px;
+                width: 200px;
+                }
     </style>
 </head>
 
@@ -194,9 +239,11 @@ else{
 
     <h1>TOP PRODUCTS</h1>
     <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-    <input type="submit" name="TOP" value="Highest Sold">
-    <input type="submit" name="LOW" value="Lowest Sold">
+    <input type="submit" name="TOP" value="Highest Sold" class = btn>
+    <input type="submit" name="LOW" value="Lowest Sold" class = btn>
     </form>
+    <br><br><br>
+    <fieldset>
 <?php
             echo "<table id='main'>";
             echo "<tr id = 'category'>";
@@ -226,8 +273,8 @@ else{
                 }
 
                     echo "<tr>";
-                    echo "<td>" . $count . "</td><td><img width='220px' src='$picture[0]'</td><td>$categories[0]</td><td>$products[0]</td>";
-                    echo "<td>" . $variation[$i] . "</td><td>"  . $price[$i] . "</td><td>" . $stock[$i] . "</td><td>" . $sold[$i] . "</td>";
+                    echo "<td>" . $count . "</td><td class = picture><img width='220px' src='$picture[0]'</td><td>$categories[0]</td><td>$products[0]</td>";
+                    echo "<td>" . $variation[$i] . "</td><td>₱"  . $price[$i] . "</td><td>" . $stock[$i] . "</td><td>" . $sold[$i] . "</td>";
                     echo "</tr>";
                     if ($highlow == "add")
                     {
@@ -243,7 +290,7 @@ else{
         echo "<br>";
         echo "</table>";
 ?>
-
+</fieldset>
         <br>
         <br>
       

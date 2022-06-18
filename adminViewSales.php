@@ -88,6 +88,35 @@ if($result->num_rows > 0){
             .nav:hover{
                 color: #d3a35d;
             }
+            .picture img{
+                height: 200px;
+                width: 200px;
+            }
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 10px, 10px;
+                 font-size: 15px;
+                 min-width: 320px;
+                 margin: auto;
+                 width : 60%;
+                 margin: 20px;
+            }
+            table { 
+                border-collapse: collapse;
+                border-spacing: 20;
+                width: 100%
+            }
+                th, td {
+    
+              padding: 20px;
+              text-align: center;
+                }
+                .tableC{
+                align-items: center ;
+            }
     </style>
 </head>
 
@@ -102,49 +131,67 @@ if($result->num_rows > 0){
     <br>
     <hr>
 <h1> Sales </h1>
-    <?php 
+<?php 
 
-    // Get orders
-    for ($i = 0; $i < count($order_id); $i++)
+// Get orders
+for ($i = 0; $i < count($order_id); $i++)
+{
+    
+    $o_id = $order_id[$i];
+    $sql = "SELECT * FROM `adminsales` WHERE order_id = '$o_id'";
+    $result = $conn->query($sql);
+
+    $product = [];
+    $variation = [];
+    $picture = [];
+    $price = [];
+    $quantity = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $product[$idx] = $row["product"];
+            $variation[$idx] = $row["variation"];
+            $picture[$idx] = $row["picture"];
+            $quantity[$idx] = $row["quantity"];
+            $price[$idx] = $row["price"];
+            $idx++;
+        }
+    }
+?>
+<div class = "tableC">
+<fieldset>
+
+        <?php echo "<h4>Order $date[$i]<h4>";?>
+        <?php echo "<h4>Shipping Status: $shipstatus[$i]</h4>";?>
+<table>
+    
+           <tr>
+               <th>Picture</th>
+               <th>Product Name</th>
+               <th>Variation</th>
+               <th>Quantity</th>
+               <th>Price</th>
+            </tr>
+       
+    <?php
+    for ($j = 0; $j < count($product); $j++)
     {
-        echo "<h2>Order $date[$i]<h2>";
-        echo "<h2>Shipping Status: $shipstatus[$i]</h2>";
-        $o_id = $order_id[$i];
-        $sql = "SELECT * FROM `adminsales` WHERE order_id = '$o_id'";
-        $result = $conn->query($sql);
+        echo "<tr>";
+        echo "<td class = picture > <img src = '$picture[$j]' ></td>";
+        echo "<td> <h4>$product[$j]</h4></td>";
+        echo "<td><h4>$variation[$j]</h4></td>";
+        echo "<td><h4>$quantity[$j]</h4></td>";
+        echo "<td><h4>₱$price[$j]</h4></td>";
+        echo "</tr>";
+    }
+    ?>
 
-        $product = [];
-        $variation = [];
-        $picture = [];
-        $price = [];
-        $quantity = [];
-
-        $idx = 0;
-        if($result->num_rows > 0){
-            while($row = $result->fetch_assoc()){
-                $product[$idx] = $row["product"];
-                $variation[$idx] = $row["variation"];
-                $picture[$idx] = $row["picture"];
-                $quantity[$idx] = $row["quantity"];
-                $price[$idx] = $row["price"];
-                $idx++;
-            }
-        }
-
-
-        for ($j = 0; $j < count($product); $j++)
-        {
-            echo "<tr>";
-            echo "<td class = picture > <h4>$picture[$j]</h4>";
-            echo "<td> <h4>$product[$j]</h4></td>";
-            echo "<td><h4>$variation[$j]</h4></td>";
-            echo "<td><h4>$quantity[$j]</h4></td>";
-            echo "<td><h4>₱$price[$j]</h4></td>";
-            echo "</tr>";
-        }
-        }
-    
-    
+</table>
+</fieldset>
+<div>
+    <?php
+    }
     ?>
         <br>
         <br>

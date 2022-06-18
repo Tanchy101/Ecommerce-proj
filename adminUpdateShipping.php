@@ -133,6 +133,78 @@ else
             text-decoration: none;
             color: #000000;
             }
+            .picture img{
+                height: 200px;
+                width: 200px;
+            }
+            table { 
+                border-collapse: collapse;
+                border-spacing: 20;
+                width: 100%
+            }
+                th, td {
+    
+              padding: 20px;
+              text-align: center;
+                        
+            }
+            fieldset {
+                 background-color: beige;
+                 border-radius: 12px;
+                 border-color: #d3a35d;
+                 min-width: 200;
+                 padding: 10px, 10px;
+                 font-size: 15px;
+                 min-width: 320px;
+                 margin: auto;
+                 width : 60%;
+                 margin: 20px;
+            }
+            .tableC{
+                align-items: center ;
+            }
+            .btn{
+                font-family: monospace;
+                overflow: hidden;
+                background-color: beige;
+                color: #d3a35d;
+                border: 1px solid #d3a35d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-decoration: none;
+                padding: 5px 15px;
+                position: relative;
+                border-radius: 30px;
+                box-shadow: 0 0 0 0  rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                float: left;
+                margin:20px;
+            }
+            .btn:hover{
+                transform: translate(0, -6px);
+                box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
+            }
+           
+  .choice{
+    color: #d3a35d;
+    float: left;
+    -webkit-appearance: none;
+    padding: 5px 15px;
+    width: 15%;
+    border: 1px solid #d3a35d;
+    border-radius: 30px;
+    background: beige;
+    box-shadow: 0 1px 3px -2px #d3a35d;
+    cursor: pointer;
+    transition: all 150ms ease;
+    font-family: monospace;
+    text-align: center;
+     margin:20px;
+  }
+
+  
          </style>
 </head>
 
@@ -145,27 +217,30 @@ else
     <br>
     <hr>
     <form method = "post" action = "<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?> ">
-    <input type="submit" name="hide" value="SHOW DELIVERED">
-    <input type="submit" value="HIDE DELIVERED">
+    <input type="submit" name="hide" value="SHOW DELIVERED" class = "btn">
+    <input type="submit" value="HIDE DELIVERED" class = "btn">
     </form>
+    <br><br><br><br><br>
     <?php 
     
     for ($i = 0; $i < count($order_id); $i++)
     {
         $o_id = $order_id[$i];
         echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method = 'post'>";
-        echo "<select name='ship'>";
+        echo "<select name='ship' class = choice >";
+        echo "<option hidden>Shipping Status </option>";
         echo "<option value='At the Sorting Center'>At the Sorting Center</option>";
         echo "<option value='On the way for Delivery'>On the way for Delivery</option>";
         echo "<option value='Delivered'>Delivered</option>";
         echo "</select>";
         echo "<input type='hidden' name='shipUpdateID' value='$order_id[$i]'>";
-        echo "<input type='submit' value='Update'>";
+        echo "<input type='submit' value='Update' class = btn>";
         echo "</form>";
-
+?>
+<br><br><br><br>
+<?php
         
-            echo "<h2>Order $date[$i]<h2>";
-            echo "<h2>Shipping Status: $shipstatus[$i]</h2>";
+            
             $o_id = $order_id[$i];
             $sql = "SELECT * FROM `adminsales` WHERE order_id = '$o_id'";
             $result = $conn->query($sql);
@@ -187,20 +262,41 @@ else
                     $idx++;
                 }
             }
+    ?>
+    <fieldset>
+            <?php echo "<h4>Order $date[$i]<h4>";
+                  echo "<h4>Shipping Status: $shipstatus[$i]</h4>"; ?>
+                  
+ <table>
+               <tr>
+                   <th>Picture</th>
+                   <th>Product Name</th>
+                   <th>Variation</th>
+                   <th>Quantity</th>
+                   <th>Price</th>
+                </tr>
     
-    
-                echo "<h4>$picture[0]</h4>";
-                echo "<h4>$product[0]</h4>";
-                echo "<h4>$variation[0]</h4>";
-                echo "<h4>$quantity[0]</h4>";
-                echo "<h4>$price[0]</h4>";
-            
-        
+        <tr>
+              <td class = "picture" ><?php echo "<img src = '$picture[0]' >"; ?></td>
+              <td><?php echo "<h4>$product[0]</h4>";?></td>
+              <td><?php echo "<h4>$variation[0]</h4>";?></td>
+              <td><?php echo "<h4>$quantity[0]</h4>";?></td>
+              <td><?php  echo "<h4>$price[0]</h4>";?></td>
+          </tr>
+
+
+
+          </table>
+    </fieldset>
+    <br>
+    <br>
+    <br>
+    <?php    
+
     }
     
     ?>
-        <br>
-        <br>
+    
     <footer>
             <div class = "row">
                 <div class = "col">
