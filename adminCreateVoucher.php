@@ -123,6 +123,7 @@ if(isset($_POST["postCheck"])){
                 padding: 20px;
                 color: #926524;
                 font-weight: bold;
+                text-decoration: none;
             }
             .nav:hover{
                 color: #d3a35d;
@@ -145,7 +146,7 @@ if(isset($_POST["postCheck"])){
     </div>
     <br><br><br>  
     <br>
-    <hr>
+    <hr style = "color:#d3a35d">
 
     <br>
     <h1 style="text-align: center">Add a New Voucher</h1>

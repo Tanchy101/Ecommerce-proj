@@ -153,7 +153,7 @@ if (!empty($_SESSION['user'])) {
             color: #d3a35d;
             }
         a:hover {
-            color: #ffb2a0;
+            color: #d3a35d;
             }
         a.active {
             color: #ffcbb5;
@@ -244,6 +244,9 @@ if (!empty($_SESSION['user'])) {
                 -webkit-filter: drop-shadow(3px 3px 3px #B28256);
                 filter: drop-shadow(3px 3px 3px #B28256); 
             }
+            .purchase {
+                text-decoration: none;
+            }
     </style>
     </head>
     <body style = "background-color: #ffedc0">
@@ -273,10 +276,10 @@ if (!empty($_SESSION['user'])) {
         
     <br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
-<hr>
+    <hr style = "color:#d3a35d">
        <h2> Your Profile </h2>
       
-       <a href="userPurchases.php"><h3>My Purchases</h3></a>  
+       <a href="userPurchases.php" class = "purchase"><h3>My Purchases</h3></a>  
      
     <br><br>
     <?php if (isset($_SESSION['succ'])) { ?>
