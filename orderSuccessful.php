@@ -365,6 +365,10 @@ if(isset($_POST["purchase"])){
         .col ul li a {
             text-decoration: none;
             color: #000000;
+        }
+        .topnavclick:hover {
+                -webkit-filter: drop-shadow(3px 3px 3px #B28256);
+                filter: drop-shadow(3px 3px 3px #B28256); 
             }
             fieldset {
                  background-color: beige;
@@ -413,10 +417,10 @@ if(isset($_POST["purchase"])){
         <div class="topnav">
             <br>
             <h2>The Paper Bag.</h2>
-            <a href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Cart"width="35" height="30"></a>
-            <a href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
-            <a href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Cart"width="35" height="30"></a>
-            <a href="userHomePage.php"><img src="https://i.imgur.com/hVZsoCl.png" alt="Cart"width="35" height="30"></a>
+            <a class="topnavclick" href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Cart"width="35" height="30"></a>
+            <a class="topnavclick" href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
+            <a class="topnavclick" href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Cart"width="35" height="30"></a>
+            <a class="topnavclick" href="userHomePage.php"><img src="https://i.imgur.com/hVZsoCl.png" alt="Cart"width="35" height="30"></a>
            
             <div class="wrap">
                 <div class="search">
