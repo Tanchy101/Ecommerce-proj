@@ -266,13 +266,14 @@ if (isset($_POST["postCheck"]))
 <body style = "background-color: #ffedc0">
 <br>
 <a href="adminMainPage.php"><img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left"></a>
-    <br>
+
     <h1> Admin </h1>
     <h2> Welcome to the Admin Page: Create Products! </h2>
     <br>
     <br>
     <div class="maintopnav">
-    <nav>   
+    <nav> 
+        <br><br>  
     <a class="nav" href="adminMainPage.php">Home</a> 
     <a class="nav" href="adminProducts.php">View Products</a>
     <a class="nav" href="adminCreateProducts.php">Create Products</a> 
@@ -280,7 +281,7 @@ if (isset($_POST["postCheck"]))
     <a class="nav" href="adminDeleteProducts.php">Delete Products</a>
     </div>
 
-  
+    <br>
     <br>
     <hr>
     <br>

@@ -134,7 +134,8 @@ if(isset($_POST["postCheck"])){
 <body style = "background-color: #ffedc0">
   
     <div class="maintopnav">
-    <nav>   
+    <nav>
+    <br><br><br>     
     <a class="nav" href="adminMainPage.php">Home</a> 
     <a class="nav" href="adminVouchers.php">View Vouchers</a> 
     <a class="nav" href="adminCreateVoucher.php">Create Voucher</a> 
@@ -142,6 +143,7 @@ if(isset($_POST["postCheck"])){
     <a class="nav" href="adminDeleteVoucher.php">Delete Voucher</a> 
     </nav>
     </div>
+    <br><br><br>  
     <br>
     <hr>
 

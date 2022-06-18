@@ -742,14 +742,15 @@ else{
     <br>
     <br>
     <div class="maintopnav">
-    <nav>   
+    <nav>
+    <br><br><br>    
     <a class="nav" href="adminMainPage.php">Home</a> 
     <a class="nav" href="adminProducts.php">View Products</a>
     <a class="nav" href="adminCreateProducts.php">Create Products</a> 
     <a class="nav" href="adminEditProducts.php">Edit Products</a> 
     <a class="nav" href="adminDeleteProducts.php">Delete Products</a>
     </div>
-
+    <br><br><br>  
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="btn-group" style="width:100%">
   <input type="submit" name="Papers" value="Papers" style="width:10%">
   <input type="submit" name="Pencils" value="Pencils" style="width:10%">

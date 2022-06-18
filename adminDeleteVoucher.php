@@ -131,7 +131,8 @@ if($result->num_rows > 0){
 
 <body style = "background-color: #ffedc0">
 <div class="maintopnav">
-    <nav>   
+    <nav> 
+    <br><br><br>    
     <a class="nav" href="adminMainPage.php">Home</a> 
     <a class="nav" href="adminVouchers.php">View Vouchers</a> 
     <a class="nav" href="adminCreateVoucher.php">Create Voucher</a> 
@@ -139,6 +140,7 @@ if($result->num_rows > 0){
     <a class="nav" href="adminDeleteVoucher.php">Delete Voucher</a> 
     </nav>
     </div>
+    <br><br><br>  
     <hr>
     <h3>Delete Vouchers</h3>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
