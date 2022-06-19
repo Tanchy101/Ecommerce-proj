@@ -836,9 +836,53 @@ else{
 
         .tabs li {
         float: left;
-        margin-left: 30px;
-        
-        
+        margin-left: 30px;        
+        }
+
+        /* Slider */
+        #slider {
+	    overflow: hidden;
+        }
+        #slider figure {
+            position: relative;
+            width: 500%;
+            margin: 0;
+            left: 0;
+            animation: 20s slider infinite;
+        }
+        #slider figure img {
+            width: 20%;
+            float: left;
+        }
+
+        @keyframes slider {
+            0% {
+                left: 0;
+            }
+            20% {
+                left: 0;
+            }
+            25% {
+                left: -100%;
+            }
+            45% {
+                left: -100%;
+            }
+            50% {
+                left: -200%;
+            }
+            70% {
+                left: -200%;
+            }
+            75% {
+                left: -300%;
+            }
+            95% {
+                left: -300%;
+            }
+            100% {
+                left: -400%;
+            }
         }
 
         .tabs li input {
@@ -985,9 +1029,20 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
   <input type="submit" name="Journals" value="Journals" style="width:10%">
   <input type="submit" name="Planners" value="Planners" style="width:10%">
   <input type="submit" name="OfficeSupplies" value="Office Supplies" style="width:10%"> -->
+  <hr>
+  <div id="slider">
+		<figure>
+			<img src="img/sale.png">
+			<img src="img/sale2.png">
+			<img src="img/sale.png">
+			<img src="img/sale2.png">
+			<img src="img/sale.png">
+		</figure>
+	</div>
 
     <br><br>
     <!--Line lang to pang layout tas name ng section -->
+    <hr>
     <h2><?php echo $nav; ?></h2>
     <br><br><br>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
@@ -995,8 +1050,25 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
         <?php
         for($idx = 0; $idx < count($id); $idx++)
         {
+            $merongStock = 0;
+            for ($i = 0; $i < count($var_id); $i++){
+                if($id[$idx] == $product_id[$i])
+                {
+                    if ($stock[$i] != 0)
+                    {
+                       $merongStock++;
+                    }
+                    else
+                    {
+                    }
+                    // echo "<input type='radio' id='". $var_id[$i] . "' name='variation' value='" . $variation[$i] . "'>";
+                    // echo "<label>" . $variation[$i] . "</label>"; 
+                    // echo "<br>";
+                    // echo "<input type = 'hidden' name = 'product_id' value ='". $product_id[$i] . "'>";
+                }
+            }
 
-            if(isset($id[$idx])){
+            if($merongStock != 0){
                 echo "<div style = 'margin-left: 30px;' class = 'featured'>";
                 echo "<a target = '_blank' href = '#'>";
                 echo "<img class = 'featimg' src = '" . $picture[$idx] . "'></a>";          
@@ -1023,7 +1095,10 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 for ($i = 0; $i < count($var_id); $i++){
                     if($id[$idx] == $product_id[$i])
                     {
-                        echo "<option value='$var_id[$i]'>$variation[$i]</option>";
+                        if ($stock[$i] != 0)
+                        {
+                           echo "<option value='$var_id[$i]'>$variation[$i]</option>";
+                        }
                         // echo "<input type='radio' id='". $var_id[$i] . "' name='variation' value='" . $variation[$i] . "'>";
                         // echo "<label>" . $variation[$i] . "</label>"; 
                         // echo "<br>";
