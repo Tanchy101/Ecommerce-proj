@@ -110,7 +110,8 @@ session_start();
     }
 }
 
-  $nav = "";
+$nav = "";
+$home = "nope";
 // READ PRODUCTS
 if (isset($_POST["search"])){
     $search = $_POST["searchword"];
@@ -614,6 +615,7 @@ else if (isset($_POST["OfficeSupplies"])){
     
 }
 else{
+    $home = "yep";
     $nav = "All Products";
     $sql = "SELECT * FROM `adminstock`";
     $result = $conn->query($sql);
@@ -976,7 +978,7 @@ else{
             <a class="topnavclick" href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Logout"width="35" height="30"></a>
             <a class="topnavclick" href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
             <a class="topnavclick" href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Profile"width="35" height="30"></a>
-            <a class="topnavclick" href="#"><img src="https://i.imgur.com/hVZsoCl.png" alt="Home"width="35" height="30"></a>
+            <a class="topnavclick" href="userHomePage.php"><img src="https://i.imgur.com/hVZsoCl.png" alt="Home"width="35" height="30"></a>
            
             <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
             <div class="wrap">
@@ -1029,8 +1031,10 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
   <input type="submit" name="Journals" value="Journals" style="width:10%">
   <input type="submit" name="Planners" value="Planners" style="width:10%">
   <input type="submit" name="OfficeSupplies" value="Office Supplies" style="width:10%"> -->
+  
+  <div id="slider" <?php if ($home == "nope"){echo "style = 'display:none;'";}?>>
   <hr>
-  <div id="slider">
+
 		<figure>
 			<img src="img/sale.png">
 			<img src="img/sale2.png">
@@ -1038,11 +1042,12 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
 			<img src="img/sale2.png">
 			<img src="img/sale.png">
 		</figure>
-	</div>
+  <hr>
+  </div>
 
     <br><br>
     <!--Line lang to pang layout tas name ng section -->
-    <hr>
+
     <h2><?php echo $nav; ?></h2>
     <br><br><br>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
