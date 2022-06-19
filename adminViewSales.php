@@ -18,6 +18,8 @@ if($result->num_rows > 0){
         $idx++;
     }
 }
+
+$totalprice = 0;
 ?>
 
 <!DOCTYPE html>
@@ -131,12 +133,9 @@ if($result->num_rows > 0){
     <br>
     <hr>
 <h1> Sales </h1>
-<?php 
-
-// Get orders
+<?php
 for ($i = 0; $i < count($order_id); $i++)
 {
-    
     $o_id = $order_id[$i];
     $sql = "SELECT * FROM `adminsales` WHERE order_id = '$o_id'";
     $result = $conn->query($sql);
@@ -158,7 +157,60 @@ for ($i = 0; $i < count($order_id); $i++)
             $idx++;
         }
     }
+    for ($j = 0; $j < count($product); $j++)
+        {
+            $totalprice = $totalprice + $price[$j];
+        }
+}
+
 ?>
+<div class = "tableC">
+    <fieldset>
+    <table>
+    <tr>
+        <td> 
+            <b>Total Income:</b>
+        </td> 
+        <td>
+            <b>₱<?php echo $totalprice; ?></b>
+        </td>
+    </tr>
+    </table>
+</fieldset>
+</div>
+<?php 
+
+// Get orders
+for ($i = 0; $i < count($order_id); $i++)
+{
+
+    $o_id = $order_id[$i];
+    $sql = "SELECT * FROM `adminsales` WHERE order_id = '$o_id'";
+    $result = $conn->query($sql);
+
+    $product = [];
+    $variation = [];
+    $picture = [];
+    $price = [];
+    $quantity = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $product[$idx] = $row["product"];
+            $variation[$idx] = $row["variation"];
+            $picture[$idx] = $row["picture"];
+            $quantity[$idx] = $row["quantity"];
+            $price[$idx] = $row["price"];
+            $idx++;
+        }
+    }
+    
+   
+?>
+
+
+
 <div class = "tableC">
 <fieldset>
 
@@ -193,6 +245,7 @@ for ($i = 0; $i < count($order_id); $i++)
     <?php
     }
     ?>
+
         <br>
         <br>
         <br>

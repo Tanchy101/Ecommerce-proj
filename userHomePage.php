@@ -113,7 +113,7 @@ session_start();
   $nav = "";
 // READ PRODUCTS
 if (isset($_POST["search"])){
-    $search = $_POST["search"];
+    $search = $_POST["searchword"];
     $nav = '"' . $search . '"';
 
     $sql = "SELECT * FROM `adminstock` WHERE products='" . $search . "'OR categories ='" . $search . "'";
@@ -934,14 +934,18 @@ else{
             <a class="topnavclick" href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Profile"width="35" height="30"></a>
             <a class="topnavclick" href="#"><img src="https://i.imgur.com/hVZsoCl.png" alt="Home"width="35" height="30"></a>
            
+            <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
             <div class="wrap">
                 <div class="search">
-                <input type="text" class="searchTerm" placeholder="Search">
-                <button type="submit" class="searchButton">
+               
+                <input type="text" name="searchword" class="searchTerm" placeholder="Search">
+                <button type="submit" name="search" class="searchButton">
                 <i class="fa fa-search"></i>
              </button>
+    
             </div>
-  </div>
+            </div>
+  </form>
         </div>
         <br>
         <br>
@@ -984,7 +988,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
 
     <br><br>
     <!--Line lang to pang layout tas name ng section -->
-    <h2>Featured Item</h2>
+    <h2><?php echo $nav; ?></h2>
     <br><br><br>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
