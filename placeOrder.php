@@ -306,10 +306,10 @@ session_start();
     
     <br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
-
+    <hr style = "color:#d3a35d">
     <h2> Place Order</h2>
     <br><br><br>
-    <hr>
+   
     <br><br>
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->

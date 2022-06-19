@@ -360,7 +360,7 @@ if(isset($_POST['order'])){
     
     <br><br><br><br><br><br>
     <!--Line lang to pang layout tas name ng section -->
-    <hr>
+    <hr style = "color:#d3a35d">
     <h2> Your Cart</h2>
     <br><br><br>
     
