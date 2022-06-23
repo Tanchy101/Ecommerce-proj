@@ -156,6 +156,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 transform: translate(0, -6px);
                 box-shadow: 10px -10px 25px 0  rgba(143, 64, 248, 0.5), -10px 10px 25px 0  rgba(39, 200, 255, 0.5);
             }
+            .nav{
+                padding: 18px;
+                color: #926524;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            .nav:hover{
+                color: #d3a35d;
+            }
         </style>
     </head>
 
@@ -177,6 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <center> <input type = "submit" class = "btn"> </center>
         <br>
         </form>
+        <center> <a class="nav" href="adminMainPage.php"> Back to Main Page >> </a> </center>
         </fieldset>
     <br>
     <br>
