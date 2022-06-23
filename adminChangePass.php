@@ -186,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <center> <input type = "submit" class = "btn"> </center>
         <br>
         </form>
-        <center> <a class="nav" href="adminMainPage.php"> Back to Main Page >> </a> </center>
+        <center> <a class="nav" href="adminlogin.php"> Back to Login Page >> </a> </center>
         </fieldset>
     <br>
     <br>
