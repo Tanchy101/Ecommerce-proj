@@ -124,19 +124,6 @@ include 'Config.php'
             </center>
         </fieldset>
 
-        <center> <h1> Manage Vouchers </h1> </center>
-        <fieldset>
-            <center>
-        <a href = "adminVouchers.php" class = "lnk">See All Vouchers </a>
-        <br>
-        <a href = "adminCreateVoucher.php" class = "lnk">Create Vouchers</a>
-        <br>
-        <a href = "adminDeleteVoucher.php" class = "lnk">Delete Vouchers </a>
-        <br>
-        <a href= "adminEditVoucher.php" class = "lnk">Edit Vouchers </a>
-            </center>
-        </fieldset>
-
         <center> <h1> Sales </h1> </center>
         <fieldset>
             <center>
