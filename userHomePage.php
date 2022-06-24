@@ -43,20 +43,25 @@ session_start();
             }
 
 
-        $session_array_id = array_column($_SESSION['cart'], $product_id[0]);
+        if ($stock[0] < $_POST['quantity']){
+            echo "<script>alert('Out of Stock')</script>";
+        }
+        else {
+            $session_array_id = array_column($_SESSION['cart'], $product_id[0]);
 
-        if(!in_array($product_id[0], $session_array_id)){
-            $session_array = array(
-            'var_id' => $var_id[0],
-            'product_id' => $product_id[0],
-            "quantity" => $_POST['quantity'],
-            "products" => $_POST['product'],
-            "variation" => $variation[0],
-            "price" => $_POST['price'],
-            "picture" => $picture[0]
+            if(!in_array($product_id[0], $session_array_id)){
+                $session_array = array(
+                'var_id' => $var_id[0],
+                'product_id' => $product_id[0],
+                "quantity" => $_POST['quantity'],
+                "products" => $_POST['product'],
+                "variation" => $variation[0],
+                "price" => $price[0],
+                "picture" => $picture[0]
 
-            );
-            $_SESSION['cart'][] = $session_array;
+                );
+                $_SESSION['cart'][] = $session_array;
+            }
         }
 
     }else{
@@ -94,19 +99,23 @@ session_start();
                     $idx++;
                 }
             }
+        
+        if ($stock[0] < $_POST['quantity']){
+            echo "<script>alert('Out of Stock')</script>";
+        }
+        else{
+            $session_array = array(
+                'var_id' => $var_id[0],
+                'product_id' => $product_id[0],
+                "quantity" => $_POST['quantity'],
+                "products" => $_POST['product'],
+                "variation" => $variation[0],
+                "price" => $price[0],
+                "picture" => $picture[0]
+            );
 
-
-        $session_array = array(
-            'var_id' => $var_id[0],
-            'product_id' => $product_id[0],
-            "quantity" => $_POST['quantity'],
-            "products" => $_POST['product'],
-            "variation" => $variation[0],
-            "price" => $_POST['price'],
-            "picture" => $picture[0]
-        );
-
-        $_SESSION['cart'][] = $session_array;
+            $_SESSION['cart'][] = $session_array;
+        }
     }
 }
 
@@ -690,7 +699,7 @@ else{
 <html>
     <head>
         <title>Welcome User</title>
-        <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
+      
     </head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style> 
@@ -765,13 +774,26 @@ else{
         }
 
         .featured {
-        border: 2px solid #ccc;
         float: left;
-        width: 220px;
+        width: 20%;
+        height: 70%;
         margin-left: 20px;
         margin-top: 10px;
         margin-bottom: 10px;
         margin-right: 20px;
+        }
+
+        .featured table {
+
+            width: 100%;
+            border-collapse: collapse;
+
+        }
+
+        .featured table td {
+        text-align: center;
+        border: 1px solid black;
+
         }
 
         div.feature:hover {
@@ -779,11 +801,32 @@ else{
         }
 
         .featimg {
-        width: 220px;
-        height: 200px;
+        border: 2px solid #ccc;
+        width: 100%;
+        height: 250px;
+        transition: 1s;
+        }
+
+        .featimg:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
         .desc {
+            border-radius: 25px;
+            opacity: 0%;
+            border: 1px solid gray;
+        visibility: hidden;
+        height: 0px;
+        padding: 15px;
+        text-align: center;
+        background-color: #ffcbb5;
+        transition: 1s;
+        }
+
+        .featured:hover .desc {
+            opacity: 100%;
+        visibility: visible;
+        height: 250px;
         padding: 15px;
         text-align: center;
         }
@@ -950,10 +993,13 @@ else{
                 -webkit-filter: drop-shadow(3px 3px 3px #B28256);
                 filter: drop-shadow(3px 3px 3px #B28256); 
             }
+
+    
             
     </style>
     <body style = "background-color: #ffedc0">
 
+    <img src = "https://i.imgur.com/EKjxLuY.png" alt = "the paper bag logo " width = "150" height = "130" style = "float: left" >
     
         <?php //if ($result->num_rows > 0) {
              //output data of each row
@@ -1053,8 +1099,28 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
   <!--DITO IS YUNG MGA FEATURED ITEMS -->
         <!--1st image -->
         <?php
+        $hrctr = 0;
         for($idx = 0; $idx < count($id); $idx++)
         {
+            if ($idx == 5){
+                echo "<div><hr style= 'float:none;clear:left;opacity: 0%'></div>";
+                $hrctr = 0;
+            }
+            $done = 0;
+            $sql = "SELECT * FROM `adminstockvariant`";
+            $result = $conn->query($sql);
+        
+            $price = [];
+            $stock = [];
+        
+            $x = 0;
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $price[$x] = $row["price"];
+                    $stock[$x] = $row["stock"];
+                    $x++;
+                }
+            }
             $merongStock = 0;
             for ($i = 0; $i < count($var_id); $i++){
                 if($id[$idx] == $product_id[$i])
@@ -1075,28 +1141,73 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
 
             if($merongStock != 0){
                 echo "<div style = 'margin-left: 30px;' class = 'featured'>";
-                echo "<a target = '_blank' href = '#'>";
-                echo "<img class = 'featimg' src = '" . $picture[$idx] . "'></a>";          
+                echo "<img class = 'featimg' src = '" . $picture[$idx] . "'>";          
+                echo "<p style='text-align:center; font-weight: bold'>" . $products[$idx] . "</p>";
                 echo "<div class = 'desc'>";
-                echo "<strong>" . $products[$idx] . "</strong>";
                 echo "<p><b>";
-                
                 echo "</b></p>";
                 echo "<p>" . $description[$idx] . "</p>";
-                
+                echo "<table style='border: 1px solid black'>";
                 for ($i = 0; $i < count($var_id); $i++){
-                    
                     if($id[$idx] == $product_id[$i])
                     {
-                        echo "<form method = 'post' action = '" . htmlspecialchars($_SERVER['PHP_SELF']) . "'>";
+                        if ($done == 0)
+                        {
+                            $sql = "SELECT * FROM `adminstockvariant` WHERE product_id='$product_id[$i]'";
+                            $result = $conn->query($sql);
+                        
+                            $price = [];
+                            $stock = [];
+                        
+                            $x = 0;
+                            if($result->num_rows > 0){
+                                while($row = $result->fetch_assoc()){
+                                    $price[$x] = $row["price"];
+                                    $stock[$x] = $row["stock"];
+                                    $x++;
+                                }
+                            }
+                            
+                            echo "<th colspan=". count($price) .">Prices</th>";
+                            echo "<tr>";
+                            for ($j = 0; $j < count($price); $j++)
+                            {
+                            echo "<td>₱" . $price[$j] . "</td>";
+                            }
+                            echo "</tr>";
 
-                        echo "₱" . $price[$i] . " ";
-                        echo "<input type = 'hidden' name = 'price' value ='". $price[$i] . "'>";
+                            echo "<th colspan=". count($price) . ">Stock</th>";
+                            echo "<tr>";
+                            for ($k = 0; $k < count($price); $k++)
+                            {
+                            echo  "<td>" . $stock[$k] . "</td> ";
+                            }
+                            echo "</tr>";
+
+                            $done++;
+                        }  
+                    }
+
+                }
+                echo "</table>";
+                echo "<br>"; 
+                echo "<br>"; 
+                echo "<form method = 'post' action = '" . htmlspecialchars($_SERVER['PHP_SELF']) . "'>";
+                echo "<select name='variation'>";
+                $sql = "SELECT * FROM `adminstockvariant`";
+                $result = $conn->query($sql);
+            
+                $price = [];
+                $stock = [];
+            
+                $x = 0;
+                if($result->num_rows > 0){
+                    while($row = $result->fetch_assoc()){
+                        $price[$x] = $row["price"];
+                        $stock[$x] = $row["stock"];
+                        $x++;
                     }
                 }
-                echo "<br>"; 
-                echo "<br>"; 
-                echo "<select name='variation'>";
                 for ($i = 0; $i < count($var_id); $i++){
                     if($id[$idx] == $product_id[$i])
                     {
@@ -1121,6 +1232,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
                 echo "</form>";
                 echo "</div>";
                 echo "</div>";  
+                $hrctr++;
             }
         } 
         
