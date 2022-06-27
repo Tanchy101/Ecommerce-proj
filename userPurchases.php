@@ -4,6 +4,30 @@ include "Config.php";
 
 session_start();
 
+$notif = 0;
+    $sql = "SELECT * FROM `userpurchases` WHERE user_id = '{$_SESSION["user"]["id"]}'";
+    $result = $conn->query($sql);
+
+    $order_id = [];
+    $shipstatus = [];
+    $date = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $order_id[$idx] = $row["order_id"];
+            $shipstatus[$idx] = $row["shipstatus"];
+            $date[$idx] = $row["date"];
+            $idx++;
+        }
+    }
+
+    for ($i = 0; $i < count($shipstatus); $i++){
+        if ($shipstatus[$i] == "On the way for Delivery"){
+            $notif = 1;
+        }
+    }
+
 // Get ID and Username
 $sql = "SELECT * FROM userlogin WHERE id ='{$_SESSION["user"]["id"]}'";
 $result = $conn->query($sql);
@@ -214,7 +238,14 @@ if($result->num_rows > 0){
             <h2>The Paper Bag.</h2>
             <a href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Cart"width="35" height="30"></a>
             <a href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
-            <a href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Cart"width="35" height="30"></a>
+            <?php
+            if ($notif == 1){
+            echo "<a class='topnavclick' href='profile.php'><img src='https://i.imgur.com/PnY7yuS.png' alt ='Profile' width='35' height = '30'></a>";
+            }
+            else{
+                echo "<a class='topnavclick' href='profile.php'><img src='https://i.imgur.com/9Sd1au3.png' alt ='Profile' width='35' height = '30'></a>";
+            }
+            ?>
             <a href="userHomePage.php"><img src="https://i.imgur.com/hVZsoCl.png" alt="Cart"width="35" height="30"></a>
            
             <div class="wrap">
@@ -269,7 +300,19 @@ if($result->num_rows > 0){
 <fieldset>
     
             <?php echo "<h4>Order $date[$i]<h4>";?>
-            <?php echo "<h4>Shipping Status: $shipstatus[$i]</h4>";?>
+            <?php 
+
+            if ($shipstatus[$i] == "On the way for Delivery"){
+
+                echo "<h4 style='color:red'>Shipping Status: $shipstatus[$i]</h4>";
+
+            }
+            else{
+                echo "<h4>Shipping Status: $shipstatus[$i]</h4>";
+            }
+            
+            ?>
+            
 <table>
         
                <tr>
@@ -281,6 +324,7 @@ if($result->num_rows > 0){
                 </tr>
            
         <?php
+        $totalprice = 0;
         for ($j = 0; $j < count($product); $j++)
         {
             echo "<tr>";
@@ -290,7 +334,9 @@ if($result->num_rows > 0){
             echo "<td><h4>$quantity[$j]</h4></td>";
             echo "<td><h4>₱$price[$j]</h4></td>";
             echo "</tr>";
+            $totalprice = $totalprice + $price[$j];
         }
+        echo "<tr><td><h3>Total Price: <h3></td><td><h3>₱$totalprice<h3></td>";
         ?>
 
     </table>

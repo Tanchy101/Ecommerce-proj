@@ -226,18 +226,21 @@ for ($i = 0; $i < count($order_id); $i++)
                <th>Price</th>
             </tr>
        
-    <?php
-    for ($j = 0; $j < count($product); $j++)
-    {
-        echo "<tr>";
-        echo "<td class = picture > <img src = '$picture[$j]' ></td>";
-        echo "<td> <h4>$product[$j]</h4></td>";
-        echo "<td><h4>$variation[$j]</h4></td>";
-        echo "<td><h4>$quantity[$j]</h4></td>";
-        echo "<td><h4>₱$price[$j]</h4></td>";
-        echo "</tr>";
-    }
-    ?>
+            <?php
+        $totalprice = 0;
+        for ($j = 0; $j < count($product); $j++)
+        {
+            echo "<tr>";
+            echo "<td class = picture > <img src = '$picture[$j]' ></td>";
+            echo "<td> <h4>$product[$j]</h4></td>";
+            echo "<td><h4>$variation[$j]</h4></td>";
+            echo "<td><h4>$quantity[$j]</h4></td>";
+            echo "<td><h4>₱$price[$j]</h4></td>";
+            echo "</tr>";
+            $totalprice = $totalprice + $price[$j];
+        }
+        echo "<tr><td><h3>Total Price: <h3></td><td><h3>₱$totalprice<h3></td>";
+        ?>
 
 </table>
 </fieldset>

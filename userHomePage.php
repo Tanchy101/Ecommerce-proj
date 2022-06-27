@@ -3,6 +3,32 @@ session_start();
 
   include "Config.php";
 
+    $notif = 0;
+    $sql = "SELECT * FROM `userpurchases` WHERE user_id = '{$_SESSION["user"]["id"]}'";
+    $result = $conn->query($sql);
+
+    $order_id = [];
+    $shipstatus = [];
+    $date = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $order_id[$idx] = $row["order_id"];
+            $shipstatus[$idx] = $row["shipstatus"];
+            $date[$idx] = $row["date"];
+            $idx++;
+        }
+    }
+
+    for ($i = 0; $i < count($shipstatus); $i++){
+        if ($shipstatus[$i] == "On the way for Delivery"){
+            $notif = 1;
+        }
+    }
+
+
+
   if(isset($_POST['addcart'])){
       
     if(isset($_SESSION['cart'])){
@@ -812,20 +838,18 @@ else{
         }
 
         .desc {
-            border-radius: 25px;
             opacity: 0%;
+            height: 0px;
             border: 1px solid gray;
-        visibility: hidden;
-        height: 0px;
         padding: 15px;
         text-align: center;
         background-color: #ffcbb5;
         transition: 1s;
+        overflow: auto;
         }
 
         .featured:hover .desc {
-            opacity: 100%;
-        visibility: visible;
+        opacity: 100%;
         height: 250px;
         padding: 15px;
         text-align: center;
@@ -994,6 +1018,25 @@ else{
                 filter: drop-shadow(3px 3px 3px #B28256); 
             }
 
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffcbb5; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+   background: #EFA586; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #E6926F; 
+}
     
             
     </style>
@@ -1023,7 +1066,16 @@ else{
             <h2>The Paper Bag.</h2>
             <a class="topnavclick" href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Logout"width="35" height="30"></a>
             <a class="topnavclick" href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
-            <a class="topnavclick" href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Profile"width="35" height="30"></a>
+            <?php 
+            if ($notif == 1){
+            echo "<a class='topnavclick' href='profile.php'><img src='https://i.imgur.com/PnY7yuS.png' alt ='Profile' width='35' height = '30'></a>";
+            }
+            else{
+                echo "<a class='topnavclick' href='profile.php'><img src='https://i.imgur.com/9Sd1au3.png' alt ='Profile' width='35' height = '30'></a>";
+            }
+            
+            ?>
+            
             <a class="topnavclick" href="userHomePage.php"><img src="https://i.imgur.com/hVZsoCl.png" alt="Home"width="35" height="30"></a>
            
             <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
@@ -1102,7 +1154,7 @@ AND KAPAG MAY NAGAWA NG LINK FOR ANOTHER PAGE PAKI EDIT SA href -->
         $hrctr = 0;
         for($idx = 0; $idx < count($id); $idx++)
         {
-            if ($idx == 5){
+            if ($idx == 4){
                 echo "<div><hr style= 'float:none;clear:left;opacity: 0%'></div>";
                 $hrctr = 0;
             }

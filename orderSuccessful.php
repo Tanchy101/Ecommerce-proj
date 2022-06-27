@@ -2,6 +2,43 @@
 
 session_start();
 include "Config.php";
+$notif = 0;
+    $sql = "SELECT * FROM `userpurchases` WHERE user_id = '{$_SESSION["user"]["id"]}'";
+    $result = $conn->query($sql);
+
+    $order_id = [];
+    $shipstatus = [];
+    $date = [];
+
+    $idx = 0;
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $order_id[$idx] = $row["order_id"];
+            $shipstatus[$idx] = $row["shipstatus"];
+            $date[$idx] = $row["date"];
+            $idx++;
+        }
+    }
+
+    for ($i = 0; $i < count($shipstatus); $i++){
+        if ($shipstatus[$i] == "On the way for Delivery"){
+            $notif = 1;
+        }
+    }
+
+// Get ID and Username
+$sql = "SELECT * FROM userlogin WHERE id ='{$_SESSION["user"]["id"]}'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    //output data of each row
+
+    while($row = $result->fetch_assoc()) {
+        $user_id = $row["id"];
+        $username = $row["username"]; 
+    }
+}
+
 $sql = "SELECT * FROM `adminstock`";
 $result = $conn->query($sql);
 
@@ -419,7 +456,15 @@ if(isset($_POST["purchase"])){
             <h2>The Paper Bag.</h2>
             <a class="topnavclick" href="logoutFileForUsers.php"><img src="https://i.imgur.com/Ua6SIs7.png" alt="Cart"width="35" height="30"></a>
             <a class="topnavclick" href="addtoCart.php"><img src="https://i.imgur.com/izpY4HG.png" alt="Cart"width="30" height="30"></a>
-            <a class="topnavclick" href="profile.php"><img src="https://i.imgur.com/9Sd1au3.png" alt="Cart"width="35" height="30"></a>
+            <?php 
+            if ($notif == 1){
+            echo "<a class='topnavclick' href='profile.php'><img src='https://i.imgur.com/PnY7yuS.png' alt ='Profile' width='35' height = '30'></a>";
+            }
+            else{
+                echo "<a class='topnavclick' href='profile.php'><img src='https://i.imgur.com/9Sd1au3.png' alt ='Profile' width='35' height = '30'></a>";
+            }
+            
+            ?>
             <a class="topnavclick" href="userHomePage.php"><img src="https://i.imgur.com/hVZsoCl.png" alt="Cart"width="35" height="30"></a>
            
             <div class="wrap">

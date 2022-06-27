@@ -304,10 +304,6 @@ if (isset($_POST["postCheck"]))
         <option value="Journals">Journals</option>
         <option value="Planners">Planners</option>
         <option value="Office Supplies">Office Supplies</option>
-        <option value="Books">Books</option>
-        <option value="Measuring Tools">Measuring Tools</option>
-        <option value="Pouches">Pouches</option>
-        <option value="Bags">Bags</option>
     </select>
     <br>
     <br>
