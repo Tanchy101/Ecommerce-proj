@@ -313,6 +313,9 @@ if($result->num_rows > 0){
     <br><br><br>
 <hr>
 
+        </center>
+
+
 
 
     <?php 
@@ -320,6 +323,7 @@ if($result->num_rows > 0){
     // Get orders
     for ($i = 0; $i < count($order_id); $i++)
     {
+        echo "<center>";
         
         $o_id = $order_id[$i];
         $sql = "SELECT * FROM `adminsales` WHERE order_id = '$o_id'";
@@ -385,10 +389,15 @@ if($result->num_rows > 0){
         }
         echo "<tr><td><h3>Total Price: <h3></td><td><h3>₱$totalprice<h3></td>";
         ?>
+      
 
     </table>
     </fieldset>
     </center>
+
+    <?php
+        }
+        ?>
     <br>
     <br>
     <br>
@@ -424,9 +433,7 @@ if($result->num_rows > 0){
              <center> <p><i> Copryright &copy; 2022 - The Paper Bag.All Right Reserved. </i></p> </center> 
         </footer>
 <div>
-        <?php
-        }
-        ?>
+      
 
 
 </body>
