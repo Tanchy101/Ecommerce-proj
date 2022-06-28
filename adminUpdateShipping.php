@@ -227,7 +227,7 @@ else
     {
         $o_id = $order_id[$i];
         echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method = 'post'>";
-        echo "<select name='ship' class = choice >";
+        echo "<select name='ship' class = choice>";
         echo "<option hidden>Shipping Status </option>";
         echo "<option value='At the Sorting Center'>At the Sorting Center</option>";
         echo "<option value='On the way for Delivery'>On the way for Delivery</option>";

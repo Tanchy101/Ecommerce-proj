@@ -279,7 +279,7 @@ if($result->num_rows > 0){
 
 <body style = "background-color: #ffedc0">
         
-     <center>   
+  
         <div class="topnav">
             <br>
             <h2>The Paper Bag.</h2>
@@ -393,9 +393,9 @@ if($result->num_rows > 0){
 
     </table>
     </fieldset>
-    </center>
-
-    <?php
+    
+<div>
+        <?php
         }
         ?>
     <br>
@@ -406,7 +406,15 @@ if($result->num_rows > 0){
     <br>
     <br>
     <br>
-    <footer>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+ <footer>
             <div class = "row">
                 <div class = "col">
                     <!--logo-->
@@ -414,14 +422,14 @@ if($result->num_rows > 0){
                  </div>
                  <div class = "col">
                     <center> <h3> Follow us on </h3> </center>
-                    <ul>
+                   
                          <a href = "https://www.facebook.com/?stype=lo&jlou=Afdo9_8IzKjd-98S53hgWcs_YTL09G0gr2QFRljr_iv46_YAcls5iVZeqmHpGZC539as2z3YZrVmDMN4Fa7qZwlkDHYfPePzF_auNbBsMVT-8g&smuh=35351&lh=Ac-aDteK0xAi75BCmxY"><img src = "https://i.imgur.com/juyHCD8.png" alt = "fb" width = "70" height = "70"></a> 
                          <a href = "https://www.instagram.com/accounts/login/"><img src = "https://i.imgur.com/VoN7z9i.png" alt = "ig" width = "70" height = "70"></a> 
                          <a href = "https://twitter.com/"><img src = "https://i.imgur.com/yWnTdsy.png" alt = "twt" width = "70" height = "70"></a>
 
                          <p><img src = "https://i.imgur.com/QacTXH9.png" alt = "email" width = "25" height = "25"></a> thepaperbag_mnl@gmail.com <a href = "#"> </p>
                          <p><img src = "https://i.imgur.com/QacTXH9.png" alt = "phone" width = "25" height = "25"></a> (+63) 930 7329 433</p>
-                    </ul>
+                    
                 </div>
                 <div class = "col">
                     <h3> Working Hours </h3>
@@ -431,10 +439,7 @@ if($result->num_rows > 0){
              </div>
            <hr>
              <center> <p><i> Copryright &copy; 2022 - The Paper Bag.All Right Reserved. </i></p> </center> 
-        </footer>
-<div>
-      
-
+</footer>
 
 </body>
 
