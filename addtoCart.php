@@ -501,7 +501,6 @@ if(isset($_POST['order'])){
              </div>
            <hr>
              <center> <p><i> Copryright &copy; 2022 - The Paper Bag.All Right Reserved. </i></p> </center> 
-             <center> hello goodbye! </center>
         </footer>
 </body>
 </html>
